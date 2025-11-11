@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|z:\\13. oszt\u00E1ly\\c#\\pizzaparadise\\pizzaparadise\\konyha.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\konyha.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|z:\\13. oszt\u00E1ly\\c#\\pizzaparadise\\pizzaparadise\\keszletkezeles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\keszletkezeles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|z:\\13. oszt\u00E1ly\\c#\\pizzaparadise\\pizzaparadise\\muszakbeosztasok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\muszakbeosztasok.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|z:\\13. oszt\u00E1ly\\c#\\pizzaparadise\\pizzaparadise\\rendelesek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\rendelesek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Muszakbeosztasok.xaml",
+              "DocumentMoniker": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Muszakbeosztasok.xaml",
+              "RelativeDocumentMoniker": "PizzaParadise\\Muszakbeosztasok.xaml",
+              "ToolTip": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Muszakbeosztasok.xaml",
+              "RelativeToolTip": "PizzaParadise\\Muszakbeosztasok.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-11T09:37:11.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Konyha.xaml",
+              "DocumentMoniker": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Konyha.xaml",
+              "RelativeDocumentMoniker": "PizzaParadise\\Konyha.xaml",
+              "ToolTip": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Konyha.xaml",
+              "RelativeToolTip": "PizzaParadise\\Konyha.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-11T09:30:56.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Keszletkezeles.xaml",
+              "DocumentMoniker": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Keszletkezeles.xaml",
+              "RelativeDocumentMoniker": "PizzaParadise\\Keszletkezeles.xaml",
+              "ToolTip": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Keszletkezeles.xaml",
+              "RelativeToolTip": "PizzaParadise\\Keszletkezeles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-11T09:39:13.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Rendelesek.xaml",
+              "DocumentMoniker": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
+              "RelativeDocumentMoniker": "PizzaParadise\\Rendelesek.xaml",
+              "ToolTip": "Z:\\13. oszt\u00E1ly\\c#\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
+              "RelativeToolTip": "PizzaParadise\\Rendelesek.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-11T09:10:09.158Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
