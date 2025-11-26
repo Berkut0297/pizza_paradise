@@ -34,11 +34,11 @@
 				templateUrl: './html/home.html',
 				controller: 'homeController'
 			})
-      .state('page1', {
-				url: '/page1',
+      .state('menu', {
+				url: '/menu',
         parent: 'root',
-				templateUrl: './html/page1.html',
-				controller: 'page1Controller'
+				templateUrl: './html/menu.html',
+				controller: 'menuController'
 			});
       
       $urlRouterProvider.otherwise('/');
@@ -59,16 +59,16 @@
     '$scope',
     '$state',
     function($scope, $state) {
-      console.log('Controller...' + $state.current.name);
+      console.log('Home controller...' + $state.current.name);
     }
   ])
 
-  // Page1 controller
-  .controller('page1Controller', [
+  // menu controller
+  .controller('menuController', [
     '$scope',
     '$state',
     function($scope, $state) {
-      console.log('Controller...' + $state.current.name);
+      console.log('Menu controller...' + $state.current.name);
     }
   ]);
 	
