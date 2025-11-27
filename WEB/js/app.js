@@ -39,6 +39,12 @@
         parent: 'root',
 				templateUrl: './html/menu.html',
 				controller: 'menuController'
+			})
+      .state('login', {
+				url: '/',
+        parent: 'root',
+				templateUrl: './html/login.html',
+				controller: 'loginController'
 			});
       
       $urlRouterProvider.otherwise('/');
@@ -69,6 +75,14 @@
     '$state',
     function($scope, $state) {
       console.log('Menu controller...' + $state.current.name);
+    }
+  ])
+  //login controller
+  .controller('loginController', [
+    '$scope',
+    '$state',
+    function($scope, $state) {
+      console.log('login controller...' + $state.current.name);
     }
   ]);
 	
