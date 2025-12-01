@@ -1,7 +1,6 @@
-<div class="min-h-screen flex flex-col overflow-auto relative">
-	<header ui-view="header" class="sticky top-0"></header>
-
-	<main ui-view="" class="relative flex-grow"></main>
-
+<div class="app-container position-relative
+						d-flex flex-column vh-100 overflow-auto">
+	<header ui-view="header" class="sticky-top"></header>
+	<main 	ui-view="" class="position-relative flex-fill"></main>
 	<footer ui-view="footer"></footer>
 </div>
