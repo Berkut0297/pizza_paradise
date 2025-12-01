@@ -10,7 +10,6 @@
         FontFamily="Bahnschrift">
 
     <Window.Resources>
-        <!-- Lekerekített gombstílus -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -29,7 +28,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Háttér -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0078A6" Offset="0"/>
@@ -37,53 +35,47 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Fejléc -->
         <DockPanel VerticalAlignment="Top" Height="80" Background="#FF029BCE">
             <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="632"/>
         </DockPanel>
 
-        <!-- Bal oldali menü -->
         <StackPanel Orientation="Vertical" Width="220" Background="#FF013E56"
                     VerticalAlignment="Stretch" HorizontalAlignment="Left">
 
-            <!-- Felhasználói infó -->
             <StackPanel Margin="12,18,12,12">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teszt Elek"
+                    <TextBlock Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Műszakvezető"
+                    <TextBlock Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
 
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
-            <!-- Menü gombok -->
             <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Konyhai kijelző" Margin="10,10,10,0" Height="50"
+
+            <!-- swapped order -->
+            <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
             <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
-            <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
             <Button Content="Kilépés" Margin="10,40,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FFE43A3A" BorderBrush="{x:Null}"/>
         </StackPanel>
 
-        <!-- Tartalmi rész -->
         <Border Margin="240,100,20,20" Background="#FFF5F5F5" CornerRadius="8">
             <Grid Margin="20">
                 <TextBlock Text="Műszakbeosztás" FontSize="22" FontWeight="Bold" Margin="0,0,0,20"/>
 
-                <!-- Szűrősor -->
                 <Grid Margin="0,40,0,20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="160"/>
@@ -93,7 +85,6 @@
                         <ColumnDefinition Width="150"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Hét -->
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="0,0,12,0">
                         <TextBlock Text="Hét:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <ComboBox Name="combo_week" Width="110">
@@ -103,13 +94,11 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <!-- Dátum -->
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,12,0">
                         <TextBlock Text="Dátum:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <DatePicker Name="date_single" Width="130"/>
                     </StackPanel>
 
-                    <!-- Beosztás -->
                     <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="0,0,12,0">
                         <TextBlock Text="Beosztás:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <ComboBox Name="combo_role" Width="130">
@@ -121,16 +110,13 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <!-- Kitöltő (üres hely) -->
                     <StackPanel Grid.Column="3"/>
 
-                    <!-- Frissítés gomb -->
                     <Button Name="button_refresh" Content="Frissítés" Width="120" Height="36"
                             Background="#FF029BCE" Foreground="White" BorderBrush="{x:Null}"
                             Grid.Column="4" HorizontalAlignment="Right"/>
                 </Grid>
 
-                <!-- Táblázat -->
                 <DataGrid Name="grid_shifts" AutoGenerateColumns="False" Margin="0,80,0,100"
                           CanUserAddRows="False" IsReadOnly="True" RowHeight="34">
                     <DataGrid.Columns>
@@ -144,7 +130,6 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <!-- Alsó gombsor -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,40">
                     <Button Name="button_add" Content="Új beosztás" Width="140" Height="40" Margin="0,0,10,0"
                             Background="#FF027BAA" Foreground="White" BorderBrush="{x:Null}" FontSize="16"/>

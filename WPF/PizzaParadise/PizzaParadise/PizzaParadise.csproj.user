@@ -5,9 +5,6 @@
     <Compile Update="Keszletkezeles.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Konyha.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Muszakbeosztasok.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

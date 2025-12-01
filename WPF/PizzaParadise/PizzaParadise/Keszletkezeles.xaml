@@ -1,4 +1,5 @@
-﻿<Window x:Class="PizzaParadise.Keszletkezeles"
+﻿<!-- Updated Készletkezelés XAML (konyhai kijelző eltávolítva, műszakbeosztás legalul) -->
+<Window x:Class="PizzaParadise.Keszletkezeles"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,7 +11,6 @@
         FontFamily="Bahnschrift">
 
     <Window.Resources>
-        <!-- Általános lekerekített gombstílus -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -29,7 +29,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Háttér -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0078A6" Offset="0"/>
@@ -37,46 +36,45 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Fejléc -->
         <DockPanel LastChildFill="True" VerticalAlignment="Top" Height="80" Background="#FF029BCE">
             <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="636" Height="48"/>
         </DockPanel>
 
-        <!-- Bal oldali menü -->
         <StackPanel Orientation="Vertical" Width="220" Background="#FF013E56"
                     VerticalAlignment="Stretch" HorizontalAlignment="Left">
 
-            <!-- Felhasználói infó -->
             <StackPanel Margin="12,18,12,12">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teszt Elek"
+                    <TextBlock Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Raktáros"
+                    <TextBlock Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
 
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
-            <!-- Menü gombok (aktuális fül kiemelve) -->
             <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Konyhai kijelző" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+
             <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
+
+            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
+                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+            
             <Button Content="Kilépés" Margin="10,40,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FFE43A3A" BorderBrush="{x:Null}"/>
+
         </StackPanel>
+
 
         <!-- Tartalmi rész -->
         <Border Margin="240,100,20,20" Background="#FFF5F5F5" CornerRadius="8">
@@ -166,6 +164,5 @@
                 </StackPanel>
             </Grid>
         </Border>
-
     </Grid>
 </Window>

@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\tokai.adam\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tokai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\13. osztály\\c#\\PizzaParadise\\PizzaParadise\\PizzaParadise.csproj",
+      "projectUniqueName": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\PizzaParadise.csproj",
       "projectName": "PizzaParadise",
-      "projectPath": "Z:\\13. osztály\\c#\\PizzaParadise\\PizzaParadise\\PizzaParadise.csproj",
-      "packagesPath": "C:\\Users\\tokai.adam\\.nuget\\packages\\",
-      "outputPath": "Z:\\13. osztály\\c#\\PizzaParadise\\PizzaParadise\\obj\\",
+      "projectPath": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\PizzaParadise.csproj",
+      "packagesPath": "C:\\Users\\tokai\\.nuget\\packages\\",
+      "outputPath": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\tokai.adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\tokai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -75,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

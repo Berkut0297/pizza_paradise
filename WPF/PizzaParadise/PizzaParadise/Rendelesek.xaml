@@ -10,7 +10,6 @@
         FontFamily="Bahnschrift">
 
     <Window.Resources>
-        <!-- Általános lekerekített gombstílus -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -29,7 +28,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Háttér -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0078A6" Offset="0"/>
@@ -37,54 +35,46 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Fejléc -->
         <DockPanel LastChildFill="True" VerticalAlignment="Top" Height="80" Background="#FF029BCE">
             <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="636" Height="48"/>
         </DockPanel>
 
-        <!-- Bal oldali menü -->
         <StackPanel Orientation="Vertical" Width="220" Background="#FF013E56"
                     VerticalAlignment="Stretch" HorizontalAlignment="Left">
 
-            <!-- 🔹 Felhasználói infó (ikon + név, ikon + beosztás) -->
             <StackPanel Margin="12,18,12,12">
-                <!-- Név -->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <!-- Contact ikon (Segoe MDL2 Assets: E77B) -->
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teszt Elek"
+                    <TextBlock Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
 
-                <!-- Beosztás -->
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
-                    <!-- Briefcase/Work ikon (Segoe MDL2 Assets: E821) -->
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Műszakvezető"
+                    <TextBlock Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
 
-            <!-- Választóvonal a profil és a gombok között -->
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
-            <!-- Gombok -->
+            <!-- Menügombok: Kicserélve: Készletkezelés kerül a Műszakbeosztás helyére -->
             <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
-            <Button Content="Konyhai kijelző" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+
             <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+
+            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
+                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+
             <Button Content="Kilépés" Margin="10,40,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FFE43A3A" BorderBrush="{x:Null}"/>
         </StackPanel>
 
-        <!-- Tartalmi rész -->
         <Border Margin="240,100,20,20" Background="#FFF5F5F5" CornerRadius="8">
             <Grid Margin="20">
                 <TextBlock Text="Rendelések áttekintése" FontSize="22" FontWeight="Bold" Margin="0,0,0,20"/>
