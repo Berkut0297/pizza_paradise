@@ -47,14 +47,14 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teljes név"
+                    <TextBlock Name="textBlock_nev"  Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Beosztás"
+                    <TextBlock Name="textBlock_beosztas"  Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
@@ -62,16 +62,16 @@
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
             <!-- Menügombok: Kicserélve: Készletkezelés kerül a Műszakbeosztás helyére -->
-            <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
+            <Button Name="button_rendelesek" Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
 
-            <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
+            <Button Name="button_keszletkezeles" Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
 
-            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
+            <Button Name="button_muszakbeosztasok" Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
 
-            <Button Content="Kilépés" Margin="10,40,10,0" Height="50"
+            <Button Name="button_kilepes" Content="Kilépés" Margin="10,40,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FFE43A3A" BorderBrush="{x:Null}"/>
         </StackPanel>
 
@@ -89,9 +89,9 @@
                 </DataGrid>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,40">
-                    <Button Content="Frissítés" Width="120" Height="40" Margin="0,0,10,0"
+                    <Button Name="button_frissites" Content="Frissítés" Width="120" Height="40" Margin="0,0,10,0"
                             Background="#FF029BCE" Foreground="White" BorderBrush="{x:Null}" FontSize="16"/>
-                    <Button Content="Teljesítve" Width="120" Height="40"
+                    <Button Name="button_teljesitve" Content="Teljesítve" Width="120" Height="40"
                             Background="#FF12A63B" Foreground="White" BorderBrush="{x:Null}" FontSize="16"/>
                 </StackPanel>
             </Grid>
