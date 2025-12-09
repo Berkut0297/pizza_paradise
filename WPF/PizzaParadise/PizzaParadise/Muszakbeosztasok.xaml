@@ -63,7 +63,6 @@
             <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
 
-            <!-- swapped order -->
             <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
             <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"

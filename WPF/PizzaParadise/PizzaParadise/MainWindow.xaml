@@ -53,7 +53,6 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Cím -->
                 <StackPanel Grid.Row="0" Margin="0,0,0,16" HorizontalAlignment="Center">
                     <TextBlock Text="🍕" FontSize="36" HorizontalAlignment="Center"/>
                     <TextBlock Text="Bejelentkezés" FontSize="22" FontWeight="Bold"
@@ -63,7 +62,6 @@
                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                 </StackPanel>
 
-                <!-- Felhasználónév -->
                 <Border Grid.Row="1" CornerRadius="8" Background="White" Padding="10" Margin="0,0,0,10">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -83,7 +81,6 @@
                     </Grid>
                 </Border>
 
-                <!-- Jelszó -->
                 <Border Grid.Row="2" CornerRadius="8" Background="White" Padding="10" Margin="0,0,0,6">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -96,7 +93,6 @@
                                    Text="&#xE72E;"
                                    Foreground="#8A8A8A" VerticalAlignment="Center"/>
 
-                        <!-- PasswordBox és TextBox egy Gridben -->
                         <Grid Grid.Column="1">
                             <PasswordBox Name="password_user"
                                          FontSize="16"
@@ -114,14 +110,12 @@
                     </Grid>
                 </Border>
 
-                <!-- Jelszó megjelenítése -->
                 <DockPanel Grid.Row="3" LastChildFill="False" Margin="0,0,0,6">
                     <CheckBox Name="checkbox_showpassword"
                               Content="Jelszó megjelenítése"
                               Margin="0,0,12,0"/>
                 </DockPanel>
 
-                <!-- Hibaüzenet + gombok -->
                 <Grid Grid.Row="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

@@ -61,7 +61,6 @@
 
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
-            <!-- Menügombok: Kicserélve: Készletkezelés kerül a Műszakbeosztás helyére -->
             <Button Name="button_rendelesek" Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
 
