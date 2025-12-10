@@ -41,7 +41,7 @@
 				controller: 'menuController'
 			})
       .state('login', {
-				url: '/',
+				url: '/login',
         parent: 'root',
 				templateUrl: './html/login.html',
 				controller: 'loginController'
