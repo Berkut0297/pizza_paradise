@@ -1,17 +1,17 @@
 ; (function (window, angular) {
   'use strict';
   angular.module('app')
-  .controller('loginController', [
-    '$scope',
-    '$rootScope',
-    'http',
-    '$state',
-    function ($scope, $rootScope, http, $state) {
-      $scope.loginBtn = function () {
-        http.request({
-          url: './php/login.php',
-          data: $scope.model
-        })
+    .controller('loginController', [
+      '$scope',
+      '$rootScope',
+      'http',
+      '$state',
+      function ($scope, $rootScope, http, $state) {
+        $scope.loginBtn = function () {
+          http.request({
+            url: './php/login.php',
+            data: $scope.model
+          })
           .then(response => {
             $rootScope.user = response;
             $scope.isTrue = true;
@@ -25,8 +25,8 @@
             $('#loginModal').modal('show');
             alert(e)
           })
+        }
       }
-    }
-  ])
+    ])
 
 })(window, angular);

@@ -13,20 +13,19 @@
           url: './php/register.php',
           data: data
         })
-          .then(response => {
-            $scope.isRegistered = response;
-
-            $scope.Message = "Sikeres regisztráció";
-            $scope.$applyAsync();
-            $state.go('login')
-            $('#registerModal').modal('show');
-          })
-          .catch(e => {
-            $scope.Message = e;
-            $scope.$applyAsync();
-            $('#registerModal').modal('show');
-          }
-          )
+        .then(response => {
+          $scope.isRegistered = response;
+          $scope.Message = "Sikeres regisztráció";
+          $scope.$applyAsync();
+          $state.go('login')
+          $('#registerModal').modal('show');
+        })
+        .catch(e => {
+          $scope.Message = e;
+          $scope.$applyAsync();
+          $('#registerModal').modal('show');
+        }
+        )
       }
     }
   ])
