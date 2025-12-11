@@ -1,18 +1,72 @@
-<div class="container mt-5">
-	<div class="row text-center">
-		<div class="col">
-			<h1 class="display-4 text-warning">
-				Üdvözlünk a Pizzaparadise-ban! </h1>
-			<p class="lead text-warning" >
-				Friss alapanyagokból készült, ínycsiklandozó pizzák. 
-			</p>
+<!-- Pizza Carousel -->
+<div id="carouselControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+	<div class="carousel-indicators">
+		<button type="button" data-bs-target="#carouselControls" data-bs-slide-to="0" class="active" aria-current="true"
+			aria-label="Slide 1"></button>
+		<button type="button" data-bs-target="#carouselControls" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		<button type="button" data-bs-target="#carouselControls" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	</div>
+
+	<div class="carousel-inner">
+		<!-- Slide 1 -->
+		<div class="carousel-item active">
+			<img src="./media/image/vegetarian_pizza.jpg" class="d-block w-100 h-100 object-fit-cover" alt="pizza0">
+			<div class="carousel-caption d-md-block top-0 mt-4 px-4 py-5">
+				<h1 class="display-3 fw-bold">Olasz Tradicionális Pizzák</h1>
+				<p class="fs-4 d-sm-block d-none">
+					A friss alapanyagok és a mediterrán ízek találkozása minden szeletben.
+				</p>
+				<button class="btn btn-outline-light btn-lg mt-4" ui-sref="menu">Megnézem!</button>
+			</div>
+		</div>
+
+		<!-- Slide 2 -->
+		<div class="carousel-item">
+			<img src="./media/image/pepperoni_pizza.webp" class="d-block w-100 h-100 object-fit-cover" alt="pizza1">
+			<div class="carousel-caption d-md-block top-0 mt-4 px-4 py-5">
+				<h1 class="display-3 fw-bold">Különleges Ízkombinációk</h1>
+				<p class="fs-4 d-sm-block d-none">
+					Próbáld ki egyedi pizzakreációinkat, amelyek új szintre emelik az étkezést.
+				</p>
+				<button class="btn btn-outline-light btn-lg mt-4" ui-sref="menu">Mutasd!</button>
+			</div>
+		</div>
+
+		<!-- Slide 3 -->
+		<div class="carousel-item">
+			<img src="./media/image/margherita_pizza.jpg" class="d-block w-100 h-100 object-fit-cover" alt="pizza2">
+			<div class="carousel-caption d-md-block top-0 mt-4 px-4 py-5">
+				<h1 class="display-3 fw-bold">Frissen Sütve, Forrón</h1>
+				<p class="fs-4 d-sm-block d-none">
+					Minden pizzánk rendelés után készül, hogy a legjobb élményt kapd.
+				</p>
+				<button class="btn btn-outline-light btn-lg mt-4" ui-sref="menu">Rendelnék!</button>
+			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center mt-5">
-		<div class="col-12 text-center">
-			<a ui-sref="movies" class="btn btn-warning btn-lg ">
-				  Fedezd fel a menüt!
-			</a>
+
+
+	<button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Előző</span>
+	</button>
+
+
+	<button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Következő</span>
+	</button>
+</div>
+
+
+<!-- Service Cards -->
+<div class="container">
+	<div class="row mt-5 text-center justify-content-center">
+		<h1 class="text-danger mb-5 display-2">Miért a Pizza Paradise?</h1>
+
+
+		<!-- Card 1 -->
+		<div class="card text-danger border-danger bg-transparent mb-5 mx-5" style="max-width: 18rem;">
 		</div>
 	</div>
 </div>

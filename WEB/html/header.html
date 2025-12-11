@@ -1,42 +1,115 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">	
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-						aria-expanded="false">
-						Dropdown
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-			</ul>
-			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" ui-sref="login" ng-show="!loggedIn">Bejelentkezés</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" ui-sref="register" ng-show="!loggedIn">Regisztráció</a>
-				</li>
-				</li>
-			</ul>
-		</div>
-	</div>
+<nav style="background-color: #ac1010;" 
+     class="navbar navbar-dark navbar-expand-xl shadow-lg">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" 
+       ui-sref="index">
+      <img src="./media/image/pizza_logo.png" 
+           alt="PizzaParadise Logo" 
+           style="height: 50px;" 
+           class="me-2">
+      <span class="fw-bold text-uppercase" 
+            style="letter-spacing: 1px;">
+        PizzaParadise
+      </span>
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler border-0" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavDropdown"     
+            aria-controls="navbarNavDropdown" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item"
+            ng-repeat="x in $root.origin">
+          <a class="nav-link text-uppercase fw-bold" 
+             ui-sref="products()"
+             ng-click="selectCategory(x.tagName)" 
+             ui-sref-active="active text-decoration-underline">
+            {{x.Name}} 
+          </a>
+        </li>
+      </ul>
+
+      <ul class="user-data navbar-nav">
+        <li ng-hide="!$root.user.userID" 
+            class="nav-item dropdown">
+          <a class="nav-link btn btn-outline-light rounded-pill 
+                    px-4 py-2 me-2 text-uppercase 
+                    fw-bold" 
+             role="button" 
+             data-bs-toggle="dropdown" 
+             aria-expanded="false">
+            <i class="fa-solid fa-user mx-1"></i>
+            {{$root.user.User}}
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item"
+                 ui-sref="settings" >
+                Beállítások
+                <i class="fa-solid fa-gear">
+                </i>
+              </a>
+            </li>
+            <li ng-hide="user.isAdmin === 0">
+              <a class="dropdown-item"
+                 ui-sref="adminpage">
+                ADMIN felület
+                <i class="fa-solid fa-gear">
+                </i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" ng-click="logOut()">
+                Kijelentkezés
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Register Button -->
+        <li ng-hide="$root.user.userID" 
+            class="nav-item">
+          <a class="nav-link btn btn-outline-light rounded-pill 
+                    px-4 py-2 me-2 text-uppercase 
+                    fw-bold"
+             ui-sref="register">
+            <i class="fas fa-user-plus"></i> 
+            Regisztráció
+          </a>
+        </li>
+
+        <!-- Login Button -->
+        <li ng-hide="$root.user.userID" class="nav-item">
+          <a class="nav-link btn btn-outline-light 
+                    rounded-pill px-4 py-2 
+                    me-2 text-uppercase fw-bold" 
+             ui-sref="login">
+            <i class="fas fa-sign-in-alt"></i> 
+            Bejelentkezés
+          </a>
+        </li>
+
+        <li ng-show="$toHide !== false">
+          <a class="nav-link btn btn-outline-light rounded-pill 
+                    px-4 py-2 me-2 text-uppercase 
+                    fw-bold"
+             ng-click="shoppingCart(null)">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Kosár
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

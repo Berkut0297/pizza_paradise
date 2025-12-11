@@ -1,0 +1,201 @@
+<div class="container my-5">
+	<div class="row justify-content-center">
+		<div class="col-11 col-md-8 col-lg-6">
+
+			<!-- Title -->
+			<div class="text-center mb-4">
+				<h3 class="text-danger fw-bold fw-bold">
+					<i class="fas fa-user-plus me-2"></i> Regisztráció
+				</h3>
+				<p class="text-white-50 fw-bold">Hozd létre a fiókodat és csatlakozz!</p>
+			</div>
+
+			<!-- Card for the form -->
+			<div class="card shadow border-0">
+				<div class="card-body p-4">
+					<form name="registerForm"
+								novalidate>
+						<!-- Name -->
+						<div class="mb-3">
+							<label for="register-name"
+								   class="form-label text-danger fw-bold fw-semibold">
+								<i class="fas fa-user me-2"></i>
+								Felhasználónév
+							</label>
+							<input type="text" 
+										 class="form-control border-danger" 
+										 id="register-name" 
+										 name="User"
+										 placeholder="Felhasználónév" 
+										 spellcheck="false" 
+										 autocomplete="off" 
+										 required maxlength="50"
+										 ng-model="model.user">
+							<div class="form-text text-muted fw-bold">Adj meg egy felhasználónevet</div>
+						</div>
+
+						<!-- Email -->
+						<div class="mb-3">
+							<label for="register-email"
+										 class="form-label text-danger fw-bold fw-semibold">
+
+								<i class="fas fa-envelope me-2"></i>Email cím .:
+
+							</label>
+							<input type="email"
+										 class="form-control border-danger" 
+										 id="register-email" 
+										 name="email"
+										 placeholder="Email cím" 
+										 spellcheck="false" 
+										 autocomplete="off" 
+										 required maxlength="50"
+										 ng-model="model.email" 
+										 ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/">
+							<div class="form-text text-muted fw-bold">Add meg az email címed.</div>
+						</div>
+
+						<!-- Gender -->
+						<div class="mb-3">
+							<label class="form-label text-danger fw-bold fw-semibold">
+								<i class="fas fa-venus-mars me-2"></i>Nem .:
+							</label>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input"
+											 type="radio" 
+											 name="gender" 
+											 id="gender-male" 
+											 value="M" 
+											 required
+											 ng-model="model.gender">
+
+								<label class="form-check-label text-muted fw-bold" 
+											 for="gender-male">
+											 Férfi
+								</label>
+
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" 
+											 type="radio" 
+											 name="gender" 
+											 id="gender-female" 
+											 value="F" 
+											 required
+											 ng-model="model.gender">
+								<label class="form-check-label text-muted fw-bold" 
+											 for="gender-female">
+											 Nő
+								</label>
+							</div>
+						</div>
+
+						<!-- Password -->
+						<div class="mb-3">
+							<label for="register-password" 
+										 class="form-label text-danger fw-bold fw-semibold">
+								<i class="fas fa-lock me-2"></i>Jelszó .:
+							</label>
+							<div class="input-group">
+								<input type="{{model.showPassword ? 'text' : 'password'}}" 
+											 class="form-control border-danger"
+											 id="register-password"
+											 name="password" 
+											 placeholder="Jelszó" 
+											 spellcheck="false" 
+											 autocomplete="off"
+											 required minlength="6" 
+											 maxlength="20" 
+											 ng-init="model.password=null" 
+											 ng-model="model.password"
+											 ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/">
+
+								<button class="btn btn-outline-danger" 
+												type="button"
+												ng-click="model.showPassword = !model.showPassword">
+									<i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
+								</button>
+							</div>
+							<div class="form-text text-muted fw-bold">
+								A jelszavad legalább 6 karakter hosszú legyen.
+							</div>
+						</div>
+
+						<!-- Confirm Password -->
+						<div class="mb-3">
+							<label for="confirm-password" 
+										 class="form-label text-danger fw-bold fw-semibold">
+								<i class="fas fa-lock me-2"></i>Jelszó megerősítése .:
+							</label>
+							<input type="{{model.showConfirmPassword ? 'text' : 'password'}}" 
+										 class="form-control border-danger"
+										 id="confirm-password" ,
+										 name="confirmPassword" 
+										 placeholder="Jelszó megerősítése" 
+										 spellcheck="false"
+								 		 autocomplete="off" 
+										 required minlength="6" 
+										 maxlength="20" 
+										 ng-init="model.confirmPassword=null"
+										 ng-model="model.confirmPassword">
+							<div class="form-text text-muted fw-bold">Írd be újra a jelszavad.</div>
+						</div>
+
+                        <!-- Register Button -->
+                        <div class="d-grid">
+                            <button class="btn btn-danger btn-lg shadow-sm"
+                                    ng-disabled="registerForm.$invalid"
+                                    type="submit"
+                                    ng-click="registerButton()">
+                                Regisztráció
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+			<!-- Footer -->
+			<div class="text-center mt-3">
+				<p class="text-white-50 fw-bold">Már van fiókod?
+					<a ui-sref="login"
+						class="text-danger fw-bold text-decoration-none fw-bold">
+						Jelentkezz be!
+					</a>
+				</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" 
+	 id="registerModal" 
+	 tabindex="-1" 
+	 aria-labelledby="registerModalLabel" 
+	 aria-hidden="true">
+	<div class="modal-dialog">
+	  	<div class="modal-content">
+			<div ng-class="isRegistered !== 0 ? 'modal-header-green' : 'modal-header-red'" 
+					 class="modal-header">
+			  <h1 class="modal-title fs-5"
+			  	  id="registerModalLabel">
+				  {{Message}}
+				</h1>
+			  <button type="button" 
+			  		  	class="btn-close" 
+					  		data-bs-dismiss="modal" 
+					  		aria-label="Close">
+			  </button>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" 
+								class="btn btn-secondary" 
+								data-bs-dismiss="modal">
+								Bezárás
+				</button>
+			</div>
+	  </div>
+	</div>
+  </div>
+  

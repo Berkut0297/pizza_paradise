@@ -45,6 +45,12 @@
         parent: 'root',
 				templateUrl: './html/login.html',
 				controller: 'loginController'
+			})
+      .state('register', {
+				url: '/register',
+        parent: 'root',
+				templateUrl: './html/register.html',
+				controller: 'registerController'
 			});
       
       $urlRouterProvider.otherwise('/');
@@ -77,13 +83,66 @@
       console.log('Menu controller...' + $state.current.name);
     }
   ])
-  //login controller
-  .controller('loginController', [
+
+  //loginController initializálása
+  .controller('loginController',[
     '$scope',
+    '$rootScope',
+    'http',
     '$state',
-    function($scope, $state) {
-      console.log('login controller...' + $state.current.name);
+    function($scope,$rootScope,http,$state){
+      $scope.loginBtn = function (){        
+        http.request({
+          url: './php/login.php',
+          data: $scope.model
+        })
+        .then(response => {
+          $rootScope.user = response;
+          $scope.isTrue = true;
+          $scope.$applyAsync();
+          $('#loginModal').modal('show');  
+          if ($rootScope.user.userID) 
+            $state.go('index')
+        })
+        .catch(e => {
+          $scope.msg = e;
+          $('#loginModal').modal('show');
+          alert(e)
+        })
+      }
+    }   
+  ])
+
+	//registerController initializálása
+  .controller('registerController',[
+    '$scope',
+    'http',
+    '$state',
+    'util',
+    function($scope,http,$state,util) {
+      $scope.registerButton = function(){
+        let data = util.objFilterByKeys($scope.model,'confirmPassword;showPassword',false);
+        http.request({
+          url: './php/register.php',
+          data: data
+        })
+        .then(response => {
+          $scope.isRegistered = response;
+					
+          $scope.Message = "Sikeres regisztráció";    
+          $scope.$applyAsync();
+					$state.go('login')   
+					$('#registerModal').modal('show');    
+        })
+        .catch(e =>{
+          $scope.Message = e;
+					$scope.$applyAsync();
+          $('#registerModal').modal('show');     
+        }
+        )
+      }
     }
-  ]);
+  ])
+  
 	
 })(window, angular);

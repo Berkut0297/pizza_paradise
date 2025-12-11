@@ -4,7 +4,187 @@
 						user-select:none !important;
 					outline-style:none !important;
 }
-header nav a.active {
-	text-decoration: underline;
-	cursor: default;
+.bg-opacity025 {
+    backdrop-filter:  brightness(40%) !important;
+}
+;
+    .card-footer .btn i .card-title {
+    font-size: 18px;
+}
+body {
+    background-color: #f8efe2;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.card {
+    margin-bottom: 20px;
+    transition: transform .3s, box-shadow .3s, background-color .3s;
+}
+.carousel-item, img {
+    height: 500px;
+}
+img {
+    filter: brightness(0.6);
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, .1);
+    background-color: #f7f7f7;
+}
+.card-body {
+    padding: 20px;
+}
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 5px solid #a72828;
+}
+.card-title {
+    font-weight: 700;
+    color: #a72828;
+    margin-bottom: 15px;
+}
+.card-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+.carousel-title, .modal-footer button {
+    font-weight: 700;
+}
+.card-footer .btn {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+.card-footer .btn-outline-success {
+    border-color: #a72828;
+    color: #a72828;
+}
+.card-footer .btn-outline-info {
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+.card-footer .btn:hover, .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+.card-footer .btn-outline-success:hover {
+    background-color: #a72828;
+    color: #fff;
+}
+.card-footer .btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: #fff;
+}
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+}
+.modal-header-green {
+    background-color: #a72828;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.modal-header-red{
+    background-color: #b90303;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.modal-body img {
+    max-height: 300px;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    border-bottom: 5px solid #a72828;
+}
+.modal-footer {
+    border-top: 1px solid #ddd;
+}
+.modal-footer .btn {
+    border-radius: 25px;
+}
+footer ul li a {
+    transition: color .3s;
+}
+.navbar-nav .nav-link:hover {
+    color: #a72828!important;
+}
+.btn-outline-light:hover {
+    background-color: #a72828;
+    border-color: #a72828;
+    color: #fff;
+}
+.btn-success:hover {
+    background-color: #7e1e1e;
+}
+.carousel-item {
+    transition: opacity .5s ease-in-out;
+}
+.carousel-btn, .carousel-text, .carousel-title {
+    animation: 1s ease-out fadeUp;
+}
+.carousel-title {
+    font-size: 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, .7);
+}
+.carousel-text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+    max-width: 70%;
+    margin: 0 auto;
+}
+.carousel-btn {
+    font-size: 1.5rem;
+    color: #fff;
+    border-color: #fff;
+    transition: background-color .3s, transform .3s;
+}
+.carousel-btn:hover {
+    background-color: #ff7f00;
+    transform: scale(1.1);
+}
+@keyframes fadeUp {
+    0% {
+    opacity: 0;
+    transform: translateY(20px);
+}
+100% {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+}
+.fa-youtube:hover {
+    color:  red;
+}
+.fa-twitter:hover {
+    color:  lightseagreen;
+}
+.fa-instagram:hover {
+    color:  magenta;
+}
+.fa-facebook:hover {
+    color:  rgb(0, 102, 255);
+}
+.sizedPFP{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
