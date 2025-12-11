@@ -25,7 +25,6 @@
               },
               'footer@root': {
                 templateUrl: './html/components/footer.html',
-                controller: 'footerController'
               }
             }
           })
