@@ -1,7 +1,7 @@
 ; (function (window, angular) {
   'use strict';
   angular.module('app')
-  controller('menuController', [
+  .controller('menuController', [
     '$scope',
     '$state',
     function ($scope, $state) {

@@ -1,7 +1,7 @@
 ; (function (window, angular) {
   'use strict';
   angular.module('app')
-  controller('loginController', [
+  .controller('loginController', [
     '$scope',
     '$rootScope',
     'http',

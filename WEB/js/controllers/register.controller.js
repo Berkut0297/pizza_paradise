@@ -1,7 +1,7 @@
 ; (function (window, angular) {
   'use strict';
   angular.module('app')
-  controller('registerController', [
+  .controller('registerController', [
     '$scope',
     'http',
     '$state',
