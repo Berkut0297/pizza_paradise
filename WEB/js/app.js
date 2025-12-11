@@ -4,7 +4,8 @@
 
   // Application module
   angular.module('app', [
-    'ui.router'
+    'ui.router',
+    'app.common'
   ])
 
     // Application config
