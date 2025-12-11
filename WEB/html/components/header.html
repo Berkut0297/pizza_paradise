@@ -3,7 +3,7 @@
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center" 
-       ui-sref="index">
+       ui-sref="home">
       <img src="./media/image/pizza_logo.png" 
            alt="PizzaParadise Logo" 
            style="height: 50px;" 
@@ -80,9 +80,9 @@
         <!-- Register Button -->
         <li ng-hide="$root.user.userID" 
             class="nav-item">
-          <a class="nav-link btn btn-outline-light rounded-pill 
-                    px-4 py-2 me-2 text-uppercase 
-                    fw-bold"
+          <a class="nav-link btn btn-outline-light 
+                    rounded-pill px-4 py-2 
+                    me-2 text-uppercase fw-bold"
              ui-sref="register">
             <i class="fas fa-user-plus"></i> 
             Regisztráció
@@ -101,9 +101,9 @@
         </li>
 
         <li ng-show="$toHide !== false">
-          <a class="nav-link btn btn-outline-light rounded-pill 
-                    px-4 py-2 me-2 text-uppercase 
-                    fw-bold"
+          <a class="nav-link btn btn-outline-light 
+                    rounded-pill px-4 py-2 
+                    me-2 text-uppercase fw-bold"
              ng-click="shoppingCart(null)">
             <i class="fa-solid fa-cart-shopping"></i>
             Kosár
