@@ -10,7 +10,6 @@
         FontFamily="Bahnschrift">
 
     <Window.Resources>
-        <!-- Általános lekerekített gombstílus -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -29,7 +28,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Háttér -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0078A6" Offset="0"/>
@@ -37,74 +35,62 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Fejléc -->
         <DockPanel LastChildFill="True" VerticalAlignment="Top" Height="80" Background="#FF029BCE">
             <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="636" Height="48"/>
         </DockPanel>
 
-        <!-- Bal oldali menü -->
         <StackPanel Orientation="Vertical" Width="220" Background="#FF013E56"
                     VerticalAlignment="Stretch" HorizontalAlignment="Left">
 
-            <!-- Felhasználói infó -->
             <StackPanel Margin="12,18,12,12">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teszt Elek"
+                    <TextBlock Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Raktáros"
+                    <TextBlock Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
 
             <Rectangle Height="1" Fill="#19FFFFFF" Margin="10,0,10,10"/>
 
-            <!-- Menü gombok (aktuális fül kiemelve) -->
             <Button Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Konyhai kijelző" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+
             <Button Content="Készletkezelés" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
+
+            <Button Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
+                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
+            
             <Button Content="Kilépés" Margin="10,40,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FFE43A3A" BorderBrush="{x:Null}"/>
+
         </StackPanel>
 
-        <!-- Tartalmi rész -->
         <Border Margin="240,100,20,20" Background="#FFF5F5F5" CornerRadius="8">
             <Grid Margin="20">
                 <TextBlock Text="Készletkezelés" FontSize="22" FontWeight="Bold" Margin="0,0,0,20"/>
-
-                <!-- Szűrősor (Grid, fix oszlopok – semmi nem lóg bele) -->
                 <Grid Margin="0,40,0,20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="220"/>
-                        <!-- Kereső -->
                         <ColumnDefinition Width="200"/>
-                        <!-- Kategória -->
                         <ColumnDefinition Width="200"/>
-                        <!-- Státusz -->
                         <ColumnDefinition Width="*"/>
-                        <!-- kitöltő -->
                         <ColumnDefinition Width="120"/>
-                        <!-- Frissítés -->
                     </Grid.ColumnDefinitions>
 
-                    <!-- Keresés -->
                     <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="0,0,12,0">
                         <TextBlock Text="Keresés:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <TextBox Name="textbox_search" Width="140"/>
                     </StackPanel>
 
-                    <!-- Kategória -->
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="0,0,12,0">
                         <TextBlock Text="Kategória:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <ComboBox Name="combo_category" Width="130">
@@ -116,7 +102,6 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <!-- Státusz -->
                     <StackPanel Orientation="Horizontal" Grid.Column="2" Margin="0,0,12,0">
                         <TextBlock Text="Státusz:" VerticalAlignment="Center" Margin="0,0,8,0"/>
                         <ComboBox Name="combo_status" Width="130">
@@ -128,16 +113,13 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <!-- Kitöltő -->
                     <StackPanel Grid.Column="3"/>
 
-                    <!-- Frissítés -->
                     <Button Name="button_refresh" Content="Frissítés" Width="120" Height="36"
                             Background="#FF029BCE" Foreground="White" BorderBrush="{x:Null}"
                             Grid.Column="4" HorizontalAlignment="Right"/>
                 </Grid>
 
-                <!-- Táblázat (azonos margók/méretezés) -->
                 <DataGrid Name="grid_inventory" AutoGenerateColumns="False" Margin="0,80,0,100"
                           CanUserAddRows="False" IsReadOnly="True" RowHeight="34">
                     <DataGrid.Columns>
@@ -153,7 +135,6 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-                <!-- Alsó gombsor – igazítás megegyezik -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,40">
                     <Button Name="button_new" Content="Új tétel" Width="120" Height="40" Margin="0,0,10,0"
                             Background="#FF027BAA" Foreground="White" BorderBrush="{x:Null}" FontSize="16"/>
@@ -166,6 +147,5 @@
                 </StackPanel>
             </Grid>
         </Border>
-
     </Grid>
 </Window>

@@ -1,52 +1,101 @@
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <h1 class="text-3xl font-bold text-center text-red-700 mb-8">Menü</h1>
+  <h1 class="text-3xl font-bold text-center text-red-700 mb-10 tracking-wide">
+    🍕 Menü
+  </h1>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 
-    <!-- PIZZA KÁRTYA PÉLDA -->
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-      <img src="./media/image/margherita.jpg" alt="Margherita" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-2">Margherita</h2>
-        <p class="text-gray-600 mb-4">Paradicsomszósz, mozzarella sajt, friss bazsalikom.</p>
-        <div class="flex justify-between items-center">
-          <span class="text-red-700 font-bold text-lg">2 500 Ft</span>
-          <button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-800 transition">
-            Rendelés
-          </button>
-        </div>
+    <!-- 🔥 PIZZA KÁRTYA -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden 
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+
+      <div class="relative">
+        <img src="./media/image/margherita.jpg" alt="Margherita" 
+             class="w-full h-52 object-cover">
+
+        <!-- Ár badge -->
+        <span class="absolute top-3 right-3 bg-red-700 text-white text-sm font-semibold py-1 px-3 rounded-full shadow">
+          2 500 Ft
+        </span>
+
+        <!-- Overlay highlight -->
+        <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition"></div>
       </div>
+
+      <div class="p-5">
+        <h2 class="text-xl font-semibold mb-1">Margherita</h2>
+        <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+          Paradicsomszósz, mozzarella sajt, friss bazsalikom.
+        </p>
+
+        <button class="w-full bg-red-700 text-white py-2 rounded-lg flex items-center justify-center 
+                       gap-2 hover:bg-red-800 active:scale-95 transition-all">
+          <i class="fas fa-pizza-slice"></i>
+          Rendelés
+        </button>
+      </div>
+
     </div>
 
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-      <img src="./media/image/pepperoni.jpg" alt="Pepperoni" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-2">Pepperoni</h2>
-        <p class="text-gray-600 mb-4">Paradicsomszósz, mozzarella, pepperoni szeletek.</p>
-        <div class="flex justify-between items-center">
-          <span class="text-red-700 font-bold text-lg">3 800 Ft</span>
-          <button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-800 transition">
-            Rendelés
-          </button>
-        </div>
+    <!-- Pepperoni -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden 
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+
+      <div class="relative">
+        <img src="./media/image/pepperoni.jpg" alt="Pepperoni" 
+             class="w-full h-52 object-cover">
+
+        <span class="absolute top-3 right-3 bg-red-700 text-white text-sm font-semibold py-1 px-3 rounded-full shadow">
+          3 800 Ft
+        </span>
+
+        <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition"></div>
       </div>
+
+      <div class="p-5">
+        <h2 class="text-xl font-semibold mb-1">Pepperoni</h2>
+        <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+          Paradicsomszósz, mozzarella, pepperoni szeletek.
+        </p>
+
+        <button class="w-full bg-red-700 text-white py-2 rounded-lg flex items-center justify-center 
+                       gap-2 hover:bg-red-800 active:scale-95 transition-all">
+          <i class="fas fa-pizza-slice"></i>
+          Rendelés
+        </button>
+      </div>
+
     </div>
 
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-      <img src="./media/image/funghi.jpg" alt="Funghi" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-xl font-semibold mb-2">Funghi</h2>
-        <p class="text-gray-600 mb-4">Paradicsomszósz, mozzarella, friss gomba.</p>
-        <div class="flex justify-between items-center">
-          <span class="text-red-700 font-bold text-lg">3 700 Ft</span>
-          <button class="bg-red-700 text-white px-3 py-1 rounded hover:bg-red-800 transition">
-            Rendelés
-          </button>
-        </div>
-      </div>
-    </div>
+    <!-- Funghi -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden 
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
 
-    <!-- Többi pizza feltöltése majd -->
+      <div class="relative">
+        <img src="./media/image/funghi.jpg" alt="Funghi" 
+             class="w-full h-52 object-cover">
+
+        <span class="absolute top-3 right-3 bg-red-700 text-white text-sm font-semibold py-1 px-3 rounded-full shadow">
+          3 700 Ft
+        </span>
+
+        <div class="absolute inset-0 bg-black/0 hover:bg-black/10 transition"></div>
+      </div>
+
+      <div class="p-5">
+        <h2 class="text-xl font-semibold mb-1">Funghi</h2>
+        <p class="text-gray-600 mb-5 text-sm leading-relaxed">
+          Paradicsomszósz, mozzarella, friss gomba.
+        </p>
+
+        <button class="w-full bg-red-700 text-white py-2 rounded-lg flex items-center justify-center 
+                       gap-2 hover:bg-red-800 active:scale-95 transition-all">
+          <i class="fas fa-pizza-slice"></i>
+          Rendelés
+        </button>
+      </div>
+
+    </div>
 
   </div>
 </main>

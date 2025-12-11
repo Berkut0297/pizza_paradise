@@ -7,7 +7,6 @@
         FontFamily="Bahnschrift">
 
     <Window.Resources>
-        <!-- Lekerekített gomb sablon -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -27,7 +26,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Háttér -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0078A6" Offset="0"/>
@@ -35,13 +33,11 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- Fejléc -->
         <DockPanel VerticalAlignment="Top" Height="80" Background="#FF029BCE">
             <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="500"/>
         </DockPanel>
 
-        <!-- Login kártya -->
         <Border Width="520" Height="346"
                 Background="#FFF5F5F5"
                 CornerRadius="12"
@@ -57,7 +53,6 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!-- Cím -->
                 <StackPanel Grid.Row="0" Margin="0,0,0,16" HorizontalAlignment="Center">
                     <TextBlock Text="🍕" FontSize="36" HorizontalAlignment="Center"/>
                     <TextBlock Text="Bejelentkezés" FontSize="22" FontWeight="Bold"
@@ -67,7 +62,6 @@
                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                 </StackPanel>
 
-                <!-- Felhasználónév -->
                 <Border Grid.Row="1" CornerRadius="8" Background="White" Padding="10" Margin="0,0,0,10">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -87,37 +81,41 @@
                     </Grid>
                 </Border>
 
-                <!-- Jelszó -->
                 <Border Grid.Row="2" CornerRadius="8" Background="White" Padding="10" Margin="0,0,0,6">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="28"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+
                         <TextBlock Grid.Column="0"
                                    FontFamily="Segoe MDL2 Assets"
                                    Text="&#xE72E;"
                                    Foreground="#8A8A8A" VerticalAlignment="Center"/>
-                        <PasswordBox Grid.Column="1"
-                                     Name="password_user"
+
+                        <Grid Grid.Column="1">
+                            <PasswordBox Name="password_user"
+                                         FontSize="16"
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         Foreground="#333"
+                                         PasswordChar="●"/>
+                            <TextBox Name="password_textbox"
                                      FontSize="16"
                                      BorderThickness="0"
                                      Background="Transparent"
                                      Foreground="#333"
-                                     PasswordChar="●"/>
+                                     Visibility="Collapsed"/>
+                        </Grid>
                     </Grid>
                 </Border>
 
-                <!-- Mutasd / Emlékezz -->
                 <DockPanel Grid.Row="3" LastChildFill="False" Margin="0,0,0,6">
                     <CheckBox Name="checkbox_showpassword"
                               Content="Jelszó megjelenítése"
                               Margin="0,0,12,0"/>
-                    <CheckBox Name="checkbox_remember"
-                              Content="Emlékezz rám"/>
                 </DockPanel>
 
-                <!-- Hibaüzenet + gombok -->
                 <Grid Grid.Row="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
