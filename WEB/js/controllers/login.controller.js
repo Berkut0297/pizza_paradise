@@ -1,6 +1,6 @@
 ; (function (window, angular) {
   'use strict';
-
+  angular.module('app')
   controller('loginController', [
     '$scope',
     '$rootScope',
