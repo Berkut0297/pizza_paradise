@@ -28,93 +28,14 @@ body::before {
     bottom: 0;
     z-index: -1;
 }
-.card {
-    margin-bottom: 20px;
-    transition: transform .3s, box-shadow .3s, background-color .3s;
-}
 .carousel-item, img {
     height: 500px;
 }
 img {
     filter: brightness(0.6);
 }
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, .1);
-    background-color: #f7f7f7;
-}
-.card-body {
-    padding: 20px;
-}
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 5px solid #a72828;
-}
-.card-title {
-    font-weight: 700;
-    color: #a72828;
-    margin-bottom: 15px;
-}
-.card-text {
-    font-size: 16px;
-    font-weight: 500;
-    color: #555;
-}
 .carousel-title, .modal-footer button {
     font-weight: 700;
-}
-.card-footer .btn {
-    font-size: 14px;
-    padding: 8px 16px;
-}
-.card-footer .btn-outline-success {
-    border-color: #a72828;
-    color: #a72828;
-}
-.card-footer .btn-outline-info {
-    border-color: #17a2b8;
-    color: #17a2b8;
-}
-.card-footer .btn:hover, .card:hover .card-img-top {
-    transform: scale(1.05);
-}
-.card-footer .btn-outline-success:hover {
-    background-color: #a72828;
-    color: #fff;
-}
-.card-footer .btn-outline-info:hover {
-    background-color: #17a2b8;
-    color: #fff;
-}
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-}
-.modal-header-green {
-    background-color: #a72828;
-    color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-.modal-header-red{
-    background-color: #b90303;
-    color: #fff;
-    border-bottom: 1px solid #ddd;
-}
-.modal-body img {
-    max-height: 300px;
-    object-fit: cover;
-    max-width: 100%;
-    height: auto;
-    border-bottom: 5px solid #a72828;
-}
-.modal-footer {
-    border-top: 1px solid #ddd;
-}
-.modal-footer .btn {
-    border-radius: 25px;
 }
 footer ul li a {
     transition: color .3s;
@@ -122,12 +43,15 @@ footer ul li a {
 .navbar-nav .nav-link:hover {
     color: #a72828!important;
 }
-.btn-outline-light:hover {
-    background-color: #a72828;
-    border-color: #a72828;
+.btn-outline-light {
     color: #fff;
 }
-.btn-success:hover {
+
+.btn-outline-light:hover {
+    background-color: #ff1f1f;
+    color: #fff !important;
+}
+.btn-danger:hover {
     background-color: #7e1e1e;
 }
 .carousel-item {
@@ -157,7 +81,7 @@ footer ul li a {
     transition: background-color .3s, transform .3s;
 }
 .carousel-btn:hover {
-    background-color: #ff7f00;
+    background-color: #d30000;
     transform: scale(1.1);
 }
 @keyframes fadeUp {
