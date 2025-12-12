@@ -18,7 +18,7 @@
 			<!-- Card for the form -->
 			<div class="card shadow border-0">
 				<div class="card-body p-4">
-					<form name="loginForm" novalidate>
+					<form name="loginForm" >
 
 						<!-- Email -->
 						<div class="mb-3">
@@ -26,7 +26,7 @@
 								<i class="fas fa-envelope me-2"></i>Email cím .:
 							</label>
 
-							<input 	type="text" 
+							<input 	type="email" 
 											class="form-control border-danger" 
 											ng-model="model.email" 
 											id="login-email" 
@@ -34,11 +34,12 @@
 											placeholder="Email cím" 
 											spellcheck="false" 
 											autocomplete="off" 
-											required maxlength="50"
+											maxlength="50"
 											ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/" 
 											required>
 
-							<div class="form-text text-muted fw-bold">
+							<div class="form-text text-muted fw-bold"
+										ng-show="loginForm.email.$touched && loginForm.email.$invalid">
 								Kérjük, adja meg az email címét.
 							</div>
 						</div>
@@ -53,11 +54,11 @@
 								<input 	type="{{model.showPassword ? 'text' : 'password'}}" 
 												class="form-control border-danger"
 												id="login-password" 
-												name="password" 
+												name="password" 	
 												placeholder="Jelszó" 
 												spellcheck="false" 
 												autocomplete="off"
-												required minlength="6" 
+												minlength="6" 
 												maxlength="20" 
 												ng-init="model.password=null" 
 												ng-model="model.password"
@@ -69,17 +70,19 @@
 									<i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
 								</button>
 							</div>
-
-							<div class="form-text text-muted fw-bold">
-								Jelszavad legalább 6 karakter hosszú legyen.
+							<div 	class="form-text text-muted fw-bold"
+										ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+								Kérjük, adja meg a jelszót.
 							</div>
 
 						</div>
 
 						<!-- Login Button -->
 						<div class="d-grid">
-							<button type="button" class="btn btn-danger btn-lg shadow-sm" ng-click="loginBtn()"
-								ng-disabled="loginForm.$invalid">
+							<button type="button" 
+											class="btn btn-danger btn-lg shadow-sm" 
+											ng-click="loginBtn()"
+											ng-disabled="loginForm.$invalid">
 								Bejelentkezés
 							</button>
 						</div>

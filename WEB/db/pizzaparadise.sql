@@ -397,7 +397,7 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `full_name` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
@@ -410,20 +410,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `full_name`, `phone`, `role`, `created_at`) VALUES
-(1, 'peter88', 'hashed_pw1', 'peter88@example.com', 'Kovács Péter', '+36201234567', 'customer', '2025-11-11 10:10:05'),
-(2, 'anna92', 'hashed_pw2', 'anna92@example.com', 'Nagy Anna', '+36301239876', 'customer', '2025-11-11 10:10:05'),
-(3, 'admin', 'hashed_admin', 'admin@pizzaparadise.hu', 'Rendszergazda', '+3612345678', 'admin', '2025-11-11 10:10:05'),
-(4, 'tomi_futár', 'hashed_pw3', 'tomi@pizzaparadise.hu', 'Tóth Tamás', '+36203334455', 'courier', '2025-11-11 10:10:05'),
-(5, 'kati07', 'pw_hash_kati', 'kati07@example.com', 'Farkas Katalin', '+36204443322', 'customer', '2025-12-09 07:49:16'),
-(6, 'bence_dev', 'pw_hash_bence', 'bence.dev@example.com', 'Török Bence', '+36304445566', 'customer', '2025-12-09 07:49:16'),
-(7, 'zsombi12', 'pw_hash_zsombi', 'zsombi12@example.com', 'Szabó Zsombor', '+36205556677', 'customer', '2025-12-09 07:49:16'),
-(8, 'edit_nagy', 'pw_hash_edit', 'edit.nagy@example.com', 'Nagy Edit', '+36207778899', 'customer', '2025-12-09 07:49:16'),
-(9, 'rita_cs', 'pw_hash_rita', 'rita.cs@example.com', 'Csorba Rita', '+36309998877', 'customer', '2025-12-09 07:49:16'),
-(10, 'lilla89', 'pw_hash_lilla', 'lilla89@example.com', 'Jakab Lilla', '+36201112233', 'customer', '2025-12-09 07:49:16'),
-(11, 'vendeghaz', 'pw_hash_vend', 'haz.vend@example.com', 'Vendégház', '+36201239845', 'admin', '2025-12-09 07:49:16'),
-(12, 'feri_futar2', 'pw_hash_feri', 'feri2@pizzaparadise.hu', 'Kiss Ferenc', '+36203335544', 'courier', '2025-12-09 07:49:16'),
-(13, 'dani88', 'pw_hash_dani', 'dani88@example.com', 'Somogyi Dániel', '+36304442322', 'customer', '2025-12-09 07:49:16'),
-(14, 'zita77', 'pw_hash_zita', 'zita77@example.com', 'Kádár Zita', '+36208889933', 'customer', '2025-12-09 07:49:16');
+(1, 'peter88', 'peter1234', 'peter88@example.com', 'Kovács Péter', '+36201234567', 'customer', '2025-11-11 10:10:05'),
+(2, 'anna92', 'anna1234', 'anna92@example.com', 'Nagy Anna', '+36301239876', 'customer', '2025-11-11 10:10:05'),
+(3, 'admin', 'admin1234', 'admin@pizzaparadise.hu', 'Rendszergazda', '+3612345678', 'admin', '2025-11-11 10:10:05'),
+(4, 'tomi_futár', 'tomifutar1234', 'tomi@pizzaparadise.hu', 'Tóth Tamás', '+36203334455', 'courier', '2025-11-11 10:10:05'),
+(5, 'kati07', 'kati1234', 'kati07@example.com', 'Farkas Katalin', '+36204443322', 'customer', '2025-12-09 07:49:16'),
+(6, 'bence_dev', 'bence1234', 'bence.dev@example.com', 'Török Bence', '+36304445566', 'customer', '2025-12-09 07:49:16'),
+(7, 'zsombi12', 'zsombi1234', 'zsombi12@example.com', 'Szabó Zsombor', '+36205556677', 'customer', '2025-12-09 07:49:16'),
+(8, 'edit_nagy', 'edit1234', 'edit.nagy@example.com', 'Nagy Edit', '+36207778899', 'customer', '2025-12-09 07:49:16'),
+(9, 'rita_cs', 'rita1234', 'rita.cs@example.com', 'Csorba Rita', '+36309998877', 'customer', '2025-12-09 07:49:16'),
+(10, 'lilla89', 'lilla1234', 'lilla89@example.com', 'Jakab Lilla', '+36201112233', 'customer', '2025-12-09 07:49:16'),
+(11, 'vendeghaz', 'vendeg1234', 'haz.vend@example.com', 'Vendégház', '+36201239845', 'admin', '2025-12-09 07:49:16'),
+(12, 'feri_futar2', 'ferifurtar1234', 'feri2@pizzaparadise.hu', 'Kiss Ferenc', '+36203335544', 'courier', '2025-12-09 07:49:16'),
+(13, 'dani88', 'dani1234', 'dani88@example.com', 'Somogyi Dániel', '+36304442322', 'customer', '2025-12-09 07:49:16'),
+(14, 'zita77', 'zita1234', 'zita77@example.com', 'Kádár Zita', '+36208889933', 'customer', '2025-12-09 07:49:16');
 
 --
 -- Indexek a kiírt táblákhoz
