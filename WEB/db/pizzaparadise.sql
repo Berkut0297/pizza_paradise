@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Dec 09. 07:58
+-- Létrehozás ideje: 2025. Dec 16. 07:27
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -409,7 +409,7 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `full_name`, `phone`, `role`, `created_at`) VALUES
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `full_name`, `phone`, `role`, `created_at`) VALUES
 (1, 'peter88', 'peter1234', 'peter88@example.com', 'Kovács Péter', '+36201234567', 'customer', '2025-11-11 10:10:05'),
 (2, 'anna92', 'anna1234', 'anna92@example.com', 'Nagy Anna', '+36301239876', 'customer', '2025-11-11 10:10:05'),
 (3, 'admin', 'admin1234', 'admin@pizzaparadise.hu', 'Rendszergazda', '+3612345678', 'admin', '2025-11-11 10:10:05'),
@@ -557,108 +557,6 @@ ALTER TABLE `orders_item`
 --
 ALTER TABLE `payments`
   MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT a táblához `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT a táblához `shopping_cart`
---
-ALTER TABLE `shopping_cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT a táblához `shopping_cart_items`
---
-ALTER TABLE `shopping_cart_items`
-  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT a táblához `toppings`
---
-ALTER TABLE `toppings`
-  MODIFY `topping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT a táblához `type`
---
-ALTER TABLE `type`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT a táblához `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- Megkötések a kiírt táblákhoz
---
-
---
--- Megkötések a táblához `addresses`
---
-ALTER TABLE `addresses`
-  ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`address_id`),
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`);
-
---
--- Megkötések a táblához `orders_item`
---
-ALTER TABLE `orders_item`
-  ADD CONSTRAINT `orders_item_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `orders_item_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `orders_item_ibfk_3` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`);
-
---
--- Megkötések a táblához `payments`
---
-ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`);
-
---
--- Megkötések a táblához `product_allergens`
---
-ALTER TABLE `product_allergens`
-  ADD CONSTRAINT `product_allergens_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `product_allergens_ibfk_2` FOREIGN KEY (`allergen_id`) REFERENCES `allergens` (`allergen_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `product_toppings`
---
-ALTER TABLE `product_toppings`
-  ADD CONSTRAINT `product_toppings_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `product_toppings_ibfk_2` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `shopping_cart`
---
-ALTER TABLE `shopping_cart`
-  ADD CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `shopping_cart_items`
---
-ALTER TABLE `shopping_cart_items`
-  ADD CONSTRAINT `shopping_cart_items_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `shopping_cart_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `shopping_cart_items_ibfk_3` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
