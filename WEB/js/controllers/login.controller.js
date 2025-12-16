@@ -10,19 +10,20 @@
         $scope.loginBtn = function () {
           http.request({
             url: './php/login.php',
-            data: $scope.model
+            data: {
+              email: $scope.model.email,
+              password: $scope.model.password
+            }                  
           })
           .then(response => {
             $rootScope.user = response;
-            $scope.isTrue = true;
-            $scope.$applyAsync();
-            $('#loginModal').modal('show');
-            if ($rootScope.user.userID)
-              $state.go('index')
+            console.log(response);
+            $scope.$applyAsync(); 
+            //$('#loginModal').modal('show');
           })
           .catch(e => {
             $scope.msg = e;
-            $('#loginModal').modal('show');
+            //$('#loginModal').modal('show');
             alert(e)
           })
         }
