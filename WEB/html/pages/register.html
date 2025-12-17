@@ -36,7 +36,7 @@
 											autocomplete="off" 
 											required 
 											maxlength="50"
-											ng-model="model.user">
+											ng-model="model.full_name">
 							<!-- warning to the user to set the full name -->
 							<div class="form-text text-muted fw-bold"
 							     ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
@@ -58,7 +58,7 @@
 											autocomplete="off" 
 											required 
 											maxlength="50"
-											ng-model="model.user">
+											ng-model="model.username">
 							<!-- warning to the user to set a user name -->
 							<div class="form-text text-muted fw-bold"
      								ng-show="registerForm.username.$touched && registerForm.username.$error.required">
