@@ -13,7 +13,7 @@
       '$stateProvider',
       '$urlRouterProvider',
       function ($stateProvider, $urlRouterProvider) {
-
+        //registering the allways loadid states of the application
         $stateProvider
           .state('root', {
             abstract: true,
@@ -29,6 +29,7 @@
               }
             }
           })
+          //registering the states of the application
           .state('home', {
             url: '/',
             parent: 'root',
