@@ -5,7 +5,7 @@ $args = Util::getArgs();
 
 $db = new Database();
 
-$query =" SELECT `user_id`, `username`, `password`, `email` 
+$query =" SELECT `user_id`, `full_name`, `password`, `email` 
           FROM `users` 
           WHERE `email` = `email` 
           LIMIT 1;";
@@ -18,7 +18,7 @@ if ($result[0]["email"] !=$args["email"])
 if ($result[0]["password"] != $args["password"])
     Util::setError("A jelszó nem helyes!");
 
-Util::setResponse();
+Util::setResponse($result);
 
 $db = null;
 
