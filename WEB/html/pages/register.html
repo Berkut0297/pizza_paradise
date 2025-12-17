@@ -90,6 +90,41 @@
 							  Az email cím formátuma nem megfelelő.
 							</div>
 						</div>
+						<!-- Phone number -->
+						<div class="mb-3">
+							<label for="register-email" class="form-label text-danger fw-bold">
+
+								<i class="fas fa-envelope me-2"></i>Telefon szám.:
+
+							</label>
+							<input 	type="text" 
+											class="form-control border-danger" 
+											id="register-phone_number" 
+											name="phone_number"
+											placeholder="Pl.: +36 30 123 4567" 
+											spellcheck="false" 
+											autocomplete="off" 
+											required 
+											minlength="11"
+											maxlength="12"
+											ng-model="model.phone"
+											ng-pattern="/^\+?[0-9\s\-]{6,20}$/">
+							<!-- warning to the user to set the phone number -->
+							<div 	class="form-text text-danger fw-bold"
+       							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.required">
+    						Kérlek, add meg a telefonszámod.
+  						</div>
+							<!-- warning to the user of the correct format of the phone number -->
+							<div 	class="form-text text-danger fw-bold"
+       							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.pattern">
+    						A telefonszám formátuma érvénytelen. Pl.: +36 30 123 4567
+  						</div>
+							<!-- warning to the  phone number  lenght to short -->
+							<div class="form-text text-danger fw-bold"
+       						ng-show="registerForm.phone.$touched && registerForm.phone.$error.minlength">
+    						A telefonszám túl rövid.
+  						</div>
+						</div>
 
 						<!-- Gender -->
 						<div class="mb-3">
