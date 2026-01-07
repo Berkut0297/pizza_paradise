@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Dec 17. 07:35
+-- Létrehozás ideje: 2026. Jan 07. 08:27
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -75,9 +75,7 @@ CREATE TABLE `allergens` (
 INSERT INTO `allergens` (`allergen_id`, `name`, `description`) VALUES
 (1, 'Glutén', 'Búzalisztet tartalmaz.'),
 (2, 'Tej', 'Tejfehérjét és laktózt tartalmaz.'),
-(3, 'Tojás', 'Tojásfehérjét tartalmaz.'),
-(4, 'Szójabab', 'Szóját tartalmaz.'),
-(5, 'Mogyoró', 'Nyomokban mogyorót tartalmazhat.');
+(3, 'Hal', 'Hal és halmaradványt tartalmaz');
 
 -- --------------------------------------------------------
 
@@ -198,18 +196,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`, `image_url`, `available`) VALUES
-(1, 'Margherita Pizza', 'Paradicsomszósz, mozzarella, bazsalikom', 2290.00, 1, 'images/margherita.jpg', 1),
-(2, 'SonGoKu Pizza', 'Sonka, gomba, kukorica, sajt', 2790.00, 1, 'images/songoku.jpg', 1),
-(3, 'Magyaros Pizza', 'Kolbász, szalámi, lilahagyma, csípős paprika, sajt', 2990.00, 1, 'images/magyaros.jpg', 1),
-(4, 'Vegetáriánus Pizza', 'Gomba, kukorica, paprika, olívabogyó, sajt', 2690.00, 1, 'images/vegetarian.jpg', 1),
-(5, 'BBQ Csirkés Pizza', 'BBQ-szósz, grillezett csirke, hagyma, sajt', 2990.00, 1, 'images/bbq.jpg', 1),
-(6, 'Coca-Cola 0.5L', 'Szénsavas üdítőital', 550.00, 2, 'images/cocacola.jpg', 1),
-(7, 'Fanta 0.5L', 'Narancs ízű üdítőital', 550.00, 2, 'images/fanta.jpg', 1),
-(8, 'Somlói galuska', 'Hagyományos magyar desszert tejszínhabbal', 990.00, 3, 'images/somloi.jpg', 1),
-(9, 'Fokhagymás kenyeres kosár', 'Friss bagett fokhagymás vajjal', 750.00, 4, 'images/garlicbread.jpg', 1),
-(10, 'Hawaii Pizza', 'Sonka, ananász, sajt', 2890.00, 1, 'images/hawaii.jpg', 1),
-(11, 'Sprite 0.5L', 'Citrom-lime üdítő', 550.00, 2, 'images/sprite.jpg', 1),
-(12, 'Tiramisu', 'Olasz desszert', 1190.00, 3, 'images/tiramisu.jpg', 1);
+(1, 'Margherita', 'Olasz paradicsom, mozzarella sajt, grana padano (parmezán) sajt szórás', 2290.00, 1, 'images/pizza_photo/margherita.png', 1),
+(2, 'Sonka Gomba oliva', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, gomba, olivabogyó, grana padano (parmezán) sajt szórás.', 2790.00, 1, 'images/pizza_photo/sonka_gomba_oliva.png', 1),
+(3, 'Olasz Bacon', 'Olasz paradicsom, mozzarella sajt, guanciale(szalonna), szarvasgombás olivaolaj, paradicsomos pesto, grana padano (parmezán) sajt szórás.', 2990.00, 1, 'images/pizza_photo/olasz_bacon.png', 1),
+(4, 'Nápolyi Szalámi', 'Olasz paradicsom, mozzarella sajt, nápolyi szalámi, articsóka, grana padano (parmezán) sajt szórás', 2690.00, 1, 'images/pizza_photo/napolyi_szalami.png', 1),
+(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 2990.00, 1, 'images/pizza_photo/olasz_kolbászos.png', 1),
+(6, '4 Sajtos', 'Olasz paradicsom, mozzarella, gouda, gorgonzola sajtok és grana padano (parmezán) sajt szórás.', 550.00, 1, 'images/pizza_photo/4_sajtos.png', 1),
+(7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 550.00, 1, 'images/pizza_photo/csaszar.jpg', 1),
+(8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 990.00, 1, 'images/pizza_photo/bambino.png', 1),
+(9, 'Nápolyi Rukkola', 'Olasz paradicsom, mozzarella sajt, rukkola saláta, koktélparadicsom, fekete erdei sonka, grana padano (parmezán) sajt szórás.\n', 750.00, 1, 'images/pizza_photo/rukkola.jpg', 1),
+(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 2890.00, 1, 'images/pizza_photo/tonhal.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -237,15 +233,17 @@ INSERT INTO `product_allergens` (`product_id`, `allergen_id`) VALUES
 (4, 2),
 (5, 1),
 (5, 2),
+(6, 1),
+(6, 2),
+(7, 1),
+(7, 2),
 (8, 1),
 (8, 2),
-(8, 3),
 (9, 1),
 (9, 2),
 (10, 1),
 (10, 2),
-(12, 2),
-(12, 3);
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -385,7 +383,6 @@ CREATE TABLE `type` (
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
 (1, 'Pizza'),
 (2, 'Ital'),
-(3, 'Desszert'),
 (4, 'Kiegészítő');
 
 -- --------------------------------------------------------
