@@ -1,4 +1,4 @@
-<!-- set the backround -->
+<!-- Háttér beállítása -->
 <style>
 	body {
 		background-image: url('./media/image/pizza_bg.jpg');
@@ -9,7 +9,7 @@
 	<div class="row justify-content-center">
 		<div class="col-11 col-md-8 col-lg-6">
 
-			<!-- Title -->
+			<!-- Cím -->
 			<div class="text-center mb-4">
 				<h3 class="text-danger fw-bold">
 					<i class="fas fa-user-plus me-2"></i> Regisztráció
@@ -17,11 +17,11 @@
 				<p class="text-white-50 fw-bold">Hozd létre a fiókodat és csatlakozz!</p>
 			</div>
 
-			<!-- Card for the form -->
+			<!-- Kártya a form-hoz -->
 			<div class="card shadow border-0">
 				<div class="card-body p-4">
 					<form name="registerForm">
-						<!-- full Name -->
+						<!-- Teljes név -->
 						<div class="mb-3">
 							<label for="register-name" class="form-label text-danger fw-bold">
 								<i class="fas fa-user me-2"></i>
@@ -37,13 +37,13 @@
 											required 
 											maxlength="50"
 											ng-model="model.full_name">
-							<!-- warning to the user to set the full name -->
+							<!-- Ellenőrzi a felhasználónév helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
 							     ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
-							  Adj meg egy felhasználónevet.
+							  Kérem, adjon meg egy felhasználónevet!
 							</div>
 						</div>
-						<!-- User Name -->
+						<!-- Felhasználónév -->
 						<div class="mb-3">
 							<label for="user-name" class="form-label text-danger fw-bold">
 								<i class="fas fa-user me-2"></i>
@@ -59,10 +59,10 @@
 											required 
 											maxlength="50"
 											ng-model="model.username">
-							<!-- warning to the user to set a user name -->
+							<!-- Ellenőrzi a felhasználónév helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
      								ng-show="registerForm.username.$touched && registerForm.username.$error.required">
-  							Adj meg egy felhasználónevet.
+  							Kérem, adjon meg egy felhasználónevet!
 							</div>
 						</div>
 
@@ -84,17 +84,17 @@
 											maxlength="50"
 											ng-model="model.email"
 											ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/">
-							<!-- warning to the user to set an email -->
+							<!-- Ellenőrzi a megadott email cím helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
 							     ng-show="registerForm.email.$touched && registerForm.email.$error.email">
-							  Az email cím formátuma nem megfelelő.
+							  A megadott email cím formátuma nem megfelelő.
 							</div>
 						</div>
-						<!-- Phone number -->
+						<!-- Telefonszám -->
 						<div class="mb-3">
 							<label for="register-email" class="form-label text-danger fw-bold">
 
-								<i class="fas fa-envelope me-2"></i>Telefon szám.:
+								<i class="fas fa-envelope me-2"></i>Telefonszám :
 
 							</label>
 							<input 	type="text" 
@@ -109,29 +109,28 @@
 											maxlength="12"
 											ng-model="model.phone"
 											ng-pattern="/^\+?[0-9\s\-]{6,20}$/">
-							<!-- warning to the user to set the phone number -->
 							<div 	class="form-text text-danger fw-bold"
        							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.required">
-    						Kérlek, add meg a telefonszámod.
+    						Kérem, adjon meg egy telefonszámot!
   						</div>
-							<!-- warning to the user of the correct format of the phone number -->
+							<!-- Ellenőrzi a megadott email cím helyességét, létezését -->
 							<div 	class="form-text text-danger fw-bold"
        							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.pattern">
-    						A telefonszám formátuma érvénytelen. Pl.: +36 30 123 4567
+    						A telefonszám formátuma érvénytelen. Helyes formátum : +36 30 123 4567
   						</div>
-							<!-- warning to the  phone number  lenght to short -->
+							<!-- Ellenőrzi a megadott telefonszám hossuságát -->
 							<div class="form-text text-danger fw-bold"
        						ng-show="registerForm.phone.$touched && registerForm.phone.$error.minlength">
-    						A telefonszám túl rövid.
+    						A megadott telefonszám túl rövid.
   						</div>
 						</div>
 
-						<!-- Gender -->
+						<!-- Nem választás -->
 						<div class="mb-3">
 							<label class="form-label text-danger fw-bold">
 								<i class="fas fa-venus-mars me-2"></i>Nem .:
 							</label>
-							<!-- male -->
+							<!-- Férfi -->
 							<div class="form-check form-check-inline">
 								<input 	class="form-check-input" 
 												type="radio" 
@@ -146,7 +145,7 @@
 									Férfi
 								</label>
 							</div>
-							<!-- female -->
+							<!-- Nő -->
 							<div class="form-check form-check-inline">
 								<input 	class="form-check-input" 
 												type="radio" 
@@ -162,11 +161,11 @@
 							</div>
 							<div class="form-text text-muted fw-bold"
      								ng-show="registerForm.gender.$touched && registerForm.gender.$error.required">
-  								Kérlek, válaszd ki a nemed.
+  								Kérem, válassza ki a nemét!
 							</div>
 						</div>
 
-						<!-- Password -->
+						<!-- Jelszó -->
 						<div class="mb-3">
 							<label for="register-password" class="form-label text-danger fw-bold">
 								<i class="fas fa-lock me-2"></i>Jelszó .:
@@ -192,11 +191,10 @@
 									<i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
 								</button>
 							</div>
-							<!-- warning to the user if the password is not in the correct format -->
 							<div 	class="form-text text-muted fw-bold"
 										ng-show="registerForm.password.$touched 
 														&& registerForm.password.$error.minlength" >
-								A jelszavad legalább 6 karakter hosszú legyen.
+								A megadott jelszó legalább 6 karakterből álljon!
 							</div>
 							<div 	class="form-text text-muted fw-bold"
 										ng-show="registerForm.password.$touched 
@@ -205,7 +203,7 @@
 							</div>
 						</div>
 
-						<!-- Confirm Password -->
+						<!-- Jelszó megerősítése -->
 						<div class="mb-3">
 							<label for="confirm-password" class="form-label text-danger fw-bold">
 								<i class="fas fa-lock me-2"></i>Jelszó megerősítése .:
@@ -223,19 +221,18 @@
 											ng-init="model.confirmPassword=null"
 											ng-model="model.confirmPassword"
 											required>
-							<!-- warning to write the password again -->
 							 <div class="form-text text-muted fw-bold"
 									ng-show="registerForm.confirmPassword.$touched
               						&& model.password !== model.confirmPassword">
-									A jelszavak nem egyeznek!
+									A megadott jelszavak nem egyeznek!
 							</div>
 							<div class="form-text text-muted fw-bold"
 									ng-show="registerForm.confirmPassword.$untouched">
-									Irja be a jelszót!
+									Kérem adja meg a jelszavát!
 							</div>
 						</div>
 
-						<!-- Register Button -->
+						<!-- Regisztráció gomb -->
 						<div class="d-grid">
 							<button class="btn btn-danger btn-lg shadow-sm" 
 								ng-disabled="registerForm.$invalid" 
@@ -248,11 +245,11 @@
 				</div>
 			</div>
 
-			<!-- Footer -->
+			<!-- Lábjegyzet -->
 			<div class="text-center mt-3">
-				<p class="text-white-50 fw-bold">Már van fiókod?
+				<p class="text-white-50 fw-bold">Már van fiókja?
 					<a ui-sref="login" class="text-danger fw-bold text-decoration-none fw-bold">
-						Jelentkezz be!
+						Jelentkezzen be!
 					</a>
 				</p>
 			</div>
