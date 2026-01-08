@@ -1,117 +1,43 @@
-<main class="container py-5">
+<div class="container my-4">
+	<div class="row justify-content-center">
+		<div class="col-md-6 col-lg-4 col-xl-3 mb-4 tea {{x.tag}}"
+				 ng-repeat="x in teas"
+				 ng-if="selectedCategory === x.tag">
+			<div class="card shadow-lg rounded-4 
+                        border-0 h-100 overflow-hidden 
+                        transition-transform transform-hover"						>
+				<!-- Image Section -->
+				<img ng-src="{{x.image}}"
+						 class="card-img-top" 
+						 alt="{{x.name}}"
+						 style="height: 200px; object-fit: cover; border-bottom: 5px solid #28a745;">
 
-  <h1 class="text-center text-danger fw-bold mb-5" style="letter-spacing: 2px; font-size: 2rem;">
-    🍕 Menü
-  </h1>
+				<!-- Card Body -->
+				<div class="card-body text-center p-4">
+					<h5 class="card-title text-success mb-3">{{x.name}}</h5>
+					<p class="card-text fw-light text-muted"
+						 style="font-size: 14px;">
+						<strong>Ár .:</strong>
+						{{x.price}} Ft
+					</p>
+				</div>
 
-  <div class="row g-4">
-
-    <!-- 🔥 PIZZA KÁRTYA -->
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="card shadow-sm border-0 h-100 rounded-4 
-                  transition" style="transition: 0.3s ease;">
-
-        <div class="position-relative">
-          <img src="./media/image/margherita_pizza.jpg" 
-               class="card-img-top" style="height: 210px; object-fit: cover;" alt="Margherita">
-
-          <!-- Ár badge -->
-          <span class="badge bg-danger position-absolute top-0 end-0 m-3 p-2 shadow">
-            2 500 Ft
-          </span>
-
-          <!-- Overlay hover -->
-          <div class="position-absolute top-0 start-0 w-100 h-100" 
-               style="background: rgba(0,0,0,0); transition: 0.3s;"
-               onmouseover="this.style.background='rgba(0,0,0,0.1)';"
-               onmouseout="this.style.background='rgba(0,0,0,0)';">
-          </div>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">Margherita</h5>
-          <p class="card-text text-muted">
-            Paradicsomszósz, mozzarella sajt, friss bazsalikom.
-          </p>
-
-          <button class="btn btn-danger w-100 d-flex justify-content-center align-items-center gap-2">
-            <i class="fas fa-pizza-slice"></i>
-            Rendelés
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Pepperoni -->
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="card shadow-sm border-0 h-100 rounded-4">
-
-        <div class="position-relative">
-          <img src="./media/image/pepperoni_pizza.webp" 
-               class="card-img-top" style="height: 210px; object-fit: cover;" alt="Pepperoni">
-
-          <span class="badge bg-danger position-absolute top-0 end-0 m-3 p-2 shadow">
-            3 800 Ft
-          </span>
-
-          <div class="position-absolute top-0 start-0 w-100 h-100" 
-               style="background: rgba(0,0,0,0); transition: 0.3s;"
-               onmouseover="this.style.background='rgba(0,0,0,0.1)';"
-               onmouseout="this.style.background='rgba(0,0,0,0)';">
-          </div>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">Pepperoni</h5>
-          <p class="card-text text-muted">
-            Paradicsomszósz, mozzarella, pepperoni szeletek.
-          </p>
-
-          <button class="btn btn-danger w-100 d-flex justify-content-center align-items-center gap-2">
-            <i class="fas fa-pizza-slice"></i>
-            Rendelés
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="card shadow-sm border-0 h-100 rounded-4">
-
-        <div class="position-relative">
-          <img src="./media/image/vegetarian_pizza.jpg" 
-               class="card-img-top" style="height: 210px; object-fit: cover;" alt="Funghi">
-
-          <span class="badge bg-danger position-absolute top-0 end-0 m-3 p-2 shadow">
-            3 700 Ft
-          </span>
-
-          <div class="position-absolute top-0 start-0 w-100 h-100" 
-               style="background: rgba(0,0,0,0); transition: 0.3s;"
-               onmouseover="this.style.background='rgba(0,0,0,0.1)';"
-               onmouseout="this.style.background='rgba(0,0,0,0)';">
-          </div>
-        </div>
-
-        <div class="card-body">
-          <h5 class="card-title fw-semibold">Funghi</h5>
-          <p class="card-text text-muted">
-            Paradicsomszósz, mozzarella, friss gomba.
-          </p>
-
-          <button class="btn btn-danger w-100 d-flex justify-content-center align-items-center gap-2">
-            <i class="fas fa-pizza-slice"></i>
-            Rendelés
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</main>
-<div class="container">
-  <div class="row"></div>
+				<!-- Card Footer -->
+				<div class="card-footer bg-transparent border-0 p-3 d-flex justify-content-between">
+					<button class="btn btn-outline-primary 
+												 rounded-pill px-4 
+												 py-2"
+									ng-click="shoppingCart(x)">
+						<i class="fa fa-cart-plus me-2"></i> 
+						Vásárlás
+					</button>
+					<button class="btn btn-outline-success rounded-pill px-4 py-2"
+							ng-click="showModal(x)">
+						<i class="fa fa-info-circle me-2"></i> 
+						Részletek
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
