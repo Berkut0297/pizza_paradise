@@ -1,8 +1,7 @@
 <div class="container my-4">
 	<div class="row justify-content-center">
 		<div class="col-md-6 col-lg-4 col-xl-3 mb-4 tea {{x.tag}}"
-				 ng-repeat="x in teas"
-				 ng-if="selectedCategory === x.tag">
+				 ng-repeat="x in pizzas">
 			<div class="card shadow-lg rounded-4 
                         border-0 h-100 overflow-hidden 
                         transition-transform transform-hover"						>
@@ -14,7 +13,7 @@
 
 				<!-- Card Body -->
 				<div class="card-body text-center p-4">
-					<h5 class="card-title text-success mb-3">{{x.name}}</h5>
+					<h5 class="card-title text-success mb-3">{{pizzas.name}}</h5>
 					<p class="card-text fw-light text-muted"
 						 style="font-size: 14px;">
 						<strong>Ár .:</strong>
