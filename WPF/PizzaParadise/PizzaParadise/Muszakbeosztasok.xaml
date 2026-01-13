@@ -47,13 +47,13 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE77B;"
                                FontSize="18" Foreground="White" Margin="0,0,8,0"/>
-                    <TextBlock Text="Teljes név"
+                    <TextBlock Name="textBlock_nev" Text="Teljes név"
                                Foreground="White" FontSize="16" FontWeight="SemiBold"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,4,0,0" VerticalAlignment="Center">
                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE821;"
                                FontSize="16" Foreground="#FFD7EAF2" Margin="0,0,8,0"/>
-                    <TextBlock Text="Beosztás"
+                    <TextBlock Name="textBlock_beosztas" Text="Beosztás"
                                Foreground="#FFD7EAF2" FontSize="14"/>
                 </StackPanel>
             </StackPanel>

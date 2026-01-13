@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaParadise", "PizzaParadise\PizzaParadise.csproj", "{EEA96402-1494-4612-874D-80F45066DDEB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PizzaParadiseSetup", "PizzaParadiseSetup\PizzaParadiseSetup.vdproj", "{2770B9B7-6057-5DD5-EAD1-7BFD2F86E85A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{EEA96402-1494-4612-874D-80F45066DDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA96402-1494-4612-874D-80F45066DDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA96402-1494-4612-874D-80F45066DDEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2770B9B7-6057-5DD5-EAD1-7BFD2F86E85A}.Debug|Any CPU.ActiveCfg = Debug
+		{2770B9B7-6057-5DD5-EAD1-7BFD2F86E85A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
