@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 07. 08:27
+-- Létrehozás ideje: 2026. Jan 14. 10:19
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -120,30 +120,30 @@ CREATE TABLE `orders_item` (
   `order_item_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `topping_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT 1,
-  `subtotal` decimal(10,2) DEFAULT NULL
+  `unit_price` int(5) NOT NULL,
+  `subtotal` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `orders_item`
 --
 
-INSERT INTO `orders_item` (`order_item_id`, `order_id`, `product_id`, `topping_id`, `quantity`, `subtotal`) VALUES
-(1, 1, 3, 7, 1, 2990.00),
-(2, 1, 6, NULL, 2, 1100.00),
-(3, 2, 4, 5, 1, 2690.00),
-(4, 2, 7, NULL, 1, 550.00),
-(5, 3, 1, 6, 2, 4580.00),
-(6, 3, 9, NULL, 1, 750.00),
-(7, 4, 3, 7, 1, 3140.00),
-(8, 5, 5, 6, 1, 3290.00),
-(9, 6, 8, NULL, 2, 1980.00),
-(10, 7, 2, 3, 1, 2990.00),
-(11, 8, 4, 5, 1, 2890.00),
-(12, 8, 6, NULL, 1, 550.00),
-(13, 9, 6, NULL, 3, 1650.00),
-(14, 10, 1, NULL, 1, 2290.00);
+INSERT INTO `orders_item` (`order_item_id`, `order_id`, `product_id`, `quantity`, `unit_price`, `subtotal`) VALUES
+(1, 1, 3, 1, 0, 2990),
+(2, 1, 6, 2, 0, 1100),
+(3, 2, 4, 1, 0, 2690),
+(4, 2, 7, 1, 0, 550),
+(5, 3, 1, 2, 0, 4580),
+(6, 3, 9, 1, 0, 750),
+(7, 4, 3, 1, 0, 3140),
+(8, 5, 5, 1, 0, 3290),
+(9, 6, 8, 2, 0, 1980),
+(10, 7, 2, 1, 0, 2990),
+(11, 8, 4, 1, 0, 2890),
+(12, 8, 6, 1, 0, 550),
+(13, 9, 6, 3, 0, 1650),
+(14, 10, 1, 1, 0, 2290);
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,25 @@ INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`,
 (7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 550.00, 1, 'images/pizza_photo/csaszar.jpg', 1),
 (8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 990.00, 1, 'images/pizza_photo/bambino.png', 1),
 (9, 'Nápolyi Rukkola', 'Olasz paradicsom, mozzarella sajt, rukkola saláta, koktélparadicsom, fekete erdei sonka, grana padano (parmezán) sajt szórás.\n', 750.00, 1, 'images/pizza_photo/rukkola.jpg', 1),
-(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 2890.00, 1, 'images/pizza_photo/tonhal.jpg', 1);
+(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 2890.00, 1, 'images/pizza_photo/tonhal.jpg', 1),
+(11, 'Plusz Sajt', NULL, 400.00, 2, NULL, 1),
+(12, 'Bacon', NULL, 500.00, 2, NULL, 1),
+(13, 'Olasz Sonka', NULL, 500.00, 2, NULL, 1),
+(14, 'Olasz Kolbász', NULL, 500.00, 2, NULL, 1),
+(15, 'Nápolyi Szalámi', NULL, 500.00, 2, NULL, 1),
+(16, 'Fekete Erdei Sonka', NULL, 500.00, 2, NULL, 1),
+(17, 'Peperóni Szalámi', NULL, 500.00, 2, NULL, 1),
+(18, 'Pancetta Fűszeres Császárszalonna', NULL, 600.00, 2, NULL, 1),
+(19, 'Gombakrém', NULL, 500.00, 2, NULL, 1),
+(20, 'BBQ Gomba mix', NULL, 500.00, 2, NULL, 1),
+(21, 'Olivabogyó', NULL, 400.00, 2, NULL, 1),
+(22, 'Koktélparadicsom', NULL, 300.00, 2, NULL, 1),
+(23, 'Articsóka', NULL, 400.00, 2, NULL, 1),
+(24, 'kukorica', NULL, 300.00, 2, NULL, 1),
+(25, 'Póréhagyma', NULL, 300.00, 2, NULL, 1),
+(26, 'Lilahagyma', NULL, 300.00, 2, NULL, 1),
+(27, 'Jalapeno Paprika Szeletek', NULL, 400.00, 2, NULL, 1),
+(28, 'Ananász', NULL, 400.00, 2, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -315,55 +333,26 @@ CREATE TABLE `shopping_cart_items` (
   `cart_item_id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `quantity` int(11) DEFAULT 1,
-  `topping_id` int(11) DEFAULT NULL
+  `quantity` int(11) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `shopping_cart_items`
 --
 
-INSERT INTO `shopping_cart_items` (`cart_item_id`, `cart_id`, `product_id`, `quantity`, `topping_id`) VALUES
-(1, 1, 3, 1, 7),
-(2, 1, 6, 2, NULL),
-(3, 2, 4, 1, 5),
-(4, 3, 1, 2, 6),
-(5, 3, 9, 1, NULL),
-(6, 4, 3, 1, 7),
-(7, 5, 5, 1, 6),
-(8, 6, 8, 2, NULL),
-(9, 7, 2, 1, 3),
-(10, 8, 4, 1, 5),
-(11, 9, 6, 3, NULL),
-(12, 10, 1, 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `toppings`
---
-
-CREATE TABLE `toppings` (
-  `topping_id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `price` decimal(6,2) DEFAULT 0.00,
-  `is_spicy` tinyint(1) DEFAULT 0,
-  `is_vegan` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- A tábla adatainak kiíratása `toppings`
---
-
-INSERT INTO `toppings` (`topping_id`, `name`, `price`, `is_spicy`, `is_vegan`) VALUES
-(1, 'Szalámi', 350.00, 1, 0),
-(2, 'Sonka', 300.00, 0, 0),
-(3, 'Gomba', 250.00, 0, 1),
-(4, 'Kukorica', 200.00, 0, 1),
-(5, 'Olívabogyó', 200.00, 0, 1),
-(6, 'Extra sajt', 300.00, 0, 1),
-(7, 'Csípős paprika', 150.00, 1, 1),
-(8, 'Hagyma', 100.00, 0, 1);
+INSERT INTO `shopping_cart_items` (`cart_item_id`, `cart_id`, `product_id`, `quantity`) VALUES
+(1, 1, 3, 1),
+(2, 1, 6, 2),
+(3, 2, 4, 1),
+(4, 3, 1, 2),
+(5, 3, 9, 1),
+(6, 4, 3, 1),
+(7, 5, 5, 1),
+(8, 6, 8, 2),
+(9, 7, 2, 1),
+(10, 8, 4, 1),
+(11, 9, 6, 3),
+(12, 10, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -382,8 +371,8 @@ CREATE TABLE `type` (
 
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
 (1, 'Pizza'),
-(2, 'Ital'),
-(4, 'Kiegészítő');
+(2, 'Feltét'),
+(3, 'Kiegészítő');
 
 -- --------------------------------------------------------
 
@@ -455,8 +444,7 @@ ALTER TABLE `orders`
 ALTER TABLE `orders_item`
   ADD PRIMARY KEY (`order_item_id`),
   ADD KEY `order_id` (`order_id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `topping_id` (`topping_id`);
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- A tábla indexei `payments`
@@ -499,14 +487,7 @@ ALTER TABLE `shopping_cart`
 ALTER TABLE `shopping_cart_items`
   ADD PRIMARY KEY (`cart_item_id`),
   ADD KEY `cart_id` (`cart_id`),
-  ADD KEY `product_id` (`product_id`),
-  ADD KEY `topping_id` (`topping_id`);
-
---
--- A tábla indexei `toppings`
---
-ALTER TABLE `toppings`
-  ADD PRIMARY KEY (`topping_id`);
+  ADD KEY `product_id` (`product_id`);
 
 --
 -- A tábla indexei `type`
@@ -555,6 +536,12 @@ ALTER TABLE `orders_item`
 --
 ALTER TABLE `payments`
   MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT a táblához `products`
+--
+ALTER TABLE `products`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
