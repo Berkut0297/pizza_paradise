@@ -1,33 +1,38 @@
 <?php
-//Load the enviroment.php
+//enviroment.php betöltése 
 require_once("../../../common/php/environment.php");
 
-//argument define
+//argumentum definiálása
 $args = Util::getArgs();
 
-//db connection
+//adatbázisra kacsolás
 $db = new Database();
 
-//define the sql command
+//sql parancs definiálása
 $query =" SELECT `user_id`, `full_name`, `password`, `email` 
           FROM `users` 
           WHERE `email` = `email` 
           LIMIT 1;";
 
-//execute the sql command
+//sql parancs végrehajtása
 $result = $db->execute($query);
 
-//close the connection
+//adatbázis le kapcsolás
 $db = null;
 
-// check the registration of the email and the password
+//email regisztrációjának ellenörzése
 if ($result[0]["email"] !=$args["email"])
+
+    //ha nincs regisztrálva ilyen email visszatérés hiba üzenettel
     Util::setError("Nincs ilyen email cím regisztrálva!");
 
+//jelszó helyességének ellenörzése
 if ($result[0]["password"] != $args["password"])
+
+    //ha nem helyes a jelszó visszatérés hiba üzenettel
     Util::setError("A jelszó nem helyes!");
 
-//set the response
+//vissztérési értek megadása és vissza térés
 Util::setResponse($result);
 
 

@@ -1,35 +1,39 @@
 <?php
-//Load the enviroment.php
+//enviroment.php betöltése 
 require_once("../../../common/php/environment.php");
 
-//argument define
+//argumentum definiálása
 $args = Util::getArgs();
 
-//db connection
+//adatbázisra kacsolás
 $db = new Database();
 
-//define the sql command
+//sql parancs definiálása
 $query = "SELECT `email`,`phone` FROM users;";
 
-//execute the sql command
+//sql parancs végrehajtása
 $result = $db->execute($query);
 
-//close the connection
+//adatbázis le kapcsolás
 $db = null;
 
-//check the email is already in the database
-if (isset($result[0]["email"]) && $result[0]["email"] === $args["email"]) 
+//email ellenörzése hogy regisztráva van e már
+if (isset($result[0]["email"]) && $result[0]["email"] === $args["email"])
+
+  //ha már regisztrálva van ilyen email visszatérés hiba üzenettel 
   Util::setError("Az email már használt!");
 
-//check the phone is already in the database
+//telefonszám ellenözése hogy regisztráva van e már
 if (isset($result[0]["phone"]) && $result[0]["phone"] === $args["phone"]) 
+
+  //ha már regisztrálva van ilyen telefonszám visszatérés hiba üzenettel 
   Util::setError("A Telefon szám már használt!");
 
-//prepare the insert
+//preparateInsert segéd fügvény segitségével le generáljuk az insert sql parancsot
 $query = $db->preparateInsert("users",$args);
 
-//execute the insert to the data base
+//végre hajtjuk az elöbb legenerált insert parancsot
 $result = $db->execute($query, array_values($args));
 
-//set the response
+//vissztérési értek megadása és vissza térés
 Util::setresponse($result);
