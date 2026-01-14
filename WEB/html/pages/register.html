@@ -106,8 +106,8 @@
 											autocomplete="off" 
 											required 
 											minlength="11"
-											maxlength="12"
-											ng-model="model.phone"
+											maxlength="20"
+											ng-model="model.phone_number"
 											ng-pattern="/^\+?[0-9\s\-]{6,20}$/">
 							<div 	class="form-text text-danger fw-bold"
        							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.required">
@@ -215,7 +215,6 @@
 											placeholder="Jelszó megerősítése" 
 											spellcheck="false"
 											autocomplete="off" 
-											required 
 											minlength="6" 
 											maxlength="20" 
 											ng-init="model.confirmPassword=null"
