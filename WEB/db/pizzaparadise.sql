@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 04. 11:38
+-- Létrehozás ideje: 2026. Jan 07. 08:27
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -45,9 +45,16 @@ INSERT INTO `addresses` (`address_id`, `user_id`, `city`, `street`, `postal_code
 (2, 2, 'Szeged', 'Tisza Lajos körút', '6722', '45'),
 (3, 3, 'Budapest', 'Andrássy út', '1061', '15'),
 (4, 4, 'Pécs', 'Rákóczi út', '7621', '2A'),
-(5, 5, 'Debrecen', 'Piac utca', '4024', '8'),
-(6, 6, 'Győr', 'Baross Gábor út', '9021', '14'),
-(7, 7, 'Budapest', 'Üllői út', '1091', '22');
+(5, 5, 'Debrecen', 'Piac utca', '4025', '22'),
+(6, 5, 'Budapest', 'Fő utca', '1011', '14B'),
+(7, 6, 'Győr', 'Baross Gábor út', '9022', '7'),
+(8, 7, 'Miskolc', 'Szent István tér', '3525', '10'),
+(9, 8, 'Budapest', 'Váci út', '1132', '31'),
+(10, 9, 'Szolnok', 'Ady Endre út', '5000', '2'),
+(11, 10, 'Pécs', 'Jókai tér', '7621', '8'),
+(12, 13, 'Eger', 'Dobó tér', '3300', '3'),
+(13, 14, 'Tatabánya', 'Ságvári út', '2800', '15A'),
+(14, 6, 'Sopron', 'Tűztorony tér', '9400', '5');
 
 -- --------------------------------------------------------
 
@@ -68,9 +75,7 @@ CREATE TABLE `allergens` (
 INSERT INTO `allergens` (`allergen_id`, `name`, `description`) VALUES
 (1, 'Glutén', 'Búzalisztet tartalmaz.'),
 (2, 'Tej', 'Tejfehérjét és laktózt tartalmaz.'),
-(3, 'Tojás', 'Tojásfehérjét tartalmaz.'),
-(4, 'Szójabab', 'Szóját tartalmaz.'),
-(5, 'Mogyoró', 'Nyomokban mogyorót tartalmazhat.');
+(3, 'Hal', 'Hal és halmaradványt tartalmaz');
 
 -- --------------------------------------------------------
 
@@ -95,11 +100,15 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`order_id`, `user_id`, `address_id`, `cart_id`, `order_date`, `status`, `total_price`, `payment_method`) VALUES
 (1, 1, 1, 1, '2025-11-05 18:30:00', 'delivered', 4090.00, 'card'),
-(2, 2, 2, 2, '2025-11-06 12:45:00', 'delivered', 3240.00, 'cash'),
-(3, 5, 5, 3, '2025-12-20 17:45:00', 'delivered', 3440.00, 'card'),
-(4, 6, 6, 4, '2025-12-21 12:10:00', 'in_progress', 3340.00, 'cash'),
-(5, 7, 7, 5, '2025-12-22 19:30:00', 'pending', 5980.00, 'online'),
-(6, 1, 1, NULL, '2025-12-23 18:00:00', 'cancelled', 0.00, 'cash');
+(2, 2, 2, 2, '2025-11-06 12:45:00', 'in_progress', 3240.00, 'cash'),
+(3, 5, 5, 3, '2025-11-08 18:20:00', 'delivered', 5590.00, 'online'),
+(4, 6, 7, 4, '2025-11-08 19:10:00', 'in_progress', 2990.00, 'cash'),
+(5, 7, 8, 5, '2025-11-09 12:40:00', 'pending', 3290.00, 'card'),
+(6, 8, 9, 6, '2025-11-09 15:30:00', 'delivered', 1980.00, 'cash'),
+(7, 9, 10, 7, '2025-11-10 14:20:00', 'delivered', 2790.00, 'online'),
+(8, 10, 11, 8, '2025-11-10 17:05:00', 'in_progress', 3490.00, 'cash'),
+(9, 13, 12, 9, '2025-11-10 20:50:00', 'cancelled', 1650.00, 'card'),
+(10, 14, 13, 10, '2025-11-11 09:10:00', 'pending', 2290.00, 'card');
 
 -- --------------------------------------------------------
 
@@ -125,11 +134,16 @@ INSERT INTO `orders_item` (`order_item_id`, `order_id`, `product_id`, `topping_i
 (2, 1, 6, NULL, 2, 1100.00),
 (3, 2, 4, 5, 1, 2690.00),
 (4, 2, 7, NULL, 1, 550.00),
-(5, 3, 10, NULL, 1, 2890.00),
-(6, 3, 6, NULL, 1, 550.00),
-(7, 4, 11, NULL, 1, 3090.00),
-(8, 4, 7, NULL, 1, 550.00),
-(9, 5, 3, NULL, 2, 5980.00);
+(5, 3, 1, 6, 2, 4580.00),
+(6, 3, 9, NULL, 1, 750.00),
+(7, 4, 3, 7, 1, 3140.00),
+(8, 5, 5, 6, 1, 3290.00),
+(9, 6, 8, NULL, 2, 1980.00),
+(10, 7, 2, 3, 1, 2990.00),
+(11, 8, 4, 5, 1, 2890.00),
+(12, 8, 6, NULL, 1, 550.00),
+(13, 9, 6, NULL, 3, 1650.00),
+(14, 10, 1, NULL, 1, 2290.00);
 
 -- --------------------------------------------------------
 
@@ -152,9 +166,14 @@ CREATE TABLE `payments` (
 INSERT INTO `payments` (`payment_id`, `order_id`, `payment_date`, `amount`, `payment_status`) VALUES
 (1, 1, '2025-11-05 18:35:00', 4090.00, 'completed'),
 (2, 2, '2025-11-06 12:50:00', 3240.00, 'pending'),
-(3, 3, '2026-01-04 11:35:47', 3440.00, 'completed'),
-(4, 4, '2026-01-04 11:35:47', 3340.00, 'pending'),
-(5, 5, '2026-01-04 11:35:47', 5980.00, 'completed');
+(3, 3, '2025-11-08 18:25:00', 5590.00, 'completed'),
+(4, 4, '2025-11-08 19:12:00', 2990.00, 'pending'),
+(5, 5, '2025-11-09 12:41:00', 3290.00, 'completed'),
+(6, 6, '2025-11-09 15:35:00', 1980.00, 'completed'),
+(7, 7, '2025-11-10 14:25:00', 2790.00, 'completed'),
+(8, 8, '2025-11-10 17:06:00', 3490.00, 'pending'),
+(9, 9, '2025-11-10 20:51:00', 1650.00, 'failed'),
+(10, 10, '2025-11-11 09:11:00', 2290.00, 'pending');
 
 -- --------------------------------------------------------
 
@@ -177,20 +196,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`, `image_url`, `available`) VALUES
-(1, 'Margherita Pizza', 'Paradicsomszósz, mozzarella, bazsalikom', 2290.00, 1, 'images/margherita.jpg', 1),
-(2, 'SonGoKu Pizza', 'Sonka, gomba, kukorica, sajt', 2790.00, 1, 'images/songoku.jpg', 1),
-(3, 'Magyaros Pizza', 'Kolbász, szalámi, lilahagyma, csípős paprika, sajt', 2990.00, 1, 'images/magyaros.jpg', 1),
-(4, 'Vegetáriánus Pizza', 'Gomba, kukorica, paprika, olívabogyó, sajt', 2690.00, 1, 'images/vegetarian.jpg', 1),
-(5, 'BBQ Csirkés Pizza', 'BBQ-szósz, grillezett csirke, hagyma, sajt', 2990.00, 1, 'images/bbq.jpg', 1),
-(6, 'Coca-Cola 0.5L', 'Szénsavas üdítőital', 550.00, 2, 'images/cocacola.jpg', 1),
-(7, 'Fanta 0.5L', 'Narancs ízű üdítőital', 550.00, 2, 'images/fanta.jpg', 1),
-(8, 'Somlói galuska', 'Hagyományos magyar desszert tejszínhabbal', 990.00, 3, 'images/somloi.jpg', 1),
-(9, 'Fokhagymás kenyeres kosár', 'Friss bagett fokhagymás vajjal', 750.00, 4, 'images/garlicbread.jpg', 1),
-(10, 'Hawaii Pizza', 'Sonka, ananász, sajt', 2890.00, 1, 'images/hawaii.jpg', 1),
-(11, 'Mexikói Pizza', 'Csípős marhahús, bab, jalapeno', 3090.00, 1, 'images/mexican.jpg', 1),
-(12, 'Sprite 0.5L', 'Szénsavas üdítőital', 550.00, 2, 'images/sprite.jpg', 1),
-(13, 'Brownie', 'Csokoládés sütemény', 890.00, 3, 'images/brownie.jpg', 1),
-(14, 'Tiramisu', 'Olasz desszert', 1090.00, 3, 'images/tiramisu.jpg', 1);
+(1, 'Margherita', 'Olasz paradicsom, mozzarella sajt, grana padano (parmezán) sajt szórás', 2290.00, 1, 'images/pizza_photo/margherita.png', 1),
+(2, 'Sonka Gomba oliva', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, gomba, olivabogyó, grana padano (parmezán) sajt szórás.', 2790.00, 1, 'images/pizza_photo/sonka_gomba_oliva.png', 1),
+(3, 'Olasz Bacon', 'Olasz paradicsom, mozzarella sajt, guanciale(szalonna), szarvasgombás olivaolaj, paradicsomos pesto, grana padano (parmezán) sajt szórás.', 2990.00, 1, 'images/pizza_photo/olasz_bacon.png', 1),
+(4, 'Nápolyi Szalámi', 'Olasz paradicsom, mozzarella sajt, nápolyi szalámi, articsóka, grana padano (parmezán) sajt szórás', 2690.00, 1, 'images/pizza_photo/napolyi_szalami.png', 1),
+(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 2990.00, 1, 'images/pizza_photo/olasz_kolbászos.png', 1),
+(6, '4 Sajtos', 'Olasz paradicsom, mozzarella, gouda, gorgonzola sajtok és grana padano (parmezán) sajt szórás.', 550.00, 1, 'images/pizza_photo/4_sajtos.png', 1),
+(7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 550.00, 1, 'images/pizza_photo/csaszar.jpg', 1),
+(8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 990.00, 1, 'images/pizza_photo/bambino.png', 1),
+(9, 'Nápolyi Rukkola', 'Olasz paradicsom, mozzarella sajt, rukkola saláta, koktélparadicsom, fekete erdei sonka, grana padano (parmezán) sajt szórás.\n', 750.00, 1, 'images/pizza_photo/rukkola.jpg', 1),
+(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 2890.00, 1, 'images/pizza_photo/tonhal.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -218,11 +233,17 @@ INSERT INTO `product_allergens` (`product_id`, `allergen_id`) VALUES
 (4, 2),
 (5, 1),
 (5, 2),
+(6, 1),
+(6, 2),
+(7, 1),
+(7, 2),
 (8, 1),
 (8, 2),
-(8, 3),
 (9, 1),
-(9, 2);
+(9, 2),
+(10, 1),
+(10, 2),
+(10, 3);
 
 -- --------------------------------------------------------
 
@@ -251,7 +272,10 @@ INSERT INTO `product_toppings` (`product_id`, `topping_id`) VALUES
 (4, 4),
 (4, 5),
 (5, 6),
-(5, 8);
+(5, 8),
+(10, 6),
+(10, 8),
+(12, 5);
 
 -- --------------------------------------------------------
 
@@ -272,9 +296,14 @@ CREATE TABLE `shopping_cart` (
 INSERT INTO `shopping_cart` (`cart_id`, `user_id`, `created_at`) VALUES
 (1, 1, '2025-11-11 10:10:05'),
 (2, 2, '2025-11-11 10:10:05'),
-(3, 5, '2026-01-04 11:35:13'),
-(4, 6, '2026-01-04 11:35:13'),
-(5, 7, '2026-01-04 11:35:13');
+(3, 5, '2025-12-09 07:49:48'),
+(4, 6, '2025-12-09 07:49:48'),
+(5, 7, '2025-12-09 07:49:48'),
+(6, 8, '2025-12-09 07:49:48'),
+(7, 9, '2025-12-09 07:49:48'),
+(8, 10, '2025-12-09 07:49:48'),
+(9, 13, '2025-12-09 07:49:48'),
+(10, 14, '2025-12-09 07:49:48');
 
 -- --------------------------------------------------------
 
@@ -298,11 +327,15 @@ INSERT INTO `shopping_cart_items` (`cart_item_id`, `cart_id`, `product_id`, `qua
 (1, 1, 3, 1, 7),
 (2, 1, 6, 2, NULL),
 (3, 2, 4, 1, 5),
-(4, 3, 1, 1, NULL),
-(5, 3, 6, 2, NULL),
-(6, 4, 2, 1, NULL),
-(7, 4, 7, 1, NULL),
-(8, 5, 5, 2, NULL);
+(4, 3, 1, 2, 6),
+(5, 3, 9, 1, NULL),
+(6, 4, 3, 1, 7),
+(7, 5, 5, 1, 6),
+(8, 6, 8, 2, NULL),
+(9, 7, 2, 1, 3),
+(10, 8, 4, 1, 5),
+(11, 9, 6, 3, NULL),
+(12, 10, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -350,7 +383,6 @@ CREATE TABLE `type` (
 INSERT INTO `type` (`type_id`, `type_name`) VALUES
 (1, 'Pizza'),
 (2, 'Ital'),
-(3, 'Desszert'),
 (4, 'Kiegészítő');
 
 -- --------------------------------------------------------
@@ -362,9 +394,10 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `full_name` varchar(100) DEFAULT NULL,
+  `Gender` varchar(1) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `role` enum('customer','admin','courier') DEFAULT 'customer',
   `created_at` datetime DEFAULT current_timestamp()
@@ -374,15 +407,21 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password_hash`, `email`, `full_name`, `phone`, `role`, `created_at`) VALUES
-(1, 'peter88', 'peter88', 'peter88@example.com', 'Kovács Péter', '+36201234567', 'customer', '2025-11-11 10:10:05'),
-(2, 'anna92', 'anna92', 'anna92@example.com', 'Nagy Anna', '+36301239876', 'customer', '2025-11-11 10:10:05'),
-(3, 'admin', 'admin', 'admin@pizzaparadise.hu', 'Rendszergazda', '+3612345678', 'admin', '2025-11-11 10:10:05'),
-(4, 'tomi_futar', 'tomi_futar', 'tomi@pizzaparadise.hu', 'Tóth Tamás', '+36203334455', 'courier', '2025-11-11 10:10:05'),
-(5, 'balazs90', 'balazs90', 'balazs90@mail.hu', 'Kiss Balázs', '+36201112233', 'customer', '2026-01-04 11:34:46'),
-(6, 'eva77', 'eva77', 'eva77@mail.hu', 'Szabó Éva', '+36302223344', 'customer', '2026-01-04 11:34:46'),
-(7, 'laci_futar', 'laci_futar', 'laci@pizzaparadise.hu', 'Lakatos László', '+36203334455', 'courier', '2026-01-04 11:34:46'),
-(8, 'admin2', 'admin2', 'admin2@pizzaparadise.hu', 'Másod Admin', '+3611112222', 'admin', '2026-01-04 11:34:46');
+INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `full_name`, `Gender`, `phone`, `role`, `created_at`) VALUES
+(1, 'peter88', 'Peter1234', 'peter88@example.com', 'Kovács Péter', 'M', '+36201234567', 'customer', '2025-11-11 10:10:05'),
+(2, 'anna92', 'Anna1234', 'anna92@example.com', 'Nagy Anna', 'F', '+36301239876', 'customer', '2025-11-11 10:10:05'),
+(3, 'admin', 'Admin1234', 'admin@pizzaparadise.hu', 'Rendszergazda', NULL, '+3612345678', 'admin', '2025-11-11 10:10:05'),
+(4, 'tomi_futár', 'Tomifutar1234', 'tomi@pizzaparadise.hu', 'Tóth Tamás', 'M', '+36203334455', 'courier', '2025-11-11 10:10:05'),
+(5, 'kati07', 'Kati1234', 'kati07@example.com', 'Farkas Katalin', 'F', '+36204443322', 'customer', '2025-12-09 07:49:16'),
+(6, 'bence_dev', 'Bence1234', 'bence.dev@example.com', 'Török Bence', 'M', '+36304445566', 'customer', '2025-12-09 07:49:16'),
+(7, 'zsombi12', 'Zsombi1234', 'zsombi12@example.com', 'Szabó Zsombor', 'M', '+36205556677', 'customer', '2025-12-09 07:49:16'),
+(8, 'edit_nagy', 'Edit1234', 'edit.nagy@example.com', 'Nagy Edit', 'F', '+36207778899', 'customer', '2025-12-09 07:49:16'),
+(9, 'rita_cs', 'Rita1234', 'rita.cs@example.com', 'Csorba Rita', 'F', '+36309998877', 'customer', '2025-12-09 07:49:16'),
+(10, 'lilla89', 'Lilla1234', 'lilla89@example.com', 'Jakab Lilla', 'F', '+36201112233', 'customer', '2025-12-09 07:49:16'),
+(11, 'vendeghaz', 'Vendeg1234', 'haz.vend@example.com', 'Vendégház', NULL, '+36201239845', 'admin', '2025-12-09 07:49:16'),
+(12, 'feri_futar2', 'Ferifurtar1234', 'feri2@pizzaparadise.hu', 'Kiss Ferenc', 'M', '+36203335544', 'courier', '2025-12-09 07:49:16'),
+(13, 'dani88', 'Dani1234', 'dani88@example.com', 'Somogyi Dániel', 'M', '+36304442322', 'customer', '2025-12-09 07:49:16'),
+(14, 'zita77', 'Zita1234', 'zita77@example.com', 'Kádár Zita', 'F', '+36208889933', 'customer', '2025-12-09 07:49:16');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -491,7 +530,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `addresses`
 --
 ALTER TABLE `addresses`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT a táblához `allergens`
@@ -503,121 +542,19 @@ ALTER TABLE `allergens`
 -- AUTO_INCREMENT a táblához `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT a táblához `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `order_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT a táblához `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT a táblához `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT a táblához `shopping_cart`
---
-ALTER TABLE `shopping_cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT a táblához `shopping_cart_items`
---
-ALTER TABLE `shopping_cart_items`
-  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT a táblához `toppings`
---
-ALTER TABLE `toppings`
-  MODIFY `topping_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT a táblához `type`
---
-ALTER TABLE `type`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT a táblához `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Megkötések a kiírt táblákhoz
---
-
---
--- Megkötések a táblához `addresses`
---
-ALTER TABLE `addresses`
-  ADD CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`address_id`),
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`);
-
---
--- Megkötések a táblához `orders_item`
---
-ALTER TABLE `orders_item`
-  ADD CONSTRAINT `orders_item_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `orders_item_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `orders_item_ibfk_3` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`);
-
---
--- Megkötések a táblához `payments`
---
-ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`);
-
---
--- Megkötések a táblához `product_allergens`
---
-ALTER TABLE `product_allergens`
-  ADD CONSTRAINT `product_allergens_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `product_allergens_ibfk_2` FOREIGN KEY (`allergen_id`) REFERENCES `allergens` (`allergen_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `product_toppings`
---
-ALTER TABLE `product_toppings`
-  ADD CONSTRAINT `product_toppings_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `product_toppings_ibfk_2` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `shopping_cart`
---
-ALTER TABLE `shopping_cart`
-  ADD CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Megkötések a táblához `shopping_cart_items`
---
-ALTER TABLE `shopping_cart_items`
-  ADD CONSTRAINT `shopping_cart_items_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `shopping_cart_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `shopping_cart_items_ibfk_3` FOREIGN KEY (`topping_id`) REFERENCES `toppings` (`topping_id`);
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

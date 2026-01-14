@@ -1,19 +1,19 @@
 <div class="container my-4">
 	<div class="row justify-content-center">
-		<div class="col-md-6 col-lg-4 col-xl-3 mb-4 tea {{x.tag}}"
+		<div class="col-md-6 col-lg-4 col-xl-3 mb-4"
 				 ng-repeat="x in pizzas">
 			<div class="card shadow-lg rounded-4 
-                        border-0 h-100 overflow-hidden 
-                        transition-transform transform-hover"						>
+                  border-0 h-100 overflow-hidden 
+                  transition-transform transform-hover">
 				<!-- Képek -->
-				<img ng-src="{{x.image}}"
+				<img ng-src="./media/image/pizza_photo/{{x.image_url}}"
 						 class="card-img-top" 
 						 alt="{{x.name}}"
 						 style="height: 200px; object-fit: cover; border-bottom: 5px solid #28a745;">
 
 				<!-- Kép body -->
 				<div class="card-body text-center p-4">
-					<h5 class="card-title text-success mb-3">{{pizzas.name}}</h5>
+					<h5 class="card-title text-success mb-3">{{x.name}}</h5>
 					<p class="card-text fw-light text-muted"
 						 style="font-size: 14px;">
 						<strong>Ár .:</strong>
@@ -31,11 +31,50 @@
 						Vásárlás
 					</button>
 					<button class="btn btn-outline-success rounded-pill px-4 py-2"
-							ng-click="showModal(x)">
+									ng-click="showModal(x)">
 						<i class="fa fa-info-circle me-2"></i> 
 						Részletek
 					</button>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade"
+		 id="pizzaModal" 
+		 tabindex="-1" 
+		 aria-labelledby="pizzaModalLabel" 
+		 aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header modal-header-green">
+				<h5 class="modal-title"
+						id="pizzaModalLabel">{{pizzasModal.name}}</h5>
+				<button type="button"
+								class="btn-close" 
+								data-bs-dismiss="modal" 
+								aria-label="Close">
+				</button>
+			</div> 
+			<div class="modal-body">
+				<img ng-src="../media/image/pizza_photo/{{pizzasModal.image_url}}"
+						 class="img-fluid rounded-3" 
+						 alt="{{pizzasModal.name}}">
+				<p class="mt-3">{{pizzasModal.description}}</p>
+				<p><strong>Ár .:</strong> {{pizzasModal.price}} Ft</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+								class="btn btn-outline-danger rounded-pill" 
+								data-bs-dismiss="modal">
+								Bezárás
+				</button>
+				<button type="button"
+								class="btn btn-outline-success rounded-pill"
+								ng-click="shoppingCart(pizzasModal)">
+								Vásárlás
+				</button>
 			</div>
 		</div>
 	</div>

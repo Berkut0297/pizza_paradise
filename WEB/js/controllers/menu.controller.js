@@ -19,9 +19,14 @@
             })
             .catch(e=>console.log(e));
       }
-      
-
-      console.log('Menu controller...' + $state.current.name);
+      $scope.getpizzas();
+      $scope.showModal = function (pizza) {
+          $scope.pizzasModal = angular.copy(pizza);
+          let modal = new bootstrap.Modal(
+            document.getElementById('pizzaModal')
+          );
+          modal.show();
+      }
     }
   ]);
 
