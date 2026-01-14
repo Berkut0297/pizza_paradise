@@ -1,42 +1,56 @@
 ; (function (window, angular) {
   'use strict';
-  // Get the existing AngularJS module named 'app'
+  //Angulár modul meghivása
   angular.module('app')
-    // Define a controller called 'loginController'
+
+    //Controller létrehozása 'loginController' néven
     .controller('loginController', [
-      // Load the next service into the controller:
+
+      //elemek betöltése a controllerbe
       '$scope',
       '$rootScope',
       'http',
       '$state',
-      //Define a function with the loaded services
+
+      //függvény definiálása a betöltött elemekkel
       function ($scope, $rootScope, http, $state) {
-        //Define the loginBtn function
+
+        //loginBtn fügvény definiálása
         $scope.loginBtn = function () {
-          //http request
+
+          //http kérelem
           http.request({
-            //php file root
+
+            //php fálj utvonala
             url: './php/login.php',
-            //Define the sending data
+
+            //php fájbe küldött adatok betöltése
             data: {
               email: $scope.model.email,
               password: $scope.model.password
             }                  
           })
-          //Response
+
+          //Visszaadott adatok kezelése
           .then(response => {
+
+            //A vissza adott adatok mentése a user változóba
             $rootScope.user = response;
-            //console log the response
+
+            //a vissza adott adatok megjelenitése a conzolon
             console.log(response);
-            //applying the Async function
+            
+            //Async függvény meghivása
             $scope.$applyAsync(); 
-            //$('#loginModal').modal('show');
           })
-          //Error
+
+          //Hiba kezelése
           .catch(e => {
-            //messiging the error
+
+            //Hiba kód mentése az msg változóba
             $scope.msg = e;
-            //$('#loginModal').modal('show');
+
+            //Hiba kód megjelenitése a felhasználónak
             alert(e)
           })
         }

@@ -1,14 +1,13 @@
 ;(function(window, angular) {
   'use strict'; 
-  // Get the existing AngularJS module named 'app'
+  //Angulár modul meghivása 
   angular.module('app')
-  // Define a controller called 'homeController'
+  //Controller létrehozása 'homeController' néven
   .controller('homeController', [
-    // Load the next service into the controller:
+    //$scope betöltése a controllerbe
     '$scope',
-    //Define a function with the loaded services 
+    //függvény definiálása
     function($scope) {
-      // Console log if the controller is loaded
       console.log('Home controller...');
     }
   ]);

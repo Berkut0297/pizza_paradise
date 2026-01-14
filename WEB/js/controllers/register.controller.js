@@ -1,47 +1,71 @@
 ; (function (window, angular) {
   'use strict';
-  // Get the existing AngularJS module named 'app'
+  //Angulár modul meghivása
   angular.module('app')
-  // Define a controller called 'registerController'
+
+    //Controller létrehozása 'registerController' néven
   .controller('registerController', [
-    // Load the next service into the controller:
+
+    //elemek betöltése a controllerbe
     '$scope',
     'http',
     '$state',
     'util',
-    //Define a function with the loaded services
+
+    //függvény definiálása a betöltött elemekkel
     function ($scope, http, $state, util) {
-      //Defind the registerButton
+
+      //registerButton függvény definiálása
       $scope.registerButton = function () {
-        //Define the sending data and filtering 
-        //excluding the confirm password and show password
-        //that is neccessary because we don't want to send 2 times the password to tha database
-        let data = util.objFilterByKeys($scope.model, 'confirmPassword;showPassword', false);
-        //http request
+
+        //data nevű objektum létrehozása aminek értékét a modelben átadott adatokkal feltöltjük
+        //objFilterByKeys függvény meghivása
+        let data = util.objFilterByKeys(
+
+          //a felhasználó adataival feltöltött objektum
+          $scope.model,
+
+          //megadjuk a függvénynek mely adatotkat filterelje el az objektumból
+          'confirmPassword;showPassword',
+
+          //a false érték megadásával megadjuk hogy ezen kulcs érték párosokat távoltja el az objektumból
+          false
+        );
+
+        //http kérelem 
         http.request({
-          //php file root
+
+          //php fájl útvonala
           url: './php/register.php',
-          //Define the sending data
+
+          //küldendő adat megadása a fentebb filterezett data objektummal
           data: data
         })
-        //Response
+        //Visszaadott adatok kezelése
         .then(response => {
+
+          //A vissza adott adatok mentése a isRegistered változóba
           $scope.isRegistered = response;
-          //messaging if the registeration is success
+
+          //Visszaa jelzés a felhasználónak sikeres regisztráció estén 
           $scope.Message = "Sikeres regisztráció";
-          //applying the Async function
+
+          //Async függvény meghivása
           $scope.$applyAsync();
-          //redirect to login
+
+          //át iránytás a login statre(oldalra)
           $state.go('login')
-          //$('#registerModal').modal('show');
         })
-        //Error
+
+        //Hiba kezelése
         .catch(e => {
-          //messaging the error
-          $scope.Message = e;
-          //$('#registerModal').modal('show');
-        }
-        )
+
+          //Hiba kód mentése az msg változóba
+          $scope.msg = e;
+
+          //Hiba kód megjelenitése a felhasználónak
+          alert(e)
+        })
       }
     }
   ])

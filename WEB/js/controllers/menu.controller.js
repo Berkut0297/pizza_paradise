@@ -1,30 +1,62 @@
 ; (function (window, angular) {
   'use strict';
-  // Get the existing AngularJS module named 'app'
+  //Angulár modul meghivása 
   angular.module('app')
-  // Define a controller called 'menuController'
+
+  //Controller létrehozása 'menuController' néven
   .controller('menuController', [
-    // Load the next service into the controller:
+
+    //elemek betöltése a controllerbe
     '$scope',
     '$state',
     'http',
-    //Define a function with the loaded services
+
+    //függvény definiálása a betöltött elemekkel
     function ($scope, $state, http) {
-      // Console log if the controller is loaded
+
+      //getpizzas függvény definiálása
       $scope.getpizzas = function (){
+
+        //http kérés és php fálj útvanalának megadása
         http.request('./php/getpizzas.php')
+
+            //Visszaadott adatok kezelése
             .then(responze=>{
+
+              //A vissza adott adatok mentése a pizzas változóba
               $scope.pizzas = responze;
+
+              //Async függvény meghivása
               $scope.$applyAsync();
             })
-            .catch(e=>console.log(e));
+
+            //Hiba kezelése
+            .catch(e => {
+
+              //Hiba kód mentése az msg változóba
+              $scope.msg = e;
+
+              //Hiba kód megjelenitése a felhasználónak
+              alert(e)
+            })
       }
+      //getpizzas függvény meghivása
       $scope.getpizzas();
-      $scope.showModal = function (pizza) {
-          $scope.pizzasModal = angular.copy(pizza);
+
+      //showModal függvény definiálása
+      $scope.showModal = function (pizzas) {
+
+          //pizzas változó értékének  másolása a pizzasModal változóba
+          $scope.pizzasModal = angular.copy(pizzas);
+
+          //modal nevezetű váltózó létrehozása boostrap modal megjelenítéséhez
           let modal = new bootstrap.Modal(
+
+            //pizzaModal id-jú elem megkeresése a html-ben
             document.getElementById('pizzaModal')
           );
+       
+          //Bootstrap modal megjelenítése
           modal.show();
       }
     }
