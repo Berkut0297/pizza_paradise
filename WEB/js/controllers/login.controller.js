@@ -36,10 +36,7 @@
 
             //A vissza adott adatok mentése a user változóba
             $rootScope.user = response;
-
-            //a vissza adott adatok megjelenitése a conzolon
-            console.log(response);
-            
+                        
             //Async függvény meghivása
             $scope.$applyAsync(); 
 
