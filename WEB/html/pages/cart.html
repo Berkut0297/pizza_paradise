@@ -1,0 +1,35 @@
+<div class="container my-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Kosár</h5>
+        </div>
+
+        <div class="card-body p-0">
+            <table class="table table-striped mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Termék</th>
+                        <th class="text-end">Ár</th>
+                        <th class="text-center">Mennyiség</th>
+                        <th class="text-end">Összesen</th>
+                        <th class="text-center"></th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <strong>Végösszeg:</strong>
+            <strong id="cart-total">0 Ft</strong>
+        </div>
+    </div>
+
+    <div class="text-end mt-3">
+        <button class="btn btn-success btn-lg">
+            Megrendelés
+        </button>
+    </div>
+</div>
+
