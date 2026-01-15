@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 14. 10:26
+-- Létrehozás ideje: 2026. Jan 15. 07:53
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -200,7 +200,7 @@ INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`,
 (2, 'Sonka Gomba oliva', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, gomba, olivabogyó, grana padano (parmezán) sajt szórás.', 2790.00, 1, 'sonka_gomba_oliva.png', 1),
 (3, 'Olasz Bacon', 'Olasz paradicsom, mozzarella sajt, guanciale(szalonna), szarvasgombás olivaolaj, paradicsomos pesto, grana padano (parmezán) sajt szórás.', 2990.00, 1, 'olasz_bacon.png', 1),
 (4, 'Nápolyi Szalámi', 'Olasz paradicsom, mozzarella sajt, nápolyi szalámi, articsóka, grana padano (parmezán) sajt szórás', 2690.00, 1, 'napolyi_szalami.png', 1),
-(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 2990.00, 1, 'olasz_kolbászos.png', 1),
+(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 2990.00, 1, 'olasz_kolbaszos.png', 1),
 (6, '4 Sajtos', 'Olasz paradicsom, mozzarella, gouda, gorgonzola sajtok és grana padano (parmezán) sajt szórás.', 550.00, 1, '4_sajtos.png', 1),
 (7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 550.00, 1, 'csaszar.jpg', 1),
 (8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 990.00, 1, 'bambino.png', 1),
