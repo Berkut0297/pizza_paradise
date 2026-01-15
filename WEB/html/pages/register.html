@@ -21,6 +21,7 @@
 			<div class="card shadow border-0">
 				<div class="card-body p-4">
 					<form name="registerForm">
+						
 						<!-- Teljes név -->
 						<div class="mb-3">
 							<label for="register-name" class="form-label text-danger fw-bold">
@@ -37,12 +38,14 @@
 											required 
 											maxlength="50"
 											ng-model="model.full_name">
+
 							<!-- Ellenőrzi a felhasználónév helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
 							     ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
 							  Kérem, adjon meg egy felhasználónevet!
 							</div>
 						</div>
+
 						<!-- Felhasználónév -->
 						<div class="mb-3">
 							<label for="user-name" class="form-label text-danger fw-bold">
@@ -59,6 +62,7 @@
 											required 
 											maxlength="50"
 											ng-model="model.username">
+
 							<!-- Ellenőrzi a felhasználónév helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
      								ng-show="registerForm.username.$touched && registerForm.username.$error.required">
@@ -84,12 +88,14 @@
 											maxlength="50"
 											ng-model="model.email"
 											ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/">
+
 							<!-- Ellenőrzi a megadott email cím helyességét, létezését -->
 							<div class="form-text text-muted fw-bold"
 							     ng-show="registerForm.email.$touched && registerForm.email.$error.email">
 							  A megadott email cím formátuma nem megfelelő.
 							</div>
 						</div>
+
 						<!-- Telefonszám -->
 						<div class="mb-3">
 							<label for="register-email" class="form-label text-danger fw-bold">
@@ -113,11 +119,13 @@
        							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.required">
     						Kérem, adjon meg egy telefonszámot!
   						</div>
+
 							<!-- Ellenőrzi a megadott email cím helyességét, létezését -->
 							<div 	class="form-text text-danger fw-bold"
        							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.pattern">
     						A telefonszám formátuma érvénytelen. Helyes formátum : +36 30 123 4567
   						</div>
+
 							<!-- Ellenőrzi a megadott telefonszám hossuságát -->
 							<div class="form-text text-danger fw-bold"
        						ng-show="registerForm.phone.$touched && registerForm.phone.$error.minlength">
@@ -130,6 +138,7 @@
 							<label class="form-label text-danger fw-bold">
 								<i class="fas fa-venus-mars me-2"></i>Nem .:
 							</label>
+
 							<!-- Férfi -->
 							<div class="form-check form-check-inline">
 								<input 	class="form-check-input" 
@@ -145,6 +154,7 @@
 									Férfi
 								</label>
 							</div>
+
 							<!-- Nő -->
 							<div class="form-check form-check-inline">
 								<input 	class="form-check-input" 
