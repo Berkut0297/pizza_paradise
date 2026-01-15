@@ -43,6 +43,7 @@
             //Async függvény meghivása
             $scope.$applyAsync(); 
 
+            //localsotorebe eltarojuk a vissza adott adatokat user néven
             localStorage.setItem('user', JSON.stringify(response));
           })
 
