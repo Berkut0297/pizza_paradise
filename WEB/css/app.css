@@ -31,7 +31,7 @@ body::before {
 .carousel-item, img {
     height: 500px;
 }
-img {
+.carousel-image {
     filter: brightness(0.6);
 }
 .carousel-title, .modal-footer button {
