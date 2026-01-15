@@ -42,6 +42,8 @@
             
             //Async függvény meghivása
             $scope.$applyAsync(); 
+
+            localStorage.setItem('user', JSON.stringify(response));
           })
 
           //Hiba kezelése

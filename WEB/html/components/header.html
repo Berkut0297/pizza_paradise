@@ -35,13 +35,13 @@
              ui-sref="products()"
              ng-click="selectCategory(x.tagName)" 
              ui-sref-active="active text-decoration-underline">
-            {{x.Name}} 
+            {{user.Name}} 
           </a>
         </li>
       </ul>
 
       <ul class="user-data navbar-nav">
-        <li ng-hide="!$root.user.userID" 
+        <li ng-show="$root.user != null" 
             class="nav-item dropdown">
           <a class="nav-link btn btn-outline-light rounded-pill 
                     px-4 py-2 me-2 text-uppercase 
@@ -50,7 +50,7 @@
              data-bs-toggle="dropdown" 
              aria-expanded="false">
             <i class="fa-solid fa-user mx-1"></i>
-            {{$root.user.User}}
+            {{user.Name}}
           </a>
           <ul class="dropdown-menu">
             <li>
@@ -61,7 +61,7 @@
                 </i>
               </a>
             </li>
-            <li ng-hide="user.isAdmin === 0">
+            <li ng-hide="user.role === admin">
               <a class="dropdown-item"
                  ui-sref="adminpage">
                 ADMIN felület
@@ -78,7 +78,7 @@
         </li>
 
         <!-- Regisztráció gomb -->
-        <li ng-hide="$root.user.userID" 
+        <li ng-show="$root.user == null" 
             class="nav-item">
           <a class="nav-link btn btn-outline-light 
                     rounded-pill px-4 py-2 
@@ -90,7 +90,7 @@
         </li>
 
         <!-- Bejelentkezés gomb -->
-        <li ng-hide="$root.user.userID" class="nav-item">
+        <li ng-show="$root.user == null" class="nav-item">
           <a class="nav-link btn btn-outline-light 
                     rounded-pill px-4 py-2 
                     me-2 text-uppercase fw-bold" 

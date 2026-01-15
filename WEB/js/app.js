@@ -22,7 +22,8 @@
                 templateUrl: './html/layouts/root.html'
               },
               'header@root': {
-                templateUrl: './html/components/header.html'
+                templateUrl: './html/components/header.html',
+                controller: 'headerController'
               },
               'footer@root': {
                 templateUrl: './html/components/footer.html',
@@ -71,7 +72,9 @@
       '$state',
       function ($rootScope, $state) {
         console.log('Run...' + $state.current.name);
+        $rootScope.user = JSON.parse(localStorage.getItem('user'));
       }
     ])
+    
 
 })(window, angular);

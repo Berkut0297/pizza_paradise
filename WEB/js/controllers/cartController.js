@@ -3,7 +3,7 @@
   //Angulár modul meghivása 
   angular.module('app')
 
-  //Controller létrehozása 'homeController' néven
+  //Controller létrehozása 'cartController' néven
   .controller('cartController', [
 
     //$scope betöltése a controllerbe
