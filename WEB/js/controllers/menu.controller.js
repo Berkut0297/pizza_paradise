@@ -113,7 +113,6 @@
 
                 //ha igen megnöveljük a teljes összeget
                 $scope.total += parseInt(item.price);
-                console.log($scope.toppingsc);
 
                 //megnöveljuk 1 el a feltétel számlálót
                 $scope.toppingsc++;
@@ -127,7 +126,6 @@
 
             //csökkentjuk 1-el a feltét számlálót
             $scope.toppingsc--;
-            console.log($scope.toppingsc ,"fsa");
           } 
 
           //Async függvény meghivása
