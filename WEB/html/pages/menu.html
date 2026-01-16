@@ -27,6 +27,8 @@
 					<button class="btn btn-outline-primary 
 												 rounded-pill px-4 
 												 py-2"
+									data-bs-toggle="modal" 
+									data-bs-target="#pizzaModalbuy"
 									ng-click="buypizza(x)">
 						<i class="fa fa-cart-plus me-2"></i> 
 						Vásárlás
@@ -62,7 +64,8 @@
 						 class="img-fluid rounded-3" 
 						 alt="{{pizzasModal.name}}">
 				<p class="mt-3">{{pizzasModal.description}}</p>
-				<p><strong>Ár .:</strong> {{getTotalPrice(pizzasModal.price, x.price)}} Ft</p>
+				<!-- <p><strong>Ár .:</strong> {{getTotalPrice(pizzasModal.price, x.price)}} Ft</p> -->
+				 <p><strong>Ár .:</strong> {{ total * quantity }} Ft</p>
 
 
 				<div class="d-flex justify-content-center align-items-center gap-3 mt-3">
@@ -93,7 +96,8 @@
 						 ng-repeat="x in toppings">
 					<input class="form-check-input"
 								 type="checkbox"
-								 ng-model="x.selected">
+								 ng-model="x.selected"
+								 ng-change="adam(x)">
 					<label class="form-check-label">
 						{{x.name}} (+{{x.price}} Ft)
 					</label>

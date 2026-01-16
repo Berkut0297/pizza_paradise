@@ -81,13 +81,14 @@
 
           //pizzas változó értékének  másolása a pizzasModal változóba
           $scope.pizzasModal = angular.copy(pizzas);
+          $scope.total = parseInt($scope.pizzasModal.price);
 
           //modal nevezetű váltózó létrehozása boostrap modal megjelenítéséhez
-          let modal = new bootstrap.Modal(
+          // let modal = new bootstrap.Modal(
 
-            //pizzaModal id-jú elem megkeresése a html-ben
-            document.getElementById('pizzaModalbuy')
-          );
+          //   //pizzaModal id-jú elem megkeresése a html-ben
+          //   document.getElementById('pizzaModalbuy')
+          // );
 
           //mennyiseg növeles függvény
           $scope.increaseQty = function () {
@@ -104,7 +105,7 @@
 
 
           //Bootstrap modal megjelenítése
-          modal.show();
+          // modal.show();
       }
       //teljes összeg kiszamitas függvény
       $scope.getTotalPrice = function(pizzasModal) {
@@ -122,7 +123,14 @@
         return (pizzasModal + extras) * $scope.quantity;
       };
 
-
+      $scope.adam = (item) => {
+        let a = parseInt(item.price);
+        if (item.selected)
+              $scope.total += parseInt(item.price);
+        else  $scope.total -= parseInt(item.price);
+        $scope.$applyAsync();
+        console.log(item);
+      };
 
     }
   ]);
