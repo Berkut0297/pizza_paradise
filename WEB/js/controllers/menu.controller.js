@@ -52,9 +52,8 @@
             //Visszaadott adatok kezelése
             .then(responze=>{
 
-              //A vissza adott adatok mentése a pizzas változóba
+              //A vissza adott adatok mentése a toppings változóba
               $scope.toppings = responze;
-              $scope.topprices = responze[1];
 
               //Async függvény meghivása
               $scope.$applyAsync();
@@ -70,7 +69,7 @@
               alert(e)
             })
       }
-      //getpizzas függvény meghivása
+      //gettopings függvény meghivása
       $scope.gettoppings();
 
       //buypizza függvény definiálása
@@ -78,16 +77,20 @@
 
           //minden megnyitaskor 1-re alitja a mennyiseget
           $scope.quantity = 1;
-          $scope.toppingsc = 1;
+
+          //minden megnyitaskor le nullaza a plusz feltétek számát
+          $scope.toppingsc = 0;
+
           //pizzas változó értékének  másolása a pizzasModal változóba
           $scope.pizzasModal = angular.copy(pizzas);
+
+          //total valtozoba mentjuk az adott pizza egység árját
           $scope.total = parseInt($scope.pizzasModal.price);
 
           //mennyiseg növeles függvény
           $scope.increaseQty = function () {
 	          $scope.quantity++;
           };
-
 
           //mennyiseg csökkentése függvény
           $scope.decreaseQty = function () {
@@ -96,19 +99,47 @@
           	}
           };
       }
+
       //teljes összeg kiszamitas függvény
       $scope.getTotalPrice = (item) => {
-        if ($scope.toppingsc <= 3) {
-          $scope.toppingsc++;
-          let a = parseInt(item.price);
-          if (item.selected)
+        //le ellenőrizzük a kiválasztott  feltétek számát 
+        if ($scope.toppingsc < 3) {
+
+          
+
+          //ellenőrzzük hogy az elem ki lett e választva
+          //ha kilett választva
+          if (item.selected){
+
+                //ha igen megnöveljük a teljes összeget
                 $scope.total += parseInt(item.price);
-          else  $scope.total -= parseInt(item.price);
+                console.log($scope.toppingsc);
+
+                //megnöveljuk 1 el a feltétel számlálót
+                $scope.toppingsc++;
+          }
+
+          //ha nem lett kiválasztva
+          else{
+            //ha az elem kiválasztását megszünteti a felhasználó,
+            //kivonjuk a feltét árát
+            $scope.total -= parseInt(item.price);
+
+            //csökkentjuk 1-el a feltét számlálót
+            $scope.toppingsc--;
+            console.log($scope.toppingsc ,"fsa");
+          } 
+
+          //Async függvény meghivása
           $scope.$applyAsync();
-          console.log(item);
         }
+
+        //ha a felhasználó értesitése ha elérte a maximum plusz feltét számát
         else {
           alert("Maximum 3 extra feltétet lehet kiválasztani!");
+
+          //az éppen kiválasztott de a mennyiséget tullépet elemet 
+          // kiválasztását false-ra változtatjuk
           item.selected = false;
         }
         
