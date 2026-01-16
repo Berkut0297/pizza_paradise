@@ -78,17 +78,10 @@
 
           //minden megnyitaskor 1-re alitja a mennyiseget
           $scope.quantity = 1;
-
+          $scope.toppingsc = 1;
           //pizzas változó értékének  másolása a pizzasModal változóba
           $scope.pizzasModal = angular.copy(pizzas);
           $scope.total = parseInt($scope.pizzasModal.price);
-
-          //modal nevezetű váltózó létrehozása boostrap modal megjelenítéséhez
-          // let modal = new bootstrap.Modal(
-
-          //   //pizzaModal id-jú elem megkeresése a html-ben
-          //   document.getElementById('pizzaModalbuy')
-          // );
 
           //mennyiseg növeles függvény
           $scope.increaseQty = function () {
@@ -102,34 +95,23 @@
           		$scope.quantity--;
           	}
           };
-
-
-          //Bootstrap modal megjelenítése
-          // modal.show();
       }
       //teljes összeg kiszamitas függvény
-      $scope.getTotalPrice = function(pizzasModal) {
-        console.log(pizzasModal);
-
-        //extras valtozoba elmentjuk a toppings tömb elemeit
-        let extras = Object.values($scope.topprices || {})
-                //eltavolitjuk a nem kivalasztott elemeket
-                .filter((t) => t.selected === true)
-                //összegezzük a kivalasztott elemek értéket
-                .reduce((sum, t) => sum + t.price, 0);
-        //visszaterünk a pizza ara + az elöbb összesitett feltétek összegével
-        //majd megszorozzuk a mennyiséggel
-        console.log(extras);
-        return (pizzasModal + extras) * $scope.quantity;
-      };
-
-      $scope.adam = (item) => {
-        let a = parseInt(item.price);
-        if (item.selected)
-              $scope.total += parseInt(item.price);
-        else  $scope.total -= parseInt(item.price);
-        $scope.$applyAsync();
-        console.log(item);
+      $scope.getTotalPrice = (item) => {
+        if ($scope.toppingsc <= 3) {
+          $scope.toppingsc++;
+          let a = parseInt(item.price);
+          if (item.selected)
+                $scope.total += parseInt(item.price);
+          else  $scope.total -= parseInt(item.price);
+          $scope.$applyAsync();
+          console.log(item);
+        }
+        else {
+          alert("Maximum 3 extra feltétet lehet kiválasztani!");
+          item.selected = false;
+        }
+        
       };
 
     }
