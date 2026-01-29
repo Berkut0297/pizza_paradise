@@ -9,31 +9,23 @@ $args = Util::getArgs();
 $db = new Database();
 
 //sql parancs definiálása
-$query = "SELECT `email`,`phone` FROM users;";
+$query = "SELECT id FROM users WHERE email = ? OR phone = ?";
 
 //sql parancs végrehajtása
-$result = $db->execute($query);
+$result = $db->execute($query, [ $args['email'], $args['phone'] ]);
 
-//adatbázis le kapcsolás
-$db = null;
-
-//email ellenörzése hogy regisztráva van e már
-if (isset($result[0]["email"]) && $result[0]["email"] === $args["email"])
-
-  //ha már regisztrálva van ilyen email visszatérés hiba üzenettel 
-  Util::setError("Az email már használt!");
-
-//telefonszám ellenözése hogy regisztráva van e már
-if (isset($result[0]["phone"]) && $result[0]["phone"] === $args["phone"]) 
-
-  //ha már regisztrálva van ilyen telefonszám visszatérés hiba üzenettel 
-  Util::setError("A Telefon szám már használt!");
-
+//erredmény ellenörzése egyezés eseten visszatér a felhasználonak hibaval
+if (!empty($result)) {
+    Util::setError("Az email vagy telefonszám már használatban van!");
+}
 //preparateInsert segéd fügvény segitségével le generáljuk az insert sql parancsot
 $query = $db->preparateInsert("users",$args);
 
 //végre hajtjuk az elöbb legenerált insert parancsot
 $result = $db->execute($query, array_values($args));
+
+//adatbázis le kapcsolás
+$db = null;
 
 //vissztérési értek megadása és vissza térés
 Util::setresponse($result);

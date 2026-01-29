@@ -105,24 +105,24 @@
 							</label>
 							<input 	type="text" 
 											class="form-control border-danger" 
-											id="register-phone_number" 
-											name="phone_number"
+											id="register-phone" 
+											name="phone"
 											placeholder="Pl.: +36 30 123 4567" 
 											spellcheck="false" 
 											autocomplete="off" 
 											required 
 											minlength="11"
 											maxlength="20"
-											ng-model="model.phone_number"
+											ng-model="model.phone"
 											ng-pattern="/^\+?[0-9\s\-]{6,20}$/">
 							<div 	class="form-text text-danger fw-bold"
-       							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.required">
+       							ng-show="registerForm.phone.$touched && registerForm.phone.$error.required">
     						Kérem, adjon meg egy telefonszámot!
   						</div>
 
 							<!-- Ellenőrzi a megadott email cím helyességét, létezését -->
 							<div 	class="form-text text-danger fw-bold"
-       							ng-show="registerForm.phone_number.$touched && registerForm.phone.$error.pattern">
+       							ng-show="registerForm.phone.$touched && registerForm.phone.$error.pattern">
     						A telefonszám formátuma érvénytelen. Helyes formátum : +36 30 123 4567
   						</div>
 
