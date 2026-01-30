@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Jan 15. 07:53
+-- Létrehozás ideje: 2026. Jan 30. 08:28
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -196,16 +196,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`, `image_url`, `available`) VALUES
-(1, 'Margherita', 'Olasz paradicsom, mozzarella sajt, grana padano (parmezán) sajt szórás', 2290.00, 1, 'margherita.png', 1),
-(2, 'Sonka Gomba oliva', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, gomba, olivabogyó, grana padano (parmezán) sajt szórás.', 2790.00, 1, 'sonka_gomba_oliva.png', 1),
-(3, 'Olasz Bacon', 'Olasz paradicsom, mozzarella sajt, guanciale(szalonna), szarvasgombás olivaolaj, paradicsomos pesto, grana padano (parmezán) sajt szórás.', 2990.00, 1, 'olasz_bacon.png', 1),
-(4, 'Nápolyi Szalámi', 'Olasz paradicsom, mozzarella sajt, nápolyi szalámi, articsóka, grana padano (parmezán) sajt szórás', 2690.00, 1, 'napolyi_szalami.png', 1),
-(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 2990.00, 1, 'olasz_kolbaszos.png', 1),
-(6, '4 Sajtos', 'Olasz paradicsom, mozzarella, gouda, gorgonzola sajtok és grana padano (parmezán) sajt szórás.', 550.00, 1, '4_sajtos.png', 1),
-(7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 550.00, 1, 'csaszar.jpg', 1),
-(8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 990.00, 1, 'bambino.png', 1),
-(9, 'Nápolyi Rukkola', 'Olasz paradicsom, mozzarella sajt, rukkola saláta, koktélparadicsom, fekete erdei sonka, grana padano (parmezán) sajt szórás.\n', 750.00, 1, 'rukkola.jpg', 1),
-(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 2890.00, 1, 'tonhal.jpg', 1),
+(1, 'Margherita', 'Olasz paradicsom, mozzarella sajt, grana padano (parmezán) sajt szórás', 2890.00, 1, 'margherita.png', 1),
+(2, 'Sonka Gomba oliva', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, gomba, olivabogyó, grana padano (parmezán) sajt szórás.', 3390.00, 1, 'sonka_gomba_oliva.png', 1),
+(3, 'Olasz Bacon', 'Olasz paradicsom, mozzarella sajt, guanciale(szalonna), szarvasgombás olivaolaj, paradicsomos pesto, grana padano (parmezán) sajt szórás.', 3590.00, 1, 'olasz_bacon.png', 1),
+(4, 'Nápolyi Szalámi', 'Olasz paradicsom, mozzarella sajt, nápolyi szalámi, articsóka, grana padano (parmezán) sajt szórás', 3590.00, 1, 'napolyi_szalami.png', 1),
+(5, 'Olasz Kolbászos', 'Olasz paradicsom, mozzarella sajt, spianata (olasz kolbász, enyhén csípős), grana padano (parmezán) sajt szórás', 3590.00, 1, 'olasz_kolbaszos.png', 1),
+(6, '4 Sajtos', 'Olasz paradicsom, mozzarella, gouda, gorgonzola sajtok és grana padano (parmezán) sajt szórás.', 3590.00, 1, '4_sajtos.png', 1),
+(7, 'Császár Pizza\n', 'Olasz paradicsom, mozzarella sajt, pancetta(olasz császárszalonna), koktélparadicsom, lilahagyma, grana padano(parmesan) sajt szórás.', 3690.00, 1, 'csaszar.jpg', 1),
+(8, 'Nápolyi Bambino', 'Olasz paradicsom, mozzarella sajt, olasz főtt sonka, kukorica, grana padano (parmezán) sajt szórás.', 3390.00, 1, 'bambino.png', 1),
+(9, 'Nápolyi Rukkola', 'Olasz paradicsom, mozzarella sajt, rukkola saláta, koktélparadicsom, fekete erdei sonka, grana padano (parmezán) sajt szórás.\n', 3690.00, 1, 'rukkola.jpg', 1),
+(10, 'Nápolyi Tonhal', 'Olasz paradicsom, mozzarella sajt, tonhal darabok, olivabogyó, lilahagyma, grana padano (parmezán) sajt szórás.', 3990.00, 1, 'tonhal.jpg', 1),
 (11, 'Plusz Sajt', NULL, 400.00, 2, NULL, 1),
 (12, 'Bacon', NULL, 500.00, 2, NULL, 1),
 (13, 'Olasz Sonka', NULL, 500.00, 2, NULL, 1),
@@ -223,7 +223,8 @@ INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `type_id`,
 (25, 'Póréhagyma', NULL, 300.00, 2, NULL, 1),
 (26, 'Lilahagyma', NULL, 300.00, 2, NULL, 1),
 (27, 'Jalapeno Paprika Szeletek', NULL, 400.00, 2, NULL, 1),
-(28, 'Ananász', NULL, 400.00, 2, NULL, 1);
+(28, 'Ananász', NULL, 400.00, 2, NULL, 1),
+(29, 'Nápolyi Pepperoni szalámi', 'Olasz paradicsom, mozzarella sajt, pepperoni szalámi, grana padano (parmezán) sajt szórás', 3390.00, 1, 'pepperoni_n.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -399,7 +400,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `full_name`, `Gender`, `phone`, `role`, `created_at`) VALUES
 (1, 'peter88', 'Peter1234', 'peter88@example.com', 'Kovács Péter', 'M', '+36201234567', 'customer', '2025-11-11 10:10:05'),
 (2, 'anna92', 'Anna1234', 'anna92@example.com', 'Nagy Anna', 'F', '+36301239876', 'customer', '2025-11-11 10:10:05'),
-(3, 'admin', 'Admin1234', 'admin@pizzaparadise.hu', 'Rendszergazda', NULL, '+3612345678', 'admin', '2025-11-11 10:10:05'),
+(3, 'admin', 'Admin1234', 'admin@example.com', 'Rendszergazda', 'M', '+3612345678', 'admin', '2025-11-11 10:10:05'),
 (4, 'tomi_futár', 'Tomifutar1234', 'tomi@pizzaparadise.hu', 'Tóth Tamás', 'M', '+36203334455', 'courier', '2025-11-11 10:10:05'),
 (5, 'kati07', 'Kati1234', 'kati07@example.com', 'Farkas Katalin', 'F', '+36204443322', 'customer', '2025-12-09 07:49:16'),
 (6, 'bence_dev', 'Bence1234', 'bence.dev@example.com', 'Török Bence', 'M', '+36304445566', 'customer', '2025-12-09 07:49:16'),
@@ -407,7 +408,7 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `full_name`, `G
 (8, 'edit_nagy', 'Edit1234', 'edit.nagy@example.com', 'Nagy Edit', 'F', '+36207778899', 'customer', '2025-12-09 07:49:16'),
 (9, 'rita_cs', 'Rita1234', 'rita.cs@example.com', 'Csorba Rita', 'F', '+36309998877', 'customer', '2025-12-09 07:49:16'),
 (10, 'lilla89', 'Lilla1234', 'lilla89@example.com', 'Jakab Lilla', 'F', '+36201112233', 'customer', '2025-12-09 07:49:16'),
-(11, 'vendeghaz', 'Vendeg1234', 'haz.vend@example.com', 'Vendégház', NULL, '+36201239845', 'admin', '2025-12-09 07:49:16'),
+(11, 'vendeghaz', 'Vendeg1234', 'haz.vend@example.com', 'Vendégház', 'M', '+36201239845', 'admin', '2025-12-09 07:49:16'),
 (12, 'feri_futar2', 'Ferifurtar1234', 'feri2@pizzaparadise.hu', 'Kiss Ferenc', 'M', '+36203335544', 'courier', '2025-12-09 07:49:16'),
 (13, 'dani88', 'Dani1234', 'dani88@example.com', 'Somogyi Dániel', 'M', '+36304442322', 'customer', '2025-12-09 07:49:16'),
 (14, 'zita77', 'Zita1234', 'zita77@example.com', 'Kádár Zita', 'F', '+36208889933', 'customer', '2025-12-09 07:49:16');
@@ -541,7 +542,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT a táblához `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -103,7 +103,7 @@
       //teljes összeg kiszamitas függvény
       $scope.getTotalPrice = (item) => {
         //le ellenőrizzük a kiválasztott  feltétek számát 
-        if ($scope.toppingsc < 3) {
+        if ($scope.toppingsc <= 2) {
 
           
 
@@ -116,6 +116,7 @@
 
                 //megnöveljuk 1 el a feltétel számlálót
                 $scope.toppingsc++;
+                console.log($scope.toppingsc);
           }
 
           //ha nem lett kiválasztva
@@ -126,6 +127,7 @@
 
             //csökkentjuk 1-el a feltét számlálót
             $scope.toppingsc--;
+            console.log($scope.toppingsc);
           } 
 
           //Async függvény meghivása
@@ -142,6 +144,7 @@
         }
         
       };
+
 
     }
   ]);
