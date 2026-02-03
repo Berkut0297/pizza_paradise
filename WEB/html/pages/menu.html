@@ -112,7 +112,8 @@
 				</button>
 				<button type="button"
 								class="btn btn-outline-success rounded-pill"
-								ng-click="shoppingCart(pizzasModal)">
+								ng-click="shoppingCart(pizzasModal)"
+								ng-show="$rootScope.user != null">
 								Vásárlás
 				</button>
 			</div>
