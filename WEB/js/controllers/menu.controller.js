@@ -102,25 +102,31 @@
 
       //teljes összeg kiszamitas függvény
       $scope.getTotalPrice = (item) => {
-        //le ellenőrizzük a kiválasztott  feltétek számát 
-        if ($scope.toppingsc <= 2) {
+        //ellenőrzzük hogy az elem ki lett e választva
+        //ha kilett választva
+        if (item.selected) {
 
-          
-
-          //ellenőrzzük hogy az elem ki lett e választva
-          //ha kilett választva
-          if (item.selected){
+          //le ellenőrizzük a kiválasztott  feltétek számát 
+          if ($scope.toppingsc < 3) {
 
                 //ha igen megnöveljük a teljes összeget
                 $scope.total += parseInt(item.price);
 
                 //megnöveljuk 1 el a feltétel számlálót
                 $scope.toppingsc++;
-                console.log($scope.toppingsc);
           }
 
-          //ha nem lett kiválasztva
+          //ha elerte a kivalsztott feltétek száma a maximumot
           else{
+
+            alert("Maximum 3 extra feltétet lehet kiválasztani!");
+
+            //az éppen kiválasztott de a mennyiséget tullépet elemet 
+            // kiválasztását false-ra változtatjuk
+            item.selected = false;
+          } 
+        }
+        else {
             //ha az elem kiválasztását megszünteti a felhasználó,
             //kivonjuk a feltét árát
             $scope.total -= parseInt(item.price);
@@ -128,19 +134,6 @@
             //csökkentjuk 1-el a feltét számlálót
             $scope.toppingsc--;
             console.log($scope.toppingsc);
-          } 
-
-          //Async függvény meghivása
-          $scope.$applyAsync();
-        }
-
-        //ha a felhasználó értesitése ha elérte a maximum plusz feltét számát
-        else {
-          alert("Maximum 3 extra feltétet lehet kiválasztani!");
-
-          //az éppen kiválasztott de a mennyiséget tullépet elemet 
-          // kiválasztását false-ra változtatjuk
-          item.selected = false;
         }
         
       };
