@@ -9,7 +9,7 @@ $args = Util::getArgs();
 $db = new Database();
 
 //sql parancs definiálása
-$query = "SELECT id FROM users WHERE email = ? OR phone = ?";
+$query = "SELECT user_id FROM users WHERE email = ? OR phone = ?";
 
 //sql parancs végrehajtása
 $result = $db->execute($query, [ $args['email'], $args['phone'] ]);
@@ -28,4 +28,4 @@ $result = $db->execute($query, array_values($args));
 $db = null;
 
 //vissztérési értek megadása és vissza térés
-Util::setresponse($result);
+Util::setResponse($result);
