@@ -69,7 +69,7 @@
                                     <div class="invalid-feedback d-block small" 
                                          ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
                                         <i class="fas fa-exclamation-circle me-1"></i>
-                                        Kötelező!
+                                        Kérem adja meg a teljes nevét!
                                     </div>
                                     <div class="form-line"></div>
                                 </div>
@@ -95,7 +95,7 @@
                                     <div class="invalid-feedback d-block small" 
                                          ng-show="registerForm.username.$touched && registerForm.username.$error.required">
                                         <i class="fas fa-exclamation-circle me-1"></i>
-                                        Kötelező!
+                                        Kérem adja meg a felhasználónevét!
                                     </div>
                                     <div class="form-line"></div>
                                 </div>
@@ -119,6 +119,11 @@
                                     <label for="register-email" class="px-0 text-secondary small">
                                         <i class="fas fa-envelope me-1 text-danger" style="font-size: 0.9rem;"></i>Email cím
                                     </label>
+									<div class="invalid-feedback d-block small" 
+                                         ng-show="registerForm.email.$touched && registerForm.email.$error.required">
+                                        <i class="fas fa-exclamation-circle me-1"></i>
+                                        Kérem adja meg az email címét!
+                                    </div>
                                     <div class="invalid-feedback d-block small" 
                                          ng-show="registerForm.email.$touched && registerForm.email.$error.email">
                                         <i class="fas fa-exclamation-circle me-1"></i>
@@ -149,7 +154,7 @@
                                     </label>
                                     <div class="invalid-feedback d-block small" 
                                          ng-show="registerForm.phone.$touched && registerForm.phone.$error.required">
-                                        Kötelező!
+                                        Kérem adja meg a telefonszámát!
                                     </div>
                                     <div class="invalid-feedback d-block small" 
                                          ng-show="registerForm.phone.$touched && registerForm.phone.$error.pattern">
