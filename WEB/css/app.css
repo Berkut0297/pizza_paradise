@@ -477,8 +477,6 @@ body::before {
 footer {
     background: linear-gradient(135deg, #2d1e1e 0%, #1a1212 100%);
     color: white;
-    padding: 4rem 0 2rem;
-    margin-top: 5rem;
 }
 
 footer h5 {
