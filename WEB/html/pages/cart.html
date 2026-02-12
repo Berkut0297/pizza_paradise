@@ -33,77 +33,14 @@
                                 </tr>
                             </thead>
                             <tbody id="cart-items">
-                                <!-- Példa tétel - dinamikusan jön majd -->
-                                <tr class="cart-item">
-                                    <td class="ps-4">
-                                        <div class="d-flex align-items-center gap-3">
-                                            <div class="cart-item-image">
-                                                <i class="fas fa-pizza-slice text-danger"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Margherita</h6>
-                                                <span class="small text-secondary">32 cm, vékony tészta</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-end fw-medium">1.890 Ft</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center align-items-center gap-2">
-                                            <button class="btn btn-quantity btn-sm rounded-circle">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <span class="fw-bold px-2" style="min-width: 30px;">2</span>
-                                            <button class="btn btn-quantity btn-sm rounded-circle">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td class="text-end fw-bold text-danger">3.780 Ft</td>
-                                    <td class="text-center pe-4">
-                                        <button class="btn btn-remove btn-sm rounded-circle">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <!-- Második példa tétel -->
-                                <tr class="cart-item">
-                                    <td class="ps-4">
-                                        <div class="d-flex align-items-center gap-3">
-                                            <div class="cart-item-image">
-                                                <i class="fas fa-utensils text-danger"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Pepperoni</h6>
-                                                <span class="small text-secondary">32 cm, vastag tészta</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-end fw-medium">2.290 Ft</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center align-items-center gap-2">
-                                            <button class="btn btn-quantity btn-sm rounded-circle">
-                                                <i class="fas fa-minus"></i>
-                                            </button>
-                                            <span class="fw-bold px-2" style="min-width: 30px;">1</span>
-                                            <button class="btn btn-quantity btn-sm rounded-circle">
-                                                <i class="fas fa-plus"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td class="text-end fw-bold text-danger">2.290 Ft</td>
-                                    <td class="text-center pe-4">
-                                        <button class="btn btn-remove btn-sm rounded-circle">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <!-- Dinamikus tartalom ng-repeat-el -->
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Kosár üres állapot (ng-show-val) -->
-                <div class="text-center py-5" id="empty-cart" style="display: none;">
+                <!-- Kosár üres állapot -->
+                <div class="text-center py-5" id="empty-cart" ng-show="cartItems.length === 0">
                     <div class="empty-cart-icon mx-auto mb-3">
                         <i class="fas fa-cart-shopping"></i>
                     </div>
@@ -114,12 +51,12 @@
                     </a>
                 </div>
 
-                <!-- Card Footer - Összegzés -->
-                <div class="card-footer bg-transparent border-0 p-4">
+                <!-- Card Footer - Összegzés (ng-show-val) -->
+                <div class="card-footer bg-transparent border-0 p-4" ng-show="cartItems.length > 0">
                     <!-- Részösszeg sor -->
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="text-secondary">Részösszeg:</span>
-                        <span class="fw-medium" id="subtotal">6.070 Ft</span>
+                        <span class="fw-medium" id="subtotal">{{cartSubtotal | number:0}} Ft</span>
                     </div>
                     <!-- Szállítási díj -->
                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -130,7 +67,7 @@
                     <!-- Végösszeg -->
                     <div class="d-flex justify-content-between align-items-center mt-2">
                         <span class="h5 fw-bold mb-0">Végösszeg:</span>
-                        <span class="h4 fw-bold text-danger mb-0" id="cart-total">6.070 Ft</span>
+                        <span class="h4 fw-bold text-danger mb-0" id="cart-total">{{cartTotal | number:0}} Ft</span>
                     </div>
 
                     <!-- Akció kód -->
@@ -141,6 +78,7 @@
                                        class="form-control border-0 border-bottom rounded-0 px-0" 
                                        id="coupon-code" 
                                        placeholder="Kuponkód"
+                                       ng-model="couponCode"
                                        style="background: transparent; box-shadow: none; height: 45px;">
                                 <label for="coupon-code" class="px-0 text-secondary small">
                                     <i class="fas fa-tag me-2 text-danger"></i>Van kuponkódod?
@@ -149,7 +87,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-outline-danger rounded-pill w-100 py-2">
+                            <button class="btn btn-outline-danger rounded-pill w-100 py-2" ng-click="applyCoupon()">
                                 Alkalmazás
                             </button>
                         </div>
@@ -157,7 +95,7 @@
 
                     <!-- Rendelés gomb -->
                     <div class="d-grid gap-2 mt-4">
-                        <button class="btn btn-checkout btn-lg rounded-pill shadow-sm">
+                        <button class="btn btn-checkout btn-lg rounded-pill shadow-sm" ng-click="checkout()">
                             <span class="d-flex align-items-center justify-content-center">
                                 <i class="fas fa-truck me-2"></i>
                                 Megrendelés leadása
