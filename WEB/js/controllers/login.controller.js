@@ -41,6 +41,8 @@
 
             //localsotorebe eltarojuk a vissza adott adatokat user néven
             localStorage.setItem('user', JSON.stringify(response));
+            
+            $state.go('home')
           })
 
           //Hiba kezelése
