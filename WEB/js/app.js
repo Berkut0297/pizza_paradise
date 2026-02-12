@@ -60,6 +60,12 @@
             parent: 'root',
             templateUrl: './html/pages/cart.html',
             controller:'cartController'
+          })
+          .state('settings', {
+            url: '/settings',
+            parent: 'root',
+            templateUrl: './html/pages/settings.html',
+            controller:'settingsController'
           });
 
         $urlRouterProvider.otherwise('/');

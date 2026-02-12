@@ -30,7 +30,6 @@
               password: $scope.model.password
             }                  
           })
-
           //Visszaadott adatok kezelése
           .then(response => {
 

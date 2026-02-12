@@ -5,23 +5,31 @@ require_once("../../../common/php/environment.php");
 //argumentum definiálása
 $args = Util::getArgs();
 
+
 //adatbázisra kacsolás
 $db = new Database();
 
 //sql parancs definiálása
-$query =" SELECT `user_id`, `full_name`, `password`, `email` 
+$query =" SELECT  `user_id`,
+                  `username`,
+                  `password`,
+                  `email`,
+                  `full_name`,
+                  `Gender`,
+                  `phone`,
+                  `role`
           FROM `users` 
-          WHERE `email` = `email` 
+          WHERE `email` = :email
           LIMIT 1;";
 
 //sql parancs végrehajtása
-$result = $db->execute($query);
+$result = $db->execute($query, ["email" => $args["email"]]);
 
 //adatbázis le kapcsolás
 $db = null;
 
 //email regisztrációjának ellenörzése
-if ($result[0]["email"] !=$args["email"])
+if ($result == null)
 
     //ha nincs regisztrálva ilyen email visszatérés hiba üzenettel
     Util::setError("Nincs ilyen email cím regisztrálva!");
