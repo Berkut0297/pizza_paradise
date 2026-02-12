@@ -47,7 +47,7 @@
                     <form name="loginForm" novalidate>
 
                         <!-- Email Field -->
-                        <div class="form-floating mb-4">
+                        <div class="form-floating mb-4 position-relative">
                             <input type="email" 
                                    class="form-control border-0 border-bottom rounded-0 px-0" 
                                    id="login-email" 
@@ -72,32 +72,30 @@
                         </div>
 
                         <!-- Password Field -->
-                        <div class="form-floating mb-4">
-                            <div class="input-group p-0">
-                                <input type="{{model.showPassword ? 'text' : 'password'}}" 
-                                       class="form-control border-0 border-bottom rounded-0 px-0" 
-                                       id="login-password" 
-                                       name="password" 	
-                                       placeholder="Jelszó"
-                                       spellcheck="false" 
-                                       autocomplete="off"
-                                       minlength="6" 
-                                       maxlength="20" 
-                                       ng-init="model.password=null" 
-                                       ng-model="model.password"
-                                       ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/" 
-                                       required
-                                       style="background: transparent; box-shadow: none;">
-                                <label for="login-password" class="px-0 text-secondary">
-                                    <i class="fas fa-lock me-2 text-danger"></i>Jelszó
-                                </label>
-                                <button class="btn btn-link position-absolute end-0 top-50 translate-middle-y border-0 z-3" 
-                                        type="button"
-                                        ng-click="model.showPassword = !model.showPassword"
-                                        style="color: #ac1010; text-decoration: none;">
-                                    <i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
-                                </button>
-                            </div>
+                        <div class="form-floating mb-4 position-relative">
+                            <input type="{{model.showPassword ? 'text' : 'password'}}" 
+                                   class="form-control border-0 border-bottom rounded-0 px-0" 
+                                   id="login-password" 
+                                   name="password" 	
+                                   placeholder="Jelszó"
+                                   spellcheck="false" 
+                                   autocomplete="off"
+                                   minlength="6" 
+                                   maxlength="20" 
+                                   ng-init="model.password=null" 
+                                   ng-model="model.password"
+                                   ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/" 
+                                   required
+                                   style="background: transparent; box-shadow: none; padding-right: 40px !important;">
+                            <label for="login-password" class="px-0 text-secondary">
+                                <i class="fas fa-lock me-2 text-danger"></i>Jelszó
+                            </label>
+                            <button class="btn btn-link position-absolute end-0 top-0 mt-3 border-0" 
+                                    type="button"
+                                    ng-click="model.showPassword = !model.showPassword"
+                                    style="color: #ac1010; text-decoration: none; z-index: 10; padding: 0; height: 40px; width: 40px;">
+                                <i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
+                            </button>
                             <div class="invalid-feedback d-block" 
                                  ng-show="loginForm.password.$touched && loginForm.password.$invalid">
                                 <i class="fas fa-exclamation-circle me-1"></i>
@@ -148,28 +146,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
-
-                <!-- Card Footer - Social Login -->
-                <div class="card-footer bg-transparent border-0 pb-4 px-4 px-lg-5">
-                    <div class="position-relative my-3">
-                        <hr class="text-secondary opacity-25">
-                        <span class="position-absolute top-50 start-50 translate-middle px-3 bg-white text-secondary small">
-                            vagy
-                        </span>
-                    </div>
-                    <div class="d-flex gap-2 justify-content-center">
-                        <button class="btn btn-outline-secondary rounded-circle p-3" 
-                                style="width: 48px; height: 48px; border-color: #ddd;"
-                                ng-click="socialLogin('google')">
-                            <i class="fab fa-google" style="color: #DB4437;"></i>
-                        </button>
-                        <button class="btn btn-outline-secondary rounded-circle p-3"
-                                style="width: 48px; height: 48px; border-color: #ddd;"
-                                ng-click="socialLogin('facebook')">
-                            <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
