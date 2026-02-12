@@ -1,132 +1,225 @@
 <style>
-	body {
-		background-image: url('./media/image/pizza_bg.jpg');
-	}
+    body {
+        background-image: url('./media/image/pizza_bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+    }
+    
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 0;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 1;
+    }
 </style>
-<div class="container mt-5 my-5">
-	<div class="row justify-content-center">
-		<div class="col-11 col-md-8 col-lg-6">
 
-			<!-- Cím -->
-			<div class="text-center mb-4">
-				<h3 class="text-danger fw-bold">
-					<i class="fas fa-sign-in-alt me-2"></i> Bejelentkezés
-				</h3>
-				<p class="text-white-50 fw-bold">Lépjen be, hogy hozzáférjen a fiókjához</p>
-			</div>
+<div class="container mt-5 py-5">
+    <div class="row justify-content-center align-items-center min-vh-80">
+        <div class="col-11 col-md-8 col-lg-5">
 
-			<!-- Kártya a form-hoz -->
-			<div class="card shadow border-0">
-				<div class="card-body p-4">
-					<form name="loginForm" >
+            <!-- Login Card -->
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden"
+                 style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);">
+                
+                <!-- Card Header - Gradient -->
+                <div class="card-header bg-transparent border-0 pt-4 pb-0 text-center">
+                    <div class="login-icon-wrapper mx-auto mb-3">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h2 class="display-6 fw-bold text-dark mb-2">Üdv újra!</h2>
+                    <p class="text-secondary mb-0">Jelentkezz be a folytatáshoz</p>
+                </div>
 
-						<!-- Email -->
-						<div class="mb-3">
-							<label for="login-email" class="form-label text-danger fw-semibold">
-								<i class="fas fa-envelope me-2"></i>Email cím :
-							</label>
+                <!-- Card Body - Form -->
+                <div class="card-body p-4 p-lg-5">
+                    <form name="loginForm" novalidate>
 
-							<input 	type="email" 
-											class="form-control border-danger" 
-											ng-model="model.email" 
-											id="login-email" 
-											name="email"
-											placeholder="Email cím" 
-											spellcheck="false" 
-											autocomplete="off" 
-											maxlength="50"
-											ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/" 
-											required>
+                        <!-- Email Field -->
+                        <div class="form-floating mb-4">
+                            <input type="email" 
+                                   class="form-control border-0 border-bottom rounded-0 px-0" 
+                                   id="login-email" 
+                                   name="email"
+                                   ng-model="model.email" 
+                                   placeholder="Email cím"
+                                   spellcheck="false" 
+                                   autocomplete="off" 
+                                   maxlength="50"
+                                   ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/" 
+                                   required
+                                   style="background: transparent; box-shadow: none;">
+                            <label for="login-email" class="px-0 text-secondary">
+                                <i class="fas fa-envelope me-2 text-danger"></i>Email cím
+                            </label>
+                            <div class="invalid-feedback d-block" 
+                                 ng-show="loginForm.email.$touched && loginForm.email.$invalid">
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                Kérem, adja meg a valós email címét!
+                            </div>
+                            <div class="form-line"></div>
+                        </div>
 
-							<!-- Ellenőrzi a megadott email címet, hogy helyes-e illetve, hogy létezik-e -->
-							<div class="form-text text-muted fw-bold"
-										ng-show="loginForm.email.$touched && loginForm.email.$invalid">
-								Kérem, adja meg az email címét!
-							</div>
-						</div>
+                        <!-- Password Field -->
+                        <div class="form-floating mb-4">
+                            <div class="input-group p-0">
+                                <input type="{{model.showPassword ? 'text' : 'password'}}" 
+                                       class="form-control border-0 border-bottom rounded-0 px-0" 
+                                       id="login-password" 
+                                       name="password" 	
+                                       placeholder="Jelszó"
+                                       spellcheck="false" 
+                                       autocomplete="off"
+                                       minlength="6" 
+                                       maxlength="20" 
+                                       ng-init="model.password=null" 
+                                       ng-model="model.password"
+                                       ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/" 
+                                       required
+                                       style="background: transparent; box-shadow: none;">
+                                <label for="login-password" class="px-0 text-secondary">
+                                    <i class="fas fa-lock me-2 text-danger"></i>Jelszó
+                                </label>
+                                <button class="btn btn-link position-absolute end-0 top-50 translate-middle-y border-0 z-3" 
+                                        type="button"
+                                        ng-click="model.showPassword = !model.showPassword"
+                                        style="color: #ac1010; text-decoration: none;">
+                                    <i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback d-block" 
+                                 ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+                                <i class="fas fa-exclamation-circle me-1"></i>
+                                A jelszónak 6-20 karakter, tartalmaznia kell számot, kis- és nagybetűt!
+                            </div>
+                            <div class="form-line"></div>
+                        </div>
 
-						<!-- Jelszó -->
-						<div class="mb-3">
-							<label for="login-password" class="form-label text-danger fw-semibold">
-								<i class="fas fa-lock me-2"></i>Jelszó :
-							</label>
+                        <!-- Remember Me & Forgot Password -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" 
+                                       class="form-check-input" 
+                                       id="rememberMe"
+                                       style="border-color: #ac1010; cursor: pointer;"
+                                       ng-model="model.rememberMe">
+                                <label class="form-check-label text-secondary" for="rememberMe">
+                                    Emlékezz rám
+                                </label>
+                            </div>
+                            <a href="#" class="text-danger text-decoration-none fw-semibold small"
+                               ui-sref="forgot-password">
+                                Elfelejtett jelszó?
+                            </a>
+                        </div>
 
-							<div class="input-group">
-								<input 	type="{{model.showPassword ? 'text' : 'password'}}" 
-												class="form-control border-danger"
-												id="login-password" 
-												name="password" 	
-												placeholder="Jelszó" 
-												spellcheck="false" 
-												autocomplete="off"
-												minlength="6" 
-												maxlength="20" 
-												ng-init="model.password=null" 
-												ng-model="model.password"
-												ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/" 
-												required>
+                        <!-- Login Button -->
+                        <div class="d-grid gap-3">
+                            <button type="button" 
+                                    class="btn btn-login btn-lg rounded-pill shadow-sm" 
+                                    ng-click="loginBtn()"
+                                    ng-disabled="loginForm.$invalid">
+                                <span class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-sign-in-alt me-2"></i>
+                                    Bejelentkezés
+                                </span>
+                            </button>
 
-								<!-- Jelszó megjelenítése -->
-								<button class="btn btn-outline-danger" type="button"
-									ng-click="model.showPassword = !model.showPassword">
-									<i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}"></i>
-								</button>
-							</div>
-							
-							<!-- Ellenőrzi a megadott jelszót, hogy helyes-e illetve, hogy létezik-e -->
-							<div 	class="form-text text-muted fw-bold"
-										ng-show="loginForm.password.$touched && loginForm.password.$invalid">
-								Hibás jelszót adott meg!
-							</div>
+                            <!-- Registration Link -->
+                            <div class="text-center mt-3">
+                                <p class="text-secondary mb-0">
+                                    Nincs még fiókod? 
+                                    <a href="#" class="text-danger fw-bold text-decoration-none"
+                                       ui-sref="register">
+                                        Regisztráció <i class="fas fa-arrow-right ms-1"></i>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-						</div>
-
-						<!-- Bejelentkezés gomb -->
-						<div class="d-grid">
-							<button type="button" 
-											class="btn btn-danger btn-lg shadow-sm" 
-											ng-click="loginBtn()"
-											ng-disabled="loginForm.$invalid">
-								Bejelentkezés
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Card Footer - Social Login -->
+                <div class="card-footer bg-transparent border-0 pb-4 px-4 px-lg-5">
+                    <div class="position-relative my-3">
+                        <hr class="text-secondary opacity-25">
+                        <span class="position-absolute top-50 start-50 translate-middle px-3 bg-white text-secondary small">
+                            vagy
+                        </span>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button class="btn btn-outline-secondary rounded-circle p-3" 
+                                style="width: 48px; height: 48px; border-color: #ddd;"
+                                ng-click="socialLogin('google')">
+                            <i class="fab fa-google" style="color: #DB4437;"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary rounded-circle p-3"
+                                style="width: 48px; height: 48px; border-color: #ddd;"
+                                ng-click="socialLogin('facebook')">
+                            <i class="fab fa-facebook-f" style="color: #4267B2;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- Modal -->
-<div 	class="modal fade" 
-			id="loginModal" 
-			tabindex="-1" 
-			aria-labelledby="loginModalLabel" 
-			aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div 	ng-class="user.userID !== 0 ? 'modal-header-green' : 'modal-header-red'" 
-						class="modal-header">
+<!-- Modern Modal -->
+<div class="modal fade" 
+     id="loginModal" 
+     tabindex="-1" 
+     aria-labelledby="loginModalLabel" 
+     aria-hidden="true"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow-lg">
+            <div class="modal-body text-center p-5">
+                <!-- Success State -->
+                <div ng-if="user.userID !== 0" class="py-3">
+                    <div class="success-animation mb-4">
+                        <div class="checkmark-circle">
+                            <div class="checkmark"></div>
+                        </div>
+                    </div>
+                    <h3 class="h4 fw-bold text-dark mb-2">Sikeres bejelentkezés!</h3>
+                    <p class="text-secondary mb-4">Üdv újra, {{user.Name}}!</p>
+                    <button type="button" 
+                            class="btn btn-success px-5 rounded-pill"
+                            data-bs-dismiss="modal"
+                            ui-sref="home">
+                        Folytatás <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
 
-				<h1 	class="modal-title fs-5" 
-							ng-if="user.userID !== 0" 
-							id="loginModalLabel">
-						Sikeres bejelentkezés!
-				</h1>
-
-				<h1 	class="modal-title fs-5" 
-							ng-if="user.userID === 0" 
-							id="loginModalLabel">
-						Sikertelen bejelentkezés!
-				</h1>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-				</button>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-					Bezárás
-				</button>
-			</div>
-		</div>
-	</div>
+                <!-- Error State -->
+                <div ng-if="user.userID === 0" class="py-3">
+                    <div class="error-animation mb-4">
+                        <div class="error-circle">
+                            <span class="error-mark">!</span>
+                        </div>
+                    </div>
+                    <h3 class="h4 fw-bold text-dark mb-2">Sikertelen bejelentkezés!</h3>
+                    <p class="text-secondary mb-4">Hibás email cím vagy jelszó!</p>
+                    <button type="button" 
+                            class="btn btn-danger px-5 rounded-pill"
+                            data-bs-dismiss="modal">
+                        Újrapróbálom <i class="fas fa-redo ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
