@@ -1,122 +1,207 @@
-<div class="container my-4">
-	<div class="row justify-content-center">
-		<div class="col-md-6 col-lg-4 col-xl-3 mb-4"
-				 ng-repeat="x in pizzas">
-			<div class="card shadow-lg rounded-4 
-                  border-0 h-100 overflow-hidden 
-                  transition-transform transform-hover">
-				  
-				<!-- Képek -->
-				<img ng-src="./media/image/pizza_photo/{{x.image_url}}"
-						 class="card-img-top" 
-						 alt="{{x.name}}"
-						 style="height: 200px; object-fit: cover; border-bottom: 5px solid #28a745;">
+<!-- Inline CSS a transition-hez -->
+<style>
+    .transition-scale {
+        transition: transform 0.5s ease;
+    }
+    .transition-scale:hover {
+        transform: scale(1.08);
+    }
+    .card:hover {
+        box-shadow: 0 1rem 2rem rgba(172, 16, 16, 0.1) !important;
+        transform: translateY(-4px);
+        transition: all 0.3s ease;
+    }
+</style>
+<div class="container py-4">
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4 col-xl-3"
+             ng-repeat="x in pizzas">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                
+                <!-- Kép -->
+                <div class="position-relative overflow-hidden" style="height: 200px;">
+                    <img ng-src="./media/image/pizza_photo/{{x.image_url}}"
+                         class="w-100 h-100 object-fit-cover transition-scale" 
+                         alt="{{x.name}}"
+                         style="transition: transform 0.5s ease;">
+                </div>
 
-				<!-- Kép body -->
-				<div class="card-body text-center p-4">
-					<h5 class="card-title text-success mb-3">{{x.name}}</h5>
-					<p class="card-text fw-light text-muted"
-						 style="font-size: 14px;">
-						<strong>Ár .:</strong>
-						{{x.price}} Ft
-					</p>
-				</div>
+                <!-- Card body -->
+                <div class="card-body text-center p-4">
+                    <h5 class="card-title fw-bold text-dark mb-3">{{x.name}}</h5>
+                    <div class="bg-light rounded-pill py-2 px-3 d-inline-block mx-auto mb-2">
+                        <span class="fs-4 fw-bold text-danger">{{x.price}} Ft</span>
+                    </div>
+                </div>
 
-				<!-- Lábjegyzet -->
-				<div class="card-footer bg-transparent border-0 p-3 d-flex justify-content-center">
-					<button class="btn btn-outline-primary 
-												 rounded-pill px-4 
-												 py-2"
-									data-bs-toggle="modal" 
-									data-bs-target="#pizzaModalbuy"
-									ng-click="buypizza(x)">
-						<i class="fa fa-cart-plus me-2"></i> 
-						Vásárlás
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                <!-- Card footer -->
+                <div class="card-footer bg-transparent border-0 pb-4 pt-0 text-center">
+                    <button class="btn btn-outline-danger rounded-pill px-4 py-2 fw-semibold"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#pizzaModalbuy"
+                            ng-click="buypizza(x)">
+                        <i class="fas fa-cart-plus me-2"></i>
+                        Kosárba
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!--vásárlás Modal -->
-<div class="modal fade"
-		 id="pizzaModalbuy" 
-		 tabindex="-1" 
-		 aria-labelledby="pizzaModalLabel" 
-		 aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header modal-header-green">
-				<h5 class="modal-title"
-						id="pizzaModalLabel">{{pizzasModal.name}}</h5>
-				<button type="button"
-								class="btn-close" 
-								data-bs-dismiss="modal" 
-								aria-label="Close">
-				</button>
-			</div>
-			
-			
-			<div class="modal-body">
-				<!-- pizza adat -->
-				<img ng-src="./media/image/pizza_photo/{{pizzasModal.image_url}}"
-						 class="img-fluid rounded-3" 
-						 alt="{{pizzasModal.name}}">
-				<p class="mt-3">{{pizzasModal.description}}</p>
-				 <p><strong>Ár .:</strong> {{pizzasModal.price}} Ft</p>
+<!-- Pizza Modal - KOMPAKT -->
+<div class="modal fade" 
+     id="pizzaModalbuy" 
+     tabindex="-1" 
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            
+            <!-- Modal Header -->
+            <div class="modal-header border-0 pt-3 px-3">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="bg-danger bg-gradient rounded-2 d-flex align-items-center justify-content-center" 
+                         style="width: 40px; height: 40px;">
+                        <i class="fas fa-pizza-slice text-white fs-5"></i>
+                    </div>
+                    <div>
+                        <h5 class="modal-title fw-bold text-dark mb-0">{{pizzasModal.name}}</h5>
+                        <span class="small text-secondary">Egyedi összeállítás</span>
+                    </div>
+                </div>
+                <button type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body p-3">
+                <div class="row g-3">
+                    <!-- Kép - KISEBB -->
+                    <div class="col-md-5">
+                        <div class="position-relative rounded-3 overflow-hidden">
+                            <img ng-src="./media/image/pizza_photo/{{pizzasModal.image_url}}"
+                                 class="w-100 object-fit-cover" 
+                                 alt="{{pizzasModal.name}}"
+                                 style="height: 160px;">
+                            <span class="position-absolute top-0 start-0 m-2 badge bg-success bg-gradient rounded-pill px-2 py-1 small">
+                                <i class="fas fa-check-circle me-1"></i>Friss
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Részletek - KOMPAKTABB -->
+                    <div class="col-md-7">
+                        <!-- Leírás - rövidebb -->
+                        <div class="mb-2">
+                            <h6 class="fw-bold small mb-1">Leírás</h6>
+                            <p class="text-secondary small lh-sm mb-0" style="font-size: 0.75rem;">
+                                {{pizzasModal.description || 'Frissen készült, ropogós tésztán, prémium feltétekkel.'}}
+                            </p>
+                        </div>
+                        
+                        <!-- Ár -->
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-secondary">Alapár:</span>
+                            <span class="h5 fw-bold text-danger mb-0">{{pizzasModal.price}} Ft</span>
+                        </div>
+                        
+                        <!-- Mennyiség - KISEBB -->
+                        <div class="mb-2">
+                            <label class="form-label text-secondary fw-semibold small mb-1">
+                                <i class="fas fa-hashtag text-danger me-1"></i>Mennyiség
+                            </label>
+                            <div class="d-flex align-items-center gap-2">
+                                <button type="button"
+                                        class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center"
+                                        style="width: 32px; height: 32px;"
+                                        ng-click="decreaseQty()"
+                                        ng-disabled="quantity <= 1">
+                                    <i class="fas fa-minus small"></i>
+                                </button>
+                                <span class="fs-6 fw-bold text-dark" style="min-width: 30px; text-align: center;">
+                                    {{quantity}}
+                                </span>
+                                <button type="button"
+                                        class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center"
+                                        style="width: 32px; height: 32px;"
+                                        ng-click="increaseQty()">
+                                    <i class="fas fa-plus small"></i>
+                                </button>
+                            </div>
+                        </div>
 
+                        <!-- Extra feltétek - KOMPAKTABB -->
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label class="form-label text-secondary fw-semibold small mb-0">
+                                    <i class="fas fa-utensils text-danger me-1"></i>Extra feltétek
+                                </label>
+                                <span class="small text-muted">+ Ft</span>
+                            </div>
+                            <div class="bg-light p-2 rounded-3">
+                                <div class="row g-1">
+                                    <div class="col-6"
+                                         ng-repeat="x in toppings">
+                                        <div class="form-check">
+                                            <input class="form-check-input" 
+                                                   type="checkbox"
+                                                   id="topping-{{$index}}"
+                                                   style="margin-top: 3px;"
+                                                   ng-model="x.selected"
+                                                   ng-change="getTotalPrice(x)">
+                                            <label class="form-check-label small" for="topping-{{$index}}" style="font-size: 0.7rem;">
+                                                {{x.name}}
+                                                <span class="text-danger">+{{x.price}} Ft</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-				<div class="d-flex justify-content-center align-items-center gap-3 mt-3">
-					<!-- plusz -->
-					<button type="button"
-									class="btn btn-outline-secondary rounded-circle"
-									ng-click="decreaseQty()"
-									ng-disabled="quantity <= 1">
-						-
-					</button>
-					<span class="fs-5 fw-bold">{{quantity}}</span>
-					<!-- minusz -->
-					<button type="button"
-									class="btn btn-outline-secondary rounded-circle"
-									ng-click="increaseQty()">
-						+
-					</button>
-				</div>
-				<!-- összesen -->
-				<p class="text-center mt-2">
-					<strong>Összesen:</strong>
-					{{total * quantity}} Ft
-				</p>
+                        <!-- Összesen - KOMPAKTABB -->
+                        <div class="bg-danger bg-opacity-10 p-2 rounded-3 border border-danger border-opacity-25">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-semibold small">Végösszeg:</span>
+                                <span class="h5 fw-bold text-danger mb-0">
+                                    {{total * quantity}} Ft
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-				<!-- extra feltetek -->
-				<h6 class="text-center">Extra feltétek</h6>
-				<div class="form-check"
-						 ng-repeat="x in toppings">
-					<input class="form-check-input"
-								 type="checkbox"
-								 ng-model="x.selected"
-								 ng-change="getTotalPrice(x)">
-					<label class="form-check-label">
-						{{x.name}} (+{{x.price}} Ft)
-					</label>
-				</div>
-			</div>
-
-			<!-- gombok -->
-			<div class="modal-footer">
-				<button type="button"
-								class="btn btn-outline-danger rounded-pill" 
-								data-bs-dismiss="modal">
-								Bezárás
-				</button>
-				<button type="button"
-								class="btn btn-outline-success rounded-pill"
-								ng-click="shoppingCart(pizzasModal)"
-								ng-show="!$scope.canBuy">
-								Vásárlás
-				</button>
-			</div>
-		</div>
-	</div>
+            <!-- Modal Footer - KOMPAKTABB -->
+            <div class="modal-footer border-0 p-3 pt-0 d-flex gap-2">
+                <button type="button"
+                        class="btn btn-outline-danger rounded-pill px-3 py-1 flex-grow-1"
+                        data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>
+                    Bezárás
+                </button>
+                <button type="button"
+                        class="btn btn-danger rounded-pill px-3 py-1 flex-grow-1 bg-gradient"
+                        ng-click="shoppingCart(pizzasModal)"
+                        ng-show="$root.user != null">
+                    <span class="d-flex align-items-center justify-content-center small">
+                        <i class="fas fa-cart-shopping me-1"></i>
+                        Kosárba
+                    </span>
+                </button>
+                <button type="button"
+                        class="btn btn-secondary rounded-pill px-3 py-1 flex-grow-1 bg-gradient"
+                        ng-click="redirectToLogin()"
+                        ng-show="$root.user == null"
+						ui-sref="login">
+                    <span class="d-flex align-items-center justify-content-center small">
+                        <i class="fas fa-sign-in-alt me-1"></i>
+                        Bejelentkezés
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
