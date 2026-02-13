@@ -17,7 +17,7 @@
 
         //loginBtn fügvény definiálása
         $scope.loginBtn = function () {
-
+          $scope.canBuy = false;
           //http kérelem
           http.request({
 
@@ -43,6 +43,8 @@
             localStorage.setItem('user', JSON.stringify(response));
             
             $state.go('home')
+
+            $scope.canBuy = true;
           })
 
           //Hiba kezelése

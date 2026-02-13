@@ -22,6 +22,7 @@
           $rootScope.user = null;
           //kijelentkezes utan át iranyit a fő oldalra
           $state.go('home');
+          $scope.canBuy = false;
       }
     }
   ]);
