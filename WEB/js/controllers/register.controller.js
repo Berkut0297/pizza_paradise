@@ -26,7 +26,7 @@
             $scope.model,
 
             //megadjuk a függvénynek mely adatotkat filterelje el az objektumból
-            'confirmPassword;showPassword',
+            'confirmPassword;showPassword,showConfirmPassword',
 
             //a false érték megadásával megadjuk hogy ezen kulcs érték párosokat távoltja el az objektumból
             false
