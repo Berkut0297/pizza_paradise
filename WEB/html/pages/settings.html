@@ -1,52 +1,54 @@
 <div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h4>Felhasználói Beállítások</h4>
-        </div>
-
-        <div class="card-body">
-            <form>
-                <div class="mb-3">
-                    <label>Felhasználónév</label>
-                    <input type="text" 
-                           class="form-control" 
-                           ng-model="updateUser.updateUsername" 
-                           required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Jelszó</label>
-                    <input type="password" 
-                           class="form-control" 
-                           ng-model="updateUser.password">
-                </div>
-
-                <div class="mb-3">
-                    <label>Email</label>
-                    <input type="email" 
-                           class="form-control" 
-                           ng-model="updateUser.email" 
-                           required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Teljes név</label>
-                    <input type="text" 
-                           class="form-control" 
-                           ng-model="updateUser.full_name">
-                </div>
-
-                <div class="mb-3">
-                    <label>Telefonszám</label>
-                    <input type="tel" 
-                           class="form-control" 
-                           ng-model="updateUser.phone">
-                </div>
-
-                <button type="submit" class="btn btn-success w-100">
-                    Mentés
-                </button>
-            </form>
-        </div>
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4>Felhasználói Beállítások</h4>
     </div>
+
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label>Felhasználónév</label>
+          <input type="text" 
+                 class="form-control" 
+                 ng-model="updateUser.updateUsername" 
+                 required>
+        </div>
+
+        <div class="mb-3">
+          <label>Jelszó</label>
+          <input type="password" 
+                 class="form-control" 
+                 ng-model="updateUser.password">
+        </div>
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" 
+                 class="form-control" 
+                 ng-model="updateUser.email" 
+                 required>
+        </div>
+
+        <div class="mb-3">
+          <label>Teljes név</label>
+          <input type="text" 
+                 class="form-control" 
+                 ng-model="updateUser.full_name">
+        </div>
+
+        <div class="mb-3">
+          <label>Telefonszám</label>
+          <input type="tel" 
+                 class="form-control" 
+                 ng-model="updateUser.phone">
+        </div>
+
+        <button type="button" 
+								class="btn btn-success w-100"
+								ng-click="userDataUpdate()">
+          Mentés
+        </button>
+      </form>
+    </div>
+	</div>
 </div>

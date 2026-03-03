@@ -8,10 +8,25 @@
 
     //$scope betöltése a controllerbe
     '$scope',
+    'http',
 
     //függvény definiálása
-    function($scope) {
-      console.log('Shopeng cart controller...');
+    function($scope,http) {
+      console.log($scope.updateUser)
+      $scope.userDataUpdate = function(){
+        http.request({
+
+        url: './php/settings.php',
+
+        data: $scope.updateUser
+
+      })
+      .then(responze => {
+        if (responze.affectedRow) {
+          alert("A változtatás sikeres")
+        }
+      })
+      }
     }
   ]);
 })(window, angular);
