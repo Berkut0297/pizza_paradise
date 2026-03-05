@@ -86,7 +86,7 @@ namespace PizzaParadise
             {
                 openConnection();
 
-                string query = "SELECT user_id FROM users WHERE username=@u AND password_hash=@p";
+                string query = "SELECT user_id FROM users WHERE username=@u AND password=@p";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@u", user);

@@ -30,13 +30,9 @@ C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-windows\PizzaParadise.runtimeconfig.json
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-windows\PizzaParadise.dll
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-windows\PizzaParadise.pdb
-C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Keszletkezeles.baml
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\MainWindow.baml
-C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Muszakbeosztasok.baml
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Rendelesek.baml
-C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Keszletkezeles.g.cs
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Muszakbeosztasok.g.cs
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Rendelesek.g.cs
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\App.g.cs
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\PizzaParadise_MarkupCompile.cache
@@ -66,3 +62,5 @@ C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\PizzaParadise.csproj.AssemblyReference.cache
 C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\PizzaPar.E8E06622.Up2Date
+C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Raktar.baml
+C:\xampp\htdocs\pizza_paradise\WPF\PizzaParadise\PizzaParadise\obj\Debug\net8.0-windows\Raktar.g.cs

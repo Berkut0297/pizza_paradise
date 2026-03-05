@@ -22,8 +22,7 @@ namespace PizzaParadise
 
             // menügombok
             button_rendelesek.Click += (_, __) => LoadOrders();
-            button_keszletkezeles.Click += (_, __) => new Keszletkezeles(loggedUserId).Show();
-            button_muszakbeosztasok.Click += (_, __) => new Muszakbeosztasok(loggedUserId).Show();
+            button_raktar.Click += (_, __) => new Raktar(loggedUserId).Show();
             button_kilepes.Click += (_, __) => Application.Current.Shutdown();
 
             // alsó gombok
@@ -151,26 +150,4 @@ namespace PizzaParadise
             }
         }
     }
-    public partial class Keszletkezeles : Window
-    {
-        private int loggedUserId;
-
-        public Keszletkezeles(int userId)
-        {
-            InitializeComponent();
-            loggedUserId = userId;
-        }
-    }
-
-    public partial class Muszakbeosztasok : Window
-    {
-        private int loggedUserId;
-
-        public Muszakbeosztasok(int userId)
-        {
-            InitializeComponent();
-            loggedUserId = userId;
-        }
-    }
-
 }

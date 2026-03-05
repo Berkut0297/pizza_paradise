@@ -64,10 +64,7 @@
             <Button Name="button_rendelesek" Content="Rendelések" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF029BCE" BorderBrush="{x:Null}"/>
 
-            <Button Name="button_keszletkezeles" Content="Készletkezelés" Margin="10,10,10,0" Height="50"
-                    FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
-
-            <Button Name="button_muszakbeosztasok" Content="Műszakbeosztás" Margin="10,10,10,0" Height="50"
+            <Button Name="button_raktar" Content="Raktár" Margin="10,10,10,0" Height="50"
                     FontSize="16" Foreground="White" Background="#FF027BAA" BorderBrush="{x:Null}"/>
 
             <Button Name="button_kilepes" Content="Kilépés" Margin="10,40,10,0" Height="50"
