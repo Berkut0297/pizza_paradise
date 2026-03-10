@@ -41,13 +41,13 @@
         <!-- Bejelentkezett felhasználó -->
         <li ng-show="$root.user != null" 
             class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center user-dropdown" 
+          <a class="nav-link d-flex align-items-center user-dropdown " 
              href="#" 
              role="button" 
              data-bs-toggle="dropdown" 
              aria-expanded="false">
             <i class="fa-solid fa-circle-user me-2"></i>
-            <span class="fw-semibold">{{user.Name}}</span>
+            <span class="fw-semibold">{{user.id}}</span>
             <i class="fa-solid fa-chevron-down ms-2"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">

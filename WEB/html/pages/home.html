@@ -1,125 +1,130 @@
 <!-- Carousel -->
 <div id="heroCarousel" 
-	 class="carousel slide carousel-fade" 
-	 data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" 
-					data-bs-target="#heroCarousel" 
-					data-bs-slide-to="0" 
-					class="active" 
-					aria-current="true">
-			</button>
-            <button type="button" 
-					data-bs-target="#heroCarousel" 
-					data-bs-slide-to="1">
-			</button>
-            <button type="button" 
-					data-bs-target="#heroCarousel" 
-					data-bs-slide-to="2">
-			</button>
+	 	 class="carousel slide carousel-fade" 
+	   data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" 
+						data-bs-target="#heroCarousel" 
+						data-bs-slide-to="0" 
+						class="active" 
+						aria-current="true">
+		</button>
+    <button type="button" 
+						data-bs-target="#heroCarousel" 
+						data-bs-slide-to="1">
+		</button>
+    <button type="button" 
+						data-bs-target="#heroCarousel" 
+						data-bs-slide-to="2">
+		</button>
+  </div>
+
+	<!-- Képek -->
+  <div class="carousel-inner">
+
+    <!-- Első kép -->
+    <div class="carousel-item active">
+      <div class="carousel-image-wrapper">
+        <img src="./media/image/vegetarian_pizza.jpg" 
+		 				 class="d-block w-100 carousel-image" 
+		 				 alt="Vegetáriánus pizza">
+        <div class="overlay"></div>
+      </div>
+      <div class="carousel-caption">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <span class="badge mb-4">ÉLMÉNY MINDEN SZELETBEN</span>
+              <h1 class="display-2 fw-bold mb-4">Olasz Tradicionális Pizzák</h1>
+              <p class="lead mb-5 d-none d-md-block">
+                A friss alapanyagok és a mediterrán ízek találkozása minden szeletben. 
+                Igazi olasz receptek, helyi alapanyagokból.
+              </p>
+              <div class="d-flex gap-3 justify-content-center">
+                <a ui-sref="menu" class="btn btn-outline-light btn-lg"> Étlap</a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="carousel-inner">
-            <!-- Első kép -->
-            <div class="carousel-item active">
-                <div class="carousel-image-wrapper">
-                    <img src="./media/image/vegetarian_pizza.jpg" 
-						 class="d-block w-100 carousel-image" 
-						 alt="Vegetáriánus pizza">
-                    <div class="overlay"></div>
-                </div>
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <span class="badge mb-4">ÉLMÉNY MINDEN SZELETBEN</span>
-                                <h1 class="display-2 fw-bold mb-4">Olasz Tradicionális Pizzák</h1>
-                                <p class="lead mb-5 d-none d-md-block">
-                                    A friss alapanyagok és a mediterrán ízek találkozása minden szeletben. 
-                                    Igazi olasz receptek, helyi alapanyagokból.
-                                </p>
-                                <div class="d-flex gap-3 justify-content-center">
-                                    <a ui-sref="menu" class="btn btn-outline-light btn-lg"> Étlap</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Második kép -->
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+          <img src="./media/image/pepperoni_pizza.webp" 
+		 					 class="d-block w-100 carousel-image" 
+		 					 alt="Pepperoni pizza">
+          <div class="overlay"></div>
+      </div>
+      <div class="carousel-caption">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <span class="badge mb-4">KÜLÖNLEGES ÍZEK</span>
+              <h1 class="display-2 fw-bold mb-4">Különleges Ízkombinációk</h1>
+              <p class="lead mb-5 d-none d-md-block">
+                Próbáld ki egyedi pizzakreációinkat, amelyek új szintre emelik az étkezést. 
+                Merész párosítások, felejthetetlen élmények.
+              </p>
+              <div class="d-flex gap-3 justify-content-center">
+                <a ui-sref="menu" class="btn btn-outline-light btn-lg">Felfedezem</a>
+              </div>
             </div>
-
-            <!-- Második kép -->
-            <div class="carousel-item">
-                <div class="carousel-image-wrapper">
-                    <img src="./media/image/pepperoni_pizza.webp" 
-						 class="d-block w-100 carousel-image" 
-						 alt="Pepperoni pizza">
-                    <div class="overlay"></div>
-                </div>
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <span class="badge mb-4">KÜLÖNLEGES ÍZEK</span>
-                                <h1 class="display-2 fw-bold mb-4">Különleges Ízkombinációk</h1>
-                                <p class="lead mb-5 d-none d-md-block">
-                                    Próbáld ki egyedi pizzakreációinkat, amelyek új szintre emelik az étkezést. 
-                                    Merész párosítások, felejthetetlen élmények.
-                                </p>
-                                <div class="d-flex gap-3 justify-content-center">
-                                    <a ui-sref="menu" class="btn btn-outline-light btn-lg">Felfedezem</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Harmadik kép -->
-            <div class="carousel-item">
-                <div class="carousel-image-wrapper">
-                    <img src="./media/image/margherita_pizza.jpg" 
-						 class="d-block w-100 carousel-image" 
-						 alt="Margherita pizza">
-                    <div class="overlay"></div>
-                </div>
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 mx-auto">
-                                <span class="badge mb-4">FRISSEN SÜTVE</span>
-                                <h1 class="display-2 fw-bold mb-4">Frissen Sütve, Forrón</h1>
-                                <p class="lead mb-5 d-none d-md-block">
-                                    Minden pizzánk rendelés után készül, hogy a legjobb élményt kapd. 
-                                    Forró, ropogós, tökéletes.
-                                </p>
-                                <div class="d-flex gap-3 justify-content-center">
-                                    <a ui-sref="menu" class="btn btn-outline-light btn-lg">Rendelnék</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <button class="carousel-control-prev" 
-				type="button" 
-				data-bs-target="#heroCarousel" 
-				data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" 
-				  aria-hidden="true">
-			</span>
-            <span class="visually-hidden">Előző</span>
-        </button>
-        <button class="carousel-control-next" 
-				type="button" 
-				data-bs-target="#heroCarousel" 
-				data-bs-slide="next">
-            <span class="carousel-control-next-icon" 
-				  aria-hidden="true">
-			</span>
-            <span class="visually-hidden">Következő</span>
-        </button>
+    <!-- Harmadik kép -->
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+        <img src="./media/image/margherita_pizza.jpg" 
+		 				 class="d-block w-100 carousel-image" 
+		 				 alt="Margherita pizza">
+        <div class="overlay"></div>
+      </div>
+      <div class="carousel-caption">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <span class="badge mb-4">FRISSEN SÜTVE</span>
+              <h1 class="display-2 fw-bold mb-4">Frissen Sütve, Forrón</h1>
+              <p class="lead mb-5 d-none d-md-block">
+                Minden pizzánk rendelés után készül, hogy a legjobb élményt kapd. 
+                Forró, ropogós, tökéletes.
+              </p>
+              <div class="d-flex gap-3 justify-content-center">
+                <a ui-sref="menu" class="btn btn-outline-light btn-lg">Rendelnék</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<!-- Előző kép gomb -->
+	<button class="carousel-control-prev" 
+					type="button" 
+					data-bs-target="#heroCarousel" 
+					data-bs-slide="prev">
+	  <span class="carousel-control-prev-icon" 
+	  			aria-hidden="true">
+		</span>
+	  <span class="visually-hidden">Előző</span>
+	</button>
+
+	<!-- következő kép gomb -->
+  <button class="carousel-control-next" 
+					type="button" 
+					data-bs-target="#heroCarousel" 
+					data-bs-slide="next">
+    <span class="carousel-control-next-icon" 
+	  			aria-hidden="true">
+		</span>
+    <span class="visually-hidden">Következő</span>
+  </button>
 </div>
 
 <!-- Főoldal kártyák - Miért válassz minket? -->
