@@ -33,7 +33,7 @@
          ui-sref="products()"
          ng-click="selectCategory(x.tagName)" 
          ui-sref-active="active">
-        {{x.Name}}
+        {{$scope.full_name}}
       </a>
 
       <ul class="navbar-nav align-items-center">
@@ -47,8 +47,9 @@
              data-bs-toggle="dropdown" 
              aria-expanded="false">
             <i class="fa-solid fa-circle-user me-2"></i>
-            <span class="fw-semibold">{{user.id}}</span>
+            <span class="fw-semibold"></span>
             <i class="fa-solid fa-chevron-down ms-2"></i>
+            {{$scope.full_name}}
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">
             <li>
