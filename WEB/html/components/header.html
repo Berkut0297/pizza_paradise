@@ -33,7 +33,6 @@
          ui-sref="products()"
          ng-click="selectCategory(x.tagName)" 
          ui-sref-active="active">
-        {{$scope.full_name}}
       </a>
 
       <ul class="navbar-nav align-items-center">
@@ -48,8 +47,8 @@
              aria-expanded="false">
             <i class="fa-solid fa-circle-user me-2"></i>
             <span class="fw-semibold"></span>
+            {{full_name}}
             <i class="fa-solid fa-chevron-down ms-2"></i>
-            {{$scope.full_name}}
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">
             <li>
@@ -62,7 +61,7 @@
             <li ng-hide="user.role === 'admin'">
               <a class="dropdown-item d-flex align-items-center py-2"
                  ui-sref="adminpage">
-                <i class="fa-solid fa-shield-hooded me-3"></i>
+                <i class="fa-solid fa-user-tie me-3"></i>
                 ADMIN felület
               </a>
             </li>
