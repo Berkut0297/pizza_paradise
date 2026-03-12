@@ -138,6 +138,9 @@
         
       };
 
+      $scope.shoppingCart = (data) => {
+        console.log(data)
+      }
 
     }
   ]);

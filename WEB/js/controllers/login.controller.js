@@ -40,7 +40,7 @@
             $scope.$applyAsync(); 
 
             //localsotorebe eltarojuk a vissza adott adatokat user néven
-            localStorage.setItem('user', JSON.stringify(response));
+            localStorage.setItem('user_pizzaParadise', JSON.stringify(response));
             
             $state.go('home')
 
