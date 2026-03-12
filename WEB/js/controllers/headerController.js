@@ -16,9 +16,6 @@
       if ($rootScope.user) {
         $scope.full_name = $rootScope.user[0].full_name
       }
-
-      console.log($scope.full_name)
-
       //logout függvény definiálása
       $scope.logOut = function () {
 

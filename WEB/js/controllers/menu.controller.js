@@ -138,7 +138,32 @@
         
       };
 
+
+
+
       $scope.shoppingCart = (data) => {
+        console.log(data)
+        //http kérés és php fálj útvanalának megadása
+        http.request({
+          url :'./php/getpizzas.php',
+          data: {
+              user_id: $scope.user[0].user_id,
+              product_id: data.product_id,
+              quantity: $scope.quantity
+          }
+        })
+
+          //Visszaadott adatok kezelése
+          .then(responze=>{
+
+          })
+
+          //Hiba kezelése
+          .catch(e => {
+            $scope.msg = e;
+            alert(e)
+          })
+
         console.log(data)
       }
 

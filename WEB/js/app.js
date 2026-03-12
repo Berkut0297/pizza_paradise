@@ -80,6 +80,8 @@
         
         //rootscopenak a user változojaba eltaroljuk a localsrogiben tarolt adatokat
         $rootScope.user = JSON.parse(localStorage.getItem('user_pizzaParadise'));
+
+
       }
     ])
     
