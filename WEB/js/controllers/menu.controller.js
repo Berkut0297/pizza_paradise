@@ -72,6 +72,7 @@
       //gettopings függvény meghivása
       $scope.gettoppings();
 
+
       //buypizza függvény definiálása
       $scope.buypizza = function (pizzas) {
 
@@ -100,6 +101,8 @@
           };
       }
 
+      $scope.plus_toppings = []
+
       //teljes összeg kiszamitas függvény
       $scope.getTotalPrice = (item) => {
         //ellenőrzzük hogy az elem ki lett e választva
@@ -108,13 +111,16 @@
 
           //le ellenőrizzük a kiválasztott  feltétek számát 
           if ($scope.toppingsc < 3) {
-
+            
                 //ha igen megnöveljük a teljes összeget
                 $scope.total += parseInt(item.price);
 
                 //megnöveljuk 1 el a feltétel számlálót
                 $scope.toppingsc++;
+
+                $scope.plus_toppings.push(item.product_id);
           }
+
 
           //ha elerte a kivalsztott feltétek száma a maximumot
           else{
@@ -133,7 +139,11 @@
 
             //csökkentjuk 1-el a feltét számlálót
             $scope.toppingsc--;
-            console.log($scope.toppingsc);
+
+            let index = $scope.plus_toppings.indexOf(item.product_id);
+            if (index !== -1) {
+                $scope.plus_toppings.splice(index, 1);
+            }
         }
         
       };
@@ -142,20 +152,21 @@
 
 
       $scope.shoppingCart = (data) => {
-        console.log(data)
+        console.log($scope.plus_toppings)
         //http kérés és php fálj útvanalának megadása
         http.request({
           url :'./php/getpizzas.php',
           data: {
               user_id: $scope.user[0].user_id,
               product_id: data.product_id,
-              quantity: $scope.quantity
+              quantity: $scope.quantity,
+              plus_toppings : $scope.plus_toppings
           }
         })
 
           //Visszaadott adatok kezelése
           .then(responze=>{
-
+              
           })
 
           //Hiba kezelése
