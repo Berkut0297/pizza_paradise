@@ -79,7 +79,7 @@
       function ($rootScope, $state) {
         
         //rootscopenak a user változojaba eltaroljuk a localsrogiben tarolt adatokat
-        $rootScope.user = JSON.parse(localStorage.getItem('user'));
+        $rootScope.user = JSON.parse(localStorage.getItem('user_pizzaParadise'));
       }
     ])
     

@@ -13,8 +13,9 @@
 
     //függvény definiálása
     function($scope, $state, $rootScope) {
-
-      $scope.full_name = $rootScope.user[0].full_name
+      if ($rootScope.user) {
+        $scope.full_name = $rootScope.user[0].full_name
+      }
 
       console.log($scope.full_name)
 
@@ -22,7 +23,7 @@
       $scope.logOut = function () {
 
           //a localstorage-ben lévő adatok eltavolitasa
-          localStorage.removeItem('user');
+          localStorage.removeItem('user_pizzaParadise');
           $rootScope.user = null;
           //kijelentkezes utan át iranyit a fő oldalra
           $state.go('home');
