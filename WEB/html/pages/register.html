@@ -30,304 +30,303 @@
     <div class="row justify-content-center align-items-center">
         <div class="col-11 col-md-10 col-lg-9 col-xl-8">
 
-            <!-- Register Card -->
-            <div class="card border-0 shadow-lg rounded-4 overflow-hidden"
-                 style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);">
-                
-                <!-- Card Header - Kisebb -->
-                <div class="card-header bg-transparent border-0 pt-3 pb-0 text-center">
-                    <div class="register-icon-wrapper mx-auto mb-2" style="width: 60px; height: 60px;">
-                        <i class="fas fa-user-plus" style="font-size: 2rem;"></i>
-                    </div>
-                    <h2 class="h3 fw-bold text-dark mb-1">Csatlakozz hozzánk!</h2>
-                    <p class="text-secondary small mb-0">Hozd létre fiókodat pár perc alatt</p>
+          <!-- Register Card -->
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden"
+               style="background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px);">
+              
+            <!-- Card Header - Kisebb -->
+            <div class="card-header bg-transparent border-0 pt-3 pb-0 text-center">
+                <div class="register-icon-wrapper mx-auto mb-2" 
+										 style="width: 60px; height: 60px;">
+                  <i class="fas fa-user-plus" 
+										 style="font-size: 2rem;"></i>
                 </div>
-
-                <!-- Card Body - Sűrűbb padding -->
-                <div class="card-body p-3 p-lg-4">
-                    <form name="registerForm" novalidate>
-                        
-                        <!-- 2 oszlopos grid - KISEBB TÁVOLSÁGOK -->
-                        <div class="row g-2">
-                            <!-- Teljes név -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="text" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="register-name" 
-                                           name="full_name"
-                                           placeholder="Teljes Név" 
-                                           spellcheck="false" 
-                                           autocomplete="off" 
-                                           required 
-                                           maxlength="50"
-                                           ng-model="model.full_name"
-                                           style="background: transparent; box-shadow: none; height: 45px;">
-                                    <label for="register-name" class="px-0 text-secondary small">
-                                        <i class="fas fa-user me-1 text-danger" style="font-size: 0.9rem;"></i>Teljes Név
-                                    </label>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Kérem adja meg a teljes nevét!
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Felhasználónév -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="text" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="user-name" 
-                                           name="username"
-                                           placeholder="Felhasználónév" 
-                                           spellcheck="false" 
-                                           autocomplete="off" 
-                                           required 
-                                           maxlength="50"
-                                           ng-model="model.username"
-                                           style="background: transparent; box-shadow: none; height: 45px;">
-                                    <label for="user-name" class="px-0 text-secondary small">
-                                        <i class="fas fa-user-tag me-1 text-danger" style="font-size: 0.9rem;"></i>Felhasználónév
-                                    </label>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.username.$touched && registerForm.username.$error.required">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Kérem adja meg a felhasználónevét!
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Email -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="email" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="register-email" 
-                                           name="email"
-                                           placeholder="Email cím" 
-                                           spellcheck="false" 
-                                           autocomplete="off" 
-                                           required 
-                                           maxlength="50"
-                                           ng-model="model.email"
-                                           ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
-                                           style="background: transparent; box-shadow: none; height: 45px;">
-                                    <label for="register-email" class="px-0 text-secondary small">
-                                        <i class="fas fa-envelope me-1 text-danger" style="font-size: 0.9rem;"></i>Email cím
-                                    </label>
-									<div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.email.$touched && registerForm.email.$error.required">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Kérem adja meg az email címét!
-                                    </div>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.email.$touched && registerForm.email.$error.email">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Érvénytelen formátum!
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Telefonszám -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="text" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="register-phone" 
-                                           name="phone"
-                                           placeholder="Telefonszám" 
-                                           spellcheck="false" 
-                                           autocomplete="off" 
-                                           required 
-                                           minlength="11"
-                                           maxlength="20"
-                                           ng-model="model.phone"
-                                           ng-pattern="/^\+?[0-9\s\-]{6,20}$/"
-                                           style="background: transparent; box-shadow: none; height: 45px;">
-                                    <label for="register-phone" class="px-0 text-secondary small">
-                                        <i class="fas fa-phone-alt me-1 text-danger" style="font-size: 0.9rem;"></i>Telefonszám
-                                    </label>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.phone.$touched && registerForm.phone.$error.required">
-                                        Kérem adja meg a telefonszámát!
-                                    </div>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.phone.$touched && registerForm.phone.$error.pattern">
-                                        +36 30 123 4567
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Nem választás - kompakt -->
-                            <div class="col-12">
-                                <div class="mb-2 d-flex align-items-center">
-                                    <span class="text-secondary small me-3" style="min-width: 60px;">
-                                        <i class="fas fa-venus-mars me-1 text-danger"></i>Nem:
-                                    </span>
-                                    <div class="d-flex gap-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" 
-                                                   type="radio" 
-                                                   name="gender" 
-                                                   id="gender-male" 
-                                                   value="M" 
-                                                   required
-                                                   ng-model="model.gender"
-                                                   style="border-color: #ac1010; cursor: pointer; margin-top: 3px;">
-                                            <label class="form-check-label small text-secondary" for="gender-male">
-                                                Férfi
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" 
-                                                   type="radio" 
-                                                   name="gender" 
-                                                   id="gender-female" 
-                                                   value="F" 
-                                                   required
-                                                   ng-model="model.gender"
-                                                   style="border-color: #ac1010; cursor: pointer; margin-top: 3px;">
-                                            <label class="form-check-label small text-secondary" for="gender-female">
-                                                Nő
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="invalid-feedback d-block small ms-2" 
-                                         ng-show="registerForm.gender.$touched && !model.gender">
-                                        <i class="fas fa-exclamation-circle me-1"></i>
-                                        Válassz!
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Jelszó -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="{{model.showPassword ? 'text' : 'password'}}" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="register-password" 
-                                           name="password" 
-                                           placeholder="Jelszó" 
-                                           spellcheck="false" 
-                                           autocomplete="off"
-                                           required 
-                                           minlength="6" 
-                                           maxlength="20" 
-                                           ng-init="model.password=null" 
-                                           ng-model="model.password"
-                                           ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
-                                           style="background: transparent; box-shadow: none; height: 45px; padding-right: 35px !important;">
-                                    <label for="register-password" class="px-0 text-secondary small">
-                                        <i class="fas fa-lock me-1 text-danger" style="font-size: 0.9rem;"></i>Jelszó
-                                    </label>
-                                    <button class="btn btn-link position-absolute end-0 top-0 border-0" 
-                                            type="button"
-                                            ng-click="model.showPassword = !model.showPassword"
-                                            style="color: #ac1010; text-decoration: none; z-index: 10; padding: 0; height: 45px; width: 35px;">
-                                        <i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}" style="font-size: 0.9rem;"></i>
-                                    </button>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.password.$touched && registerForm.password.$error.minlength">
-                                        6+ karakter
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Jelszó megerősítése -->
-                            <div class="col-lg-6">
-                                <div class="form-floating mb-2 position-relative">
-                                    <input type="{{model.showConfirmPassword ? 'text' : 'password'}}" 
-                                           class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
-                                           id="confirm-password" 
-                                           name="confirmPassword" 
-                                           placeholder="Jelszó megerősítése" 
-                                           spellcheck="false"
-                                           autocomplete="off" 
-                                           minlength="6" 
-                                           maxlength="20" 
-                                           ng-init="model.confirmPassword=null"
-                                           ng-model="model.confirmPassword"
-                                           required
-                                           style="background: transparent; box-shadow: none; height: 45px; padding-right: 35px !important;">
-                                    <label for="confirm-password" class="px-0 text-secondary small">
-                                        <i class="fas fa-lock me-1 text-danger" style="font-size: 0.9rem;"></i>Jelszó újra
-                                    </label>
-                                    <button class="btn btn-link position-absolute end-0 top-0 border-0" 
-                                            type="button"
-                                            ng-click="model.showConfirmPassword = !model.showConfirmPassword"
-                                            style="color: #ac1010; text-decoration: none; z-index: 10; padding: 0; height: 45px; width: 35px;">
-                                        <i class="{{model.showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}" style="font-size: 0.9rem;"></i>
-                                    </button>
-                                    <div class="invalid-feedback d-block small" 
-                                         ng-show="registerForm.confirmPassword.$touched && model.password !== model.confirmPassword">
-                                        Nem egyezik!
-                                    </div>
-                                    <div class="form-line"></div>
-                                </div>
-                            </div>
-
-                            <!-- Jelszó erősség - kompakt -->
-                            <div class="col-12">
-                                <div class="mb-2" ng-show="model.password && model.password.length >= 6">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="small text-secondary">Jelszó erőssége:</span>
-                                        <span class="small fw-bold" 
-                                              ng-class="{
-                                                  'text-danger': getPasswordStrength() === 'Gyenge',
-                                                  'text-warning': getPasswordStrength() === 'Közepes',
-                                                  'text-success': getPasswordStrength() === 'Erős'
-                                              }">
-                                            {{getPasswordStrength()}}
-                                        </span>
-                                    </div>
-                                    <div class="progress mt-1" style="height: 4px;">
-                                        <div class="progress-bar" 
-                                             ng-class="{
-                                                 'bg-danger': getPasswordStrength() === 'Gyenge',
-                                                 'bg-warning': getPasswordStrength() === 'Közepes',
-                                                 'bg-success': getPasswordStrength() === 'Erős'
-                                             }"
-                                             ng-style="{width: getPasswordStrengthWidth() + '%'}"
-                                             role="progressbar">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Regisztráció gomb - Kompakt -->
-                        <div class="d-grid gap-2 mt-3">
-                            <button type="button" 
-                                    class="btn btn-register rounded-pill py-2" 
-                                    ng-click="registerButton()"
-                                    ng-disabled="registerForm.$invalid || model.password !== model.confirmPassword"
-                                    style="font-size: 0.95rem;">
-                                <span class="d-flex align-items-center justify-content-center">
-                                    <i class="fas fa-user-plus me-2"></i>
-                                    Regisztráció
-                                </span>
-                            </button>
-
-                            <div class="text-center mt-1">
-                                <p class="text-secondary small mb-0">
-                                    Már van fiókod? 
-                                    <a href="#" class="text-danger fw-bold text-decoration-none"
-                                       ui-sref="login">
-                                        Jelentkezz be! <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                <h2 class="h3 fw-bold text-dark mb-1">Csatlakozz hozzánk!</h2>
+                <p class="text-secondary small mb-0">Hozd létre fiókodat pár perc alatt</p>
             </div>
+            <!-- Card Body - Sűrűbb padding -->
+            <div class="card-body p-3 p-lg-4">
+              <form name="registerForm" novalidate>
+                  
+                <!-- 2 oszlopos grid - KISEBB TÁVOLSÁGOK -->
+                <div class="row g-2">
+                  <!-- Teljes név -->
+                  <div class="col-lg-6">
+                    <div class="form-floating mb-2 position-relative">
+                      <input type="text" 
+                             class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                             id="register-name" 
+                             name="full_name"
+                             placeholder="Teljes Név" 
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required 
+                             maxlength="50"
+                             ng-model="model.full_name"
+                             style="background: transparent; box-shadow: none; height: 45px;">
+                      <label for="register-name" 
+														 class="px-0 text-secondary small">
+                        <i class="fas fa-user me-1 text-danger" style="font-size: 0.9rem;"></i>Teljes Név
+                      </label>
+                      <div class="invalid-feedback d-block small" 
+                           ng-show="registerForm.full_name.$touched && registerForm.full_name.$error.required">
+                        <i class="fas fa-exclamation-circle me-1"></i>
+                        Kérem adja meg a teljes nevét!
+                      </div>
+                      <div class="form-line"></div>
+                    </div>
+                  </div>
+                  <!-- Felhasználónév -->
+                  <div class="col-lg-6">
+                    <div class="form-floating mb-2 position-relative">
+                      <input type="text" 
+                             class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                             id="user-name" 
+                             name="username"
+                             placeholder="Felhasználónév" 
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required 
+                             maxlength="50"
+                             ng-model="model.username"
+                             style="background: transparent; box-shadow: none; height: 45px;">
+                      <label for="user-name" 
+													 	 class="px-0 text-secondary small">
+                        <i class="fas fa-user-tag me-1 text-danger" 
+													 style="font-size: 0.9rem;"></i>
+													 Felhasználónév
+                      </label>
+                      <div class="invalid-feedback d-block small" 
+                         ng-show="registerForm.username.$touched && registerForm.username.$error.required">
+                        <i class="fas fa-exclamation-circle me-1"></i>
+                        Kérem adja meg a felhasználónevét!
+                      </div>
+                      <div class="form-line"></div>
+                    </div>
+                  </div>
+                  <!-- Email -->
+                  <div class="col-lg-6">
+                      <div class="form-floating mb-2 position-relative">
+                        <input type="email" 
+                               class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                               id="register-email" 
+                               name="email"
+                               placeholder="Email cím" 
+                               spellcheck="false" 
+                               autocomplete="off" 
+                               required 
+                               maxlength="50"
+                               ng-model="model.email"
+                               ng-pattern="/^([a-z0-9_.+-])+@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
+                               style="background: transparent; box-shadow: none; height: 45px;">
+                        <label for="register-email" class="px-0 text-secondary small">
+                            <i class="fas fa-envelope me-1 text-danger" style="font-size: 0.9rem;"></i>Email cím
+                        </label>
+													<div class="invalid-feedback d-block small"
+                               ng-show="registerForm.email.$touched && registerForm.email.$error.required">
+                              <i class="fas fa-exclamation-circle me-1"></i>
+                              Kérem adja meg az email címét!
+                          </div>
+                          <div class="invalid-feedback d-block small" 
+                               ng-show="registerForm.email.$touched && registerForm.email.$error.email">
+                              <i class="fas fa-exclamation-circle me-1"></i>
+                              Érvénytelen formátum!
+                          </div>
+                          <div class="form-line"></div>
+                      </div>
+                  </div>
+                  <!-- Telefonszám -->
+                  <div class="col-lg-6">
+                      <div class="form-floating mb-2 position-relative">
+                          <input type="text" 
+                                 class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                                 id="register-phone" 
+                                 name="phone"
+                                 placeholder="Telefonszám" 
+                                 spellcheck="false" 
+                                 autocomplete="off" 
+                                 required 
+                                 minlength="11"
+                                 maxlength="20"
+                                 ng-model="model.phone"
+                                 ng-pattern="/^\+?[0-9\s\-]{6,20}$/"
+                                 style="background: transparent; box-shadow: none; height: 45px;">
+                          <label for="register-phone" class="px-0 text-secondary small">
+                              <i class="fas fa-phone-alt me-1 text-danger" style="font-size: 0.9rem;"></i>Telefonszám
+                          </label>
+                          <div class="invalid-feedback d-block small" 
+                               ng-show="registerForm.phone.$touched && registerForm.phone.$error.required">
+                              Kérem adja meg a telefonszámát!
+                          </div>
+                          <div class="invalid-feedback d-block small" 
+                               ng-show="registerForm.phone.$touched && registerForm.phone.$error.pattern">
+                              +36 30 123 4567
+                          </div>
+                          <div class="form-line"></div>
+                      </div>
+                  </div>
+                  <!-- Nem választás - kompakt -->
+                  <div class="col-12">
+                      <div class="mb-2 d-flex align-items-center">
+                          <span class="text-secondary small me-3" style="min-width: 60px;">
+                              <i class="fas fa-venus-mars me-1 text-danger"></i>Nem:
+                          </span>
+                          <div class="d-flex gap-3">
+                              <div class="form-check">
+                                  <input class="form-check-input" 
+                                         type="radio" 
+                                         name="gender" 
+                                         id="gender-male" 
+                                         value="M" 
+                                         required
+                                         ng-model="model.gender"
+                                         style="border-color: #ac1010; cursor: pointer; margin-top: 3px;">
+                                  <label class="form-check-label small text-secondary" for="gender-male">
+                                      Férfi
+                                  </label>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" 
+                                         type="radio" 
+                                         name="gender" 
+                                         id="gender-female" 
+                                         value="F" 
+                                         required
+                                         ng-model="model.gender"
+                                         style="border-color: #ac1010; cursor: pointer; margin-top: 3px;">
+                                  <label class="form-check-label small text-secondary" for="gender-female">
+                                      Nő
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="invalid-feedback d-block small ms-2" 
+                               ng-show="registerForm.gender.$touched && !model.gender">
+                              <i class="fas fa-exclamation-circle me-1"></i>
+                              Válassz!
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Jelszó -->
+                  <div class="col-lg-6">
+                      <div class="form-floating mb-2 position-relative">
+                          <input type="{{model.showPassword ? 'text' : 'password'}}" 
+                                 class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                                 id="register-password" 
+                                 name="password" 
+                                 placeholder="Jelszó" 
+                                 spellcheck="false" 
+                                 autocomplete="off"
+                                 required 
+                                 minlength="6" 
+                                 maxlength="20" 
+                                 ng-init="model.password=null" 
+                                 ng-model="model.password"
+                                 ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                                 style="background: transparent; box-shadow: none; height: 45px; padding-right: 35px !important;">
+                          <label for="register-password" class="px-0 text-secondary small">
+                              <i class="fas fa-lock me-1 text-danger" style="font-size: 0.9rem;"></i>Jelszó
+                          </label>
+                          <button class="btn btn-link position-absolute end-0 top-0 border-0" 
+                                  type="button"
+                                  ng-click="model.showPassword = !model.showPassword"
+                                  style="color: #ac1010; text-decoration: none; z-index: 10; padding: 0; height: 45px; width: 35px;">
+                              <i class="{{model.showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}" style="font-size: 0.9rem;"></i>
+                          </button>
+                          <div class="invalid-feedback d-block small" 
+                               ng-show="registerForm.password.$touched && registerForm.password.$error.minlength">
+                              6+ karakter, szám, kis/nagybetű
+                          </div>
+                          <div class="form-line"></div>
+                      </div>
+                  </div>
+                  <!-- Jelszó megerősítése -->
+                  <div class="col-lg-6">
+                    <div class="form-floating mb-2 position-relative">
+                      <input type="{{model.showConfirmPassword ? 'text' : 'password'}}" 
+                             class="form-control form-control-sm border-0 border-bottom rounded-0 px-0" 
+                             id="confirm-password" 
+                             name="confirmPassword" 
+                             placeholder="Jelszó megerősítése" 
+                             spellcheck="false"
+                             autocomplete="off" 
+                             minlength="6" 
+                             maxlength="20" 
+                             ng-init="model.confirmPassword=null"
+                             ng-model="model.confirmPassword"
+                             required
+                             style="background: transparent; box-shadow: none; height: 45px; padding-right: 35px !important;">
+                      <label for="confirm-password" class="px-0 text-secondary small">
+                        <i class="fas fa-lock me-1 text-danger" style="font-size: 0.9rem;"></i>Jelszó újra
+                      </label>
+                      <button class="btn btn-link position-absolute end-0 top-0 border-0" 
+                              type="button"
+                              ng-click="model.showConfirmPassword = !model.showConfirmPassword"
+                              style="color: #ac1010; text-decoration: none; z-index: 10; padding: 0; height: 45px; width: 35px;">
+                        <i class="{{model.showConfirmPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}}" 
+													 style="font-size: 0.9rem;"></i>
+                      </button>
+                      <div class="invalid-feedback d-block small" 
+                           ng-show="registerForm.confirmPassword.$touched && model.password !== model.confirmPassword">
+                          Nem egyezik!
+                      </div>
+                      <div class="form-line"></div>
+                    </div>
+                  </div>
+                  <!-- Jelszó erősség - kompakt -->
+                  <div class="col-12">
+                      <div class="mb-2" 
+													 ng-show="model.password && model.password.length >= 6">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <span class="small text-secondary">Jelszó erőssége:</span>
+                          <span class="small fw-bold" 
+                                ng-class="{
+                                  'text-danger': getPasswordStrength() === 'Gyenge',
+                                  'text-warning': getPasswordStrength() === 'Közepes',
+                                  'text-success': getPasswordStrength() === 'Erős'
+                                }">
+                              {{getPasswordStrength()}}
+                          </span>
+                        </div>
+                        <div class="progress mt-1" style="height: 4px;">
+                          <div class="progress-bar" 
+                               ng-class="{
+                                'bg-danger': getPasswordStrength() === 'Gyenge',
+                                'bg-warning': getPasswordStrength() === 'Közepes',
+                                'bg-success': getPasswordStrength() === 'Erős'
+                               }"
+                               ng-style="{width: getPasswordStrengthWidth() + '%'}"
+                               role="progressbar">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </dv>
+                <!-- Regisztráció gomb - Kompakt -->
+                <di class="d-grid gap-2 mt-3">
+                  <button type="button" 
+                          class="btn btn-register rounded-pill py-2" 
+                          ng-click="registerButton()"
+                          ng-disabled="registerForm.$invalid || model.password !== model.confirmPassword"
+                          style="font-size: 0.95rem;">
+                    <span class="d-flex align-items-center justify-content-center">
+                        <i class="fas fa-user-plus me-2"></i>
+                        Regisztráció
+                    </span>
+                  </button>
+                  <div class="text-center mt-1">
+                    <p class="text-secondary small mb-0">
+                      Már van fiókod? 
+                      <a href="#" class="text-danger fw-bold text-decoration-none"
+                         ui-sref="login">
+                          Jelentkezz be! <i class="fas fa-arrow-right ms-1" 
+																						style="font-size: 0.8rem;"></i>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
     </div>
 </div>
