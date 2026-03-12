@@ -58,7 +58,7 @@
                 Beállítások
               </a>
             </li>
-            <li ng-hide="user.role === 'admin'">
+            <li ng-show="user.role === 'admin'">
               <a class="dropdown-item d-flex align-items-center py-2"
                  ui-sref="adminpage">
                 <i class="fa-solid fa-user-tie me-3"></i>
