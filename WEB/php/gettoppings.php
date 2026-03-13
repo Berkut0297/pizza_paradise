@@ -6,7 +6,8 @@ require_once("../../../common/php/environment.php");
 $db = new Database();
 
 //sql parancs definiálása
-$query = "SELECT `name`,
+$query = "SELECT `product_id`,
+                 `name`,
                  `price`,
                  `type_id`,
                  `available`

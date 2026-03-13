@@ -13,8 +13,12 @@
                             <i class="fas fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <h2 class="h4 fw-bold text-dark mb-0">Kosaram</h2>
-                            <p class="text-secondary small mb-0">A kiválasztott tételek</p>
+                            <h2 class="h4 fw-bold text-dark mb-0">
+															Kosaram
+														</h2>
+                            <p class="text-secondary small mb-0">
+															A kiválasztott tételek
+														</p>
                         </div>
                     </div>
                 </div>
@@ -25,11 +29,30 @@
                         <table class="table table-borderless align-middle mb-0">
                             <thead class="table-header">
                                 <tr>
-                                    <th scope="col" class="ps-4" style="width: 40%;">Termék</th>
-                                    <th scope="col" class="text-end" style="width: 15%;">Ár</th>
-                                    <th scope="col" class="text-center" style="width: 20%;">Mennyiség</th>
-                                    <th scope="col" class="text-end" style="width: 15%;">Összesen</th>
-                                    <th scope="col" class="text-center pe-4" style="width: 10%;"></th>
+                                    <th scope="col" 
+																				class="ps-4" 
+																				style="width: 40%;">
+																			Termék{{cartItems.name}}
+																		</th>
+                                    <th scope="col" 
+																				class="text-end" 
+																				style="width: 15%;">
+																			Ár
+																		</th>
+                                    <th scope="col" 
+																				class="text-center" 
+																				style="width: 20%;">
+																			Mennyiség
+																		</th>
+                                    <th scope="col" 
+																				class="text-end" 
+																				style="width: 15%;">
+																			Összesen
+																		</th>
+                                    <th scope="col" 
+																				class="text-center pe-4" 
+																				style="width: 10%;">
+																		</th>
                                 </tr>
                             </thead>
                             <tbody id="cart-items">
@@ -40,24 +63,38 @@
                 </div>
 
                 <!-- Kosár üres állapot -->
-                <div class="text-center py-5" id="empty-cart" ng-show="cartItems.length === 0">
+                <div class="text-center py-5" 
+										 id="empty-cart" 
+										 ng-show="cartItems.length === 0">
                     <div class="empty-cart-icon mx-auto mb-3">
                         <i class="fas fa-cart-shopping"></i>
                     </div>
-                    <h4 class="h5 fw-bold text-dark mb-2">A kosár üres</h4>
-                    <p class="text-secondary small mb-3">Adj hozzá pizzákat a kosárhoz!</p>
-                    <a href="#" class="btn btn-primary-custom rounded-pill px-4" ui-sref="menu">
-                        <i class="fas fa-pizza-slice me-2"></i>Étlap böngészése
+                    <h4 class="h5 fw-bold text-dark mb-2">
+											A kosár üres
+										</h4>
+                    <p class="text-secondary small mb-3">
+											Adj hozzá pizzákat a kosárhoz!
+										</p>
+                    <a href="#" class="btn btn-primary-custom rounded-pill px-4" 
+											 ui-sref="menu">
+                        <i class="fas fa-pizza-slice me-2"></i>
+												Étlap böngészése
                     </a>
                 </div>
 
                 <!-- Card Footer - Összegzés (ng-show-val) -->
-                <div class="card-footer bg-transparent border-0 p-4" ng-show="cartItems.length > 0">
+                <div class="card-footer bg-transparent border-0 p-4" 
+										 ng-show="cartItems.length > 0">
+
                     <!-- Részösszeg sor -->
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="text-secondary">Részösszeg:</span>
-                        <span class="fw-medium" id="subtotal">{{cartSubtotal | number:0}} Ft</span>
+                        <span class="fw-medium" 
+															id="subtotal">
+													{{cartSubtotal | number:0}} Ft
+												</span>
                     </div>
+
                     <!-- Szállítási díj -->
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="text-secondary">Szállítási díj:</span>
@@ -67,7 +104,10 @@
                     <!-- Végösszeg -->
                     <div class="d-flex justify-content-between align-items-center mt-2">
                         <span class="h5 fw-bold mb-0">Végösszeg:</span>
-                        <span class="h4 fw-bold text-danger mb-0" id="cart-total">{{cartTotal | number:0}} Ft</span>
+                        <span class="h4 fw-bold text-danger mb-0" 
+															id="cart-total">
+													{{cartTotal | number:0}} Ft
+												</span>
                     </div>
 
                     <!-- Akció kód -->
@@ -81,13 +121,15 @@
                                        ng-model="couponCode"
                                        style="background: transparent; box-shadow: none; height: 45px;">
                                 <label for="coupon-code" class="px-0 text-secondary small">
-                                    <i class="fas fa-tag me-2 text-danger"></i>Van kuponkódod?
+                                    <i class="fas fa-tag me-2 text-danger"></i>
+																		Van kuponkódod?
                                 </label>
                                 <div class="form-line"></div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button class="btn btn-outline-danger rounded-pill w-100 py-2" ng-click="applyCoupon()">
+                            <button class="btn btn-outline-danger rounded-pill w-100 py-2" 
+																		ng-click="applyCoupon()">
                                 Alkalmazás
                             </button>
                         </div>
@@ -95,15 +137,18 @@
 
                     <!-- Rendelés gomb -->
                     <div class="d-grid gap-2 mt-4">
-                        <button class="btn btn-checkout btn-lg rounded-pill shadow-sm" ng-click="checkout()">
+                        <button class="btn btn-checkout btn-lg rounded-pill shadow-sm" 
+																ng-click="checkout()">
                             <span class="d-flex align-items-center justify-content-center">
                                 <i class="fas fa-truck me-2"></i>
                                 Megrendelés leadása
                             </span>
                         </button>
                         <div class="text-center mt-2">
-                            <a href="#" class="text-danger text-decoration-none small" ui-sref="menu">
-                                <i class="fas fa-arrow-left me-1"></i>További pizzák kiválasztása
+                            <a href="#" class="text-danger text-decoration-none small" 
+															 ui-sref="menu">
+                                <i class="fas fa-arrow-left me-1"></i>
+																További pizzák kiválasztása
                             </a>
                         </div>
                     </div>
@@ -113,13 +158,16 @@
             <!-- Biztonságos fizetés badge -->
             <div class="d-flex justify-content-center align-items-center gap-3 mt-3">
                 <span class="small text-secondary">
-                    <i class="fas fa-lock me-1 text-danger"></i>Biztonságos fizetés
+                    <i class="fas fa-lock me-1 text-danger"></i>
+										Biztonságos fizetés
                 </span>
                 <span class="small text-secondary">
-                    <i class="fas fa-truck me-1 text-danger"></i>Ingyenes szállítás
+                    <i class="fas fa-truck me-1 text-danger"></i>
+										Ingyenes szállítás
                 </span>
                 <span class="small text-secondary">
-                    <i class="fas fa-clock me-1 text-danger"></i>30-45 perc
+                    <i class="fas fa-clock me-1 text-danger"></i>
+										30-45 perc
                 </span>
             </div>
         </div>

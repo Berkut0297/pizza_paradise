@@ -26,6 +26,7 @@
           alert("A változtatás sikeres")
         }
       })
+      .catch(e => console.log(e));
       }
     }
   ]);
