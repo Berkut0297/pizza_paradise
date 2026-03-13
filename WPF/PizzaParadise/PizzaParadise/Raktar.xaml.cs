@@ -3,12 +3,14 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PizzaParadise
 {
     public partial class Raktar : Window
     {
         private int loggedUserId;
+        private bool typeTableExists = false;
         MySqlConnection connection = new MySqlConnection(
             "server=localhost;database=pizzaparadise;uid=root;password=;"
         );
@@ -89,24 +91,53 @@ namespace PizzaParadise
             {
                 openConnection();
 
-                string query = @"
-                    SELECT 
-                        p.product_id AS TermekKod,
-                        p.name AS TermekNev,
-                        p.description AS Leiras,
-                        p.price AS Ar,
-                        pt.name AS Tipus,
-                        p.available AS Elerheto
-                    FROM products p
-                    LEFT JOIN product_types pt ON p.type_id = pt.type_id
-                    WHERE 1=1";
+                string query;
 
-                if (!string.IsNullOrEmpty(searchTerm))
+                if (typeTableExists)
                 {
-                    query += " AND (p.name LIKE @search OR p.description LIKE @search OR pt.name LIKE @search)";
-                }
+                    // Ha létezik a product_types tábla, JOIN-nal lekérjük a nevet
+                    query = @"
+                        SELECT 
+                            p.product_id AS TermekKod,
+                            p.name AS TermekNev,
+                            p.description AS Leiras,
+                            p.price AS Ar,
+                            COALESCE(pt.name, 'Nincs kategória') AS Tipus,
+                            CASE WHEN p.available = 1 THEN 'Igen' ELSE 'Nem' END AS Elerheto,
+                            p.image_url AS KepURL
+                        FROM products p
+                        LEFT JOIN product_types pt ON p.type_id = pt.type_id
+                        WHERE 1=1";
 
-                query += " ORDER BY pt.name, p.name";
+                    if (!string.IsNullOrEmpty(searchTerm))
+                    {
+                        query += " AND (p.name LIKE @search OR p.description LIKE @search OR pt.name LIKE @search)";
+                    }
+
+                    query += " ORDER BY pt.name, p.name";
+                }
+                else
+                {
+                    // Ha nem létezik a product_types tábla, csak a type_id-t jelenítjük meg
+                    query = @"
+                        SELECT 
+                            product_id AS TermekKod,
+                            name AS TermekNev,
+                            description AS Leiras,
+                            price AS Ar,
+                            CONCAT('Típus #', type_id) AS Tipus,
+                            CASE WHEN available = 1 THEN 'Igen' ELSE 'Nem' END AS Elerheto,
+                            image_url AS KepURL
+                        FROM products
+                        WHERE 1=1";
+
+                    if (!string.IsNullOrEmpty(searchTerm))
+                    {
+                        query += " AND (name LIKE @search OR description LIKE @search)";
+                    }
+
+                    query += " ORDER BY name";
+                }
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
@@ -140,26 +171,42 @@ namespace PizzaParadise
         // ----------- DataGrid oszlopok beállítása -------------
         private void UpdateGridColumns()
         {
-            // Itt állíthatod be az oszlopok tulajdonságait
-            foreach (var column in RaktarGrid.Columns)
+            try
             {
-                switch (column.Header.ToString())
+                foreach (var column in RaktarGrid.Columns)
                 {
-                    case "Ar":
-                        // Ár formázása pénznemként
-                        if (column is DataGridTextColumn textColumn)
-                        {
-                            textColumn.Binding.StringFormat = "{0:C} Ft";
-                        }
-                        break;
-                    case "Elerheto":
-                        // Elérhetőség megjelenítése Igen/Nem formátumban
-                        if (column is DataGridTextColumn availableColumn)
-                        {
-                            availableColumn.Binding.StringFormat = "{} {0}"; // 1 = Igen, 0 = Nem
-                        }
-                        break;
+                    switch (column.Header.ToString())
+                    {
+                        case "Ar":
+                            if (column is DataGridTextColumn textColumn)
+                            {
+                                textColumn.Binding.StringFormat = "{0:C0} Ft";
+                            }
+                            break;
+                        case "TermekKod":
+                            column.Width = 80;
+                            break;
+                        case "TermekNev":
+                            column.Width = 200;
+                            break;
+                        case "Leiras":
+                            column.Width = 250;
+                            break;
+                        case "Tipus":
+                            column.Width = 120;
+                            break;
+                        case "Elerheto":
+                            column.Width = 80;
+                            break;
+                        case "KepURL":
+                            column.Visibility = Visibility.Collapsed;
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Oszlopbeállítás hiba: " + ex.Message);
             }
         }
 
@@ -185,8 +232,10 @@ namespace PizzaParadise
 
                 // Utolsó frissítés időbélyeg
                 string lastUpdate = DateTime.Now.ToString("yyyy.MM.dd HH:mm");
+
                 textBlock_osszesTetel.Text = $"Összes termék: {totalItems}";
                 textBlock_lastUpdate.Text = $"Utolsó frissítés: {lastUpdate}";
+
             }
             catch (Exception ex)
             {
@@ -202,8 +251,6 @@ namespace PizzaParadise
         private void Hozzaadas_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Új termék hozzáadása funkció");
-            // Új ablak: new UjTermekAblak().ShowDialog();
-            // Utána: LoadProducts();
         }
 
         // ----------- termék módosítása -------------
@@ -215,15 +262,20 @@ namespace PizzaParadise
                 return;
             }
 
-            DataRowView row = RaktarGrid.SelectedItem as DataRowView;
-            int productId = Convert.ToInt32(row["TermekKod"]);
-            string productName = row["TermekNev"].ToString();
-            decimal price = Convert.ToDecimal(row["Ar"]);
-            bool available = Convert.ToBoolean(row["Elerheto"]);
+            try
+            {
+                DataRowView row = (DataRowView)RaktarGrid.SelectedItem;
+                int productId = Convert.ToInt32(row["TermekKod"]);
+                string productName = row["TermekNev"].ToString();
+                decimal price = Convert.ToDecimal(row["Ar"]);
+                string availability = row["Elerheto"].ToString();
 
-            MessageBox.Show($"Termék módosítása: {productName}\nÁr: {price:C} Ft\nElérhető: {(available ? "Igen" : "Nem")}");
-            // Új ablak: new TermekModositas(productId).ShowDialog();
-            // Utána: LoadProducts();
+                MessageBox.Show($"Termék módosítása: {productName}\nÁr: {price:C0} Ft\nElérhető: {availability}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hiba a termék kiválasztásakor:\n" + ex.Message);
+            }
         }
 
         // ----------- kereső mező fókusz események -------------
@@ -232,7 +284,7 @@ namespace PizzaParadise
             if (textBox_kereses.Text == "Keresés...")
             {
                 textBox_kereses.Text = "";
-                textBox_kereses.Foreground = System.Windows.Media.Brushes.Black;
+                textBox_kereses.Foreground = Brushes.Black;
             }
         }
 
@@ -241,21 +293,32 @@ namespace PizzaParadise
             if (string.IsNullOrWhiteSpace(textBox_kereses.Text))
             {
                 textBox_kereses.Text = "Keresés...";
-                textBox_kereses.Foreground = System.Windows.Media.Brushes.LightGray;
+                textBox_kereses.Foreground = Brushes.LightGray;
             }
         }
 
         // ----------- keresés szűrés -------------
-        private void Kereses_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void Kereses_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (textBox_kereses.Text != "Keresés..." && !string.IsNullOrWhiteSpace(textBox_kereses.Text))
+            System.Timers.Timer timer = new System.Timers.Timer(500);
+            timer.AutoReset = false;
+            timer.Elapsed += (s, args) =>
             {
-                LoadProducts(textBox_kereses.Text);
-            }
-            else if (string.IsNullOrWhiteSpace(textBox_kereses.Text))
-            {
-                LoadProducts();
-            }
+                Dispatcher.Invoke(() =>
+                {
+                    timer.Dispose();
+
+                    if (textBox_kereses.Text != "Keresés..." && !string.IsNullOrWhiteSpace(textBox_kereses.Text))
+                    {
+                        LoadProducts(textBox_kereses.Text);
+                    }
+                    else if (string.IsNullOrWhiteSpace(textBox_kereses.Text) || textBox_kereses.Text == "Keresés...")
+                    {
+                        LoadProducts();
+                    }
+                });
+            };
+            timer.Start();
         }
     }
 }
