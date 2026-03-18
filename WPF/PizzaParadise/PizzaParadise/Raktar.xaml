@@ -44,7 +44,7 @@
 
         <!-- Felső panel -->
         <DockPanel LastChildFill="True" VerticalAlignment="Top" Height="80" Background="#FF029BCE">
-            <TextBlock Text="🍕 Pizza Paradise – Raktárkezelés"
+            <TextBlock Text="🍕 Pizza Paradise – Alkalmazotti rendszer"
                        Foreground="White" FontSize="24" Margin="20,0,0,0" Width="636" Height="48"/>
         </DockPanel>
 
@@ -98,18 +98,18 @@
 
                     <!-- Kereső mező -->
                     <Border Grid.Column="2" Background="White" CornerRadius="8" 
-                            BorderBrush="#FFCCCCCC" BorderThickness="1" Padding="5">
+                            BorderBrush="#FFCCCCCC" BorderThickness="1" Padding="5" Margin="0,0,0,472">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="200"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE721;" 
-                                       Foreground="#FF666666" Margin="5,0,5,0"
-                                       VerticalAlignment="Center"/>
+                                       Foreground="#FF666666" Margin="5,3,5,0"
+                                       VerticalAlignment="Top" RenderTransformOrigin="0.583,0.196"/>
                             <TextBox Grid.Column="1" Name="textBox_kereses" 
                                      BorderThickness="0" Background="Transparent"
-                                     Text="Keresés..." Foreground="#FF999999"/>
+                                     Text="Keresés..." Foreground="#FF999999" Margin="0,3,0,-6"/>
                         </Grid>
                     </Border>
                 </Grid>
@@ -120,18 +120,16 @@
                           BorderBrush="#FFDDDDDD" BorderThickness="1"
                           RowHeight="40" AlternatingRowBackground="#FFF9F9F9">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Termék kód" Width="100" 
+                        <DataGridTextColumn Header="Termék kód" Width="*" 
                                             Binding="{Binding TermekKod}"/>
-                        <DataGridTextColumn Header="Termék név" Width="2*" 
+                        <DataGridTextColumn Header="Termék név" Width="*" 
                                             Binding="{Binding TermekNev}"/>
+                        <DataGridTextColumn Header="Termék leírás" Width="*" 
+                                            Binding="{Binding Leiras}"/>
                         <DataGridTextColumn Header="Kategória" Width="*" 
-                                            Binding="{Binding Kategoria}"/>
-                        <DataGridTextColumn Header="Mennyiség" Width="100" 
-                                            Binding="{Binding Mennyiseg}"/>
-                        <DataGridTextColumn Header="Mértékegység" Width="80" 
-                                            Binding="{Binding Mertekegyseg}"/>
-                        <DataGridTextColumn Header="Minimum készlet" Width="100" 
-                                            Binding="{Binding MinimumKeszlet}"/>
+                                            Binding="{Binding Tipus}"/>
+                        <DataGridTextColumn Header="Ár" Width="*" 
+                                            Binding="{Binding Ar}"/>
                     </DataGrid.Columns>
                 </DataGrid>
 
@@ -146,7 +144,7 @@
 
                     <!-- Készlet módosítása -->
                     <Button Name="button_modositas" Content="✏️ Készlet módosítása" 
-                            Width="140" Height="40" Margin="0,0,10,15"
+                            Width="154" Height="40" Margin="0,0,10,15"
                             Background="#FFFFA500" Foreground="White" 
                             BorderBrush="{x:Null}" FontSize="14"/>
                 </StackPanel>
