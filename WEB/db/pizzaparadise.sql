@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Feb 19. 07:30
+-- Létrehozás ideje: 2026. Már 13. 08:39
 -- Kiszolgáló verziója: 10.4.32-MariaDB
 -- PHP verzió: 8.2.12
 
@@ -148,6 +148,19 @@ INSERT INTO `orders_item` (`order_item_id`, `order_id`, `product_id`, `quantity`
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `orders_item_toppings`
+--
+
+CREATE TABLE `orders_item_toppings` (
+  `order_item_id` int(11) NOT NULL,
+  `product_toppongin_id` int(11) NOT NULL,
+  `product_toppongin_id2` int(11) NOT NULL,
+  `product_toppongin_id3` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `payments`
 --
 
@@ -267,38 +280,6 @@ INSERT INTO `product_allergens` (`product_id`, `allergen_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `product_toppings`
---
-
-CREATE TABLE `product_toppings` (
-  `product_id` int(11) NOT NULL,
-  `topping_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- A tábla adatainak kiíratása `product_toppings`
---
-
-INSERT INTO `product_toppings` (`product_id`, `topping_id`) VALUES
-(1, 6),
-(2, 2),
-(2, 3),
-(2, 4),
-(3, 1),
-(3, 7),
-(3, 8),
-(4, 3),
-(4, 4),
-(4, 5),
-(5, 6),
-(5, 8),
-(10, 6),
-(10, 8),
-(12, 5);
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `shopping_cart`
 --
 
@@ -354,6 +335,19 @@ INSERT INTO `shopping_cart_items` (`cart_item_id`, `cart_id`, `product_id`, `qua
 (10, 8, 4, 1),
 (11, 9, 6, 3),
 (12, 10, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `shopping_cart_items_topping`
+--
+
+CREATE TABLE `shopping_cart_items_topping` (
+  `cart_item_id` int(11) NOT NULL,
+  `product_toppongin_id` int(11) DEFAULT NULL,
+  `product_toppongin_id2` int(11) DEFAULT NULL,
+  `product_toppongin_id3` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -469,13 +463,6 @@ ALTER TABLE `product_allergens`
   ADD KEY `allergen_id` (`allergen_id`);
 
 --
--- A tábla indexei `product_toppings`
---
-ALTER TABLE `product_toppings`
-  ADD PRIMARY KEY (`product_id`,`topping_id`),
-  ADD KEY `topping_id` (`topping_id`);
-
---
 -- A tábla indexei `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
@@ -489,6 +476,15 @@ ALTER TABLE `shopping_cart_items`
   ADD PRIMARY KEY (`cart_item_id`),
   ADD KEY `cart_id` (`cart_id`),
   ADD KEY `product_id` (`product_id`);
+
+--
+-- A tábla indexei `shopping_cart_items_topping`
+--
+ALTER TABLE `shopping_cart_items_topping`
+  ADD KEY `fk_cartitemstopping_cartitem` (`cart_item_id`),
+  ADD KEY `fk_cartitemstopping_top1` (`product_toppongin_id`),
+  ADD KEY `fk_cartitemstopping_top2` (`product_toppongin_id2`),
+  ADD KEY `fk_cartitemstopping_top3` (`product_toppongin_id3`);
 
 --
 -- A tábla indexei `type`
@@ -549,6 +545,72 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `addresses`
+--
+ALTER TABLE `addresses`
+  ADD CONSTRAINT `fk_addresses_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Megkötések a táblához `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_orders_addresses` FOREIGN KEY (`address_id`) REFERENCES `addresses` (`address_id`),
+  ADD CONSTRAINT `fk_orders_cart` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`),
+  ADD CONSTRAINT `fk_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Megkötések a táblához `orders_item`
+--
+ALTER TABLE `orders_item`
+  ADD CONSTRAINT `fk_ordersitem_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `fk_ordersitem_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Megkötések a táblához `payments`
+--
+ALTER TABLE `payments`
+  ADD CONSTRAINT `fk_payments_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
+
+--
+-- Megkötések a táblához `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_products_type` FOREIGN KEY (`type_id`) REFERENCES `type` (`type_id`);
+
+--
+-- Megkötések a táblához `product_allergens`
+--
+ALTER TABLE `product_allergens`
+  ADD CONSTRAINT `fk_productallergens_allergens` FOREIGN KEY (`allergen_id`) REFERENCES `allergens` (`allergen_id`),
+  ADD CONSTRAINT `product_allergens_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Megkötések a táblához `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  ADD CONSTRAINT `fk_cart_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Megkötések a táblához `shopping_cart_items`
+--
+ALTER TABLE `shopping_cart_items`
+  ADD CONSTRAINT `fk_cartitems_cart` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart` (`cart_id`),
+  ADD CONSTRAINT `fk_cartitems_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+--
+-- Megkötések a táblához `shopping_cart_items_topping`
+--
+ALTER TABLE `shopping_cart_items_topping`
+  ADD CONSTRAINT `fk_cartitemstopping_cartitem` FOREIGN KEY (`cart_item_id`) REFERENCES `shopping_cart_items` (`cart_item_id`),
+  ADD CONSTRAINT `fk_cartitemstopping_top1` FOREIGN KEY (`product_toppongin_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `fk_cartitemstopping_top2` FOREIGN KEY (`product_toppongin_id2`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `fk_cartitemstopping_top3` FOREIGN KEY (`product_toppongin_id3`) REFERENCES `products` (`product_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
