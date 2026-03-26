@@ -14,19 +14,19 @@
     function($scope,http) {
       console.log($scope.updateUser)
       $scope.userDataUpdate = function(){
-        http.request({
+          http.request({
 
-        url: './php/settings.php',
+          url: './php/settings.php',
 
-        data: $scope.updateUser
+          data: $scope.updateUser
 
-      })
-      .then(responze => {
-        if (responze.affectedRow) {
-          alert("A változtatás sikeres")
-        }
-      })
-      .catch(e => console.log(e));
+        })
+        .then(responze => {
+          if (responze.affectedRow) {
+            alert("A változtatás sikeres")
+          }
+        })
+        .catch(e => console.log(e));
       }
     }
   ]);
