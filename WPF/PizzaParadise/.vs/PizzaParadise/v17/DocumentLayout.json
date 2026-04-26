@@ -1,29 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\",
+  "WorkspaceRootPath": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\raktar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\raktar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\raktar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\raktar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\raktar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\raktar.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\rendelesek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\rendelesek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\rendelesek.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\rendelesek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\rendelesek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\rendelesek.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|c:\\xampp\\htdocs\\pizza_paradise\\wpf\\pizzaparadise\\pizzaparadise\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EEA96402-1494-4612-874D-80F45066DDEB}|PizzaParadise\\PizzaParadise.csproj|solutionrelative:pizzaparadise\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,17 +34,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Raktar.xaml.cs",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml.cs",
               "RelativeDocumentMoniker": "PizzaParadise\\Raktar.xaml.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml.cs",
               "RelativeToolTip": "PizzaParadise\\Raktar.xaml.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAMwBsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T08:49:17.79Z",
               "EditorCaption": ""
@@ -53,22 +57,21 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Rendelesek.xaml.cs",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml.cs",
               "RelativeDocumentMoniker": "PizzaParadise\\Rendelesek.xaml.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml.cs",
               "RelativeToolTip": "PizzaParadise\\Rendelesek.xaml.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAADwv5cAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-01T15:32:41.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T15:32:41.644Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "PizzaParadise\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml.cs",
               "RelativeToolTip": "PizzaParadise\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -78,37 +81,34 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PizzaParadise\\MainWindow.xaml",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\MainWindow.xaml",
               "RelativeToolTip": "PizzaParadise\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-01T12:19:23.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T12:19:23.707Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Rendelesek.xaml",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
               "RelativeDocumentMoniker": "PizzaParadise\\Rendelesek.xaml",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Rendelesek.xaml",
               "RelativeToolTip": "PizzaParadise\\Rendelesek.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-12-01T12:06:55.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-01T12:06:55.358Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Raktar.xaml",
-              "DocumentMoniker": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml",
+              "DocumentMoniker": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml",
               "RelativeDocumentMoniker": "PizzaParadise\\Raktar.xaml",
-              "ToolTip": "C:\\xampp\\htdocs\\tokai_adam\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml",
+              "ToolTip": "C:\\xampp\\htdocs\\pizza_paradise\\WPF\\PizzaParadise\\PizzaParadise\\Raktar.xaml",
               "RelativeToolTip": "PizzaParadise\\Raktar.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-05T08:48:57.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T08:48:57.377Z"
             }
           ]
         }
