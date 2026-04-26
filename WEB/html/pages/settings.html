@@ -65,19 +65,6 @@
                             </label>
                         </div>
 
-                        <!-- Teljes név -->
-                        <div class="form-floating mb-3">
-                            <input type="text" 
-                                   class="form-control border-0 border-bottom rounded-0 px-0 shadow-none" 
-                                   id="settings-fullname" 
-                                   placeholder="Teljes név"
-                                   ng-model="updateUser.full_name"
-                                   style="background: transparent; height: 50px;">
-                            <label for="settings-fullname" class="px-0 text-secondary">
-                                <i class="fas fa-id-card me-2 text-danger"></i>Teljes név
-                            </label>
-                        </div>
-
                         <!-- Telefonszám -->
                         <div class="form-floating mb-4">
                             <input type="tel" 
@@ -91,7 +78,7 @@
                             </label>
                         </div>
 
-                        <!-- Mentés gomb -->
+                        <!-- Gombok -->
                         <div class="d-grid gap-2">
                             <button type="button" 
                                     class="btn btn-danger rounded-pill py-3 fw-semibold shadow-sm bg-gradient" 
@@ -99,6 +86,12 @@
                                     ng-disabled="settingsForm.$invalid">
                                 <i class="fas fa-save me-2"></i>
                                 Változtatások mentése
+                            </button>
+                            <button type="button" 
+                                    class="btn btn-danger rounded-pill py-3 fw-semibold" 
+                                    ng-click="userProfiledelete()">
+                                <i class="fas fa-save me-2"></i>
+                                Felhasználó Törlés
                             </button>
                             
                             <!-- Vissza a főoldalra -->
