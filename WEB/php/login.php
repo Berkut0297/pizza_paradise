@@ -12,18 +12,19 @@ $db = new Database();
 //sql parancs definiálása
 $query =" SELECT  `user_id`,
                   `username`,
-                  `password`,
                   `email`,
                   `full_name`,
                   `Gender`,
                   `phone`,
                   `role`
           FROM `users` 
-          WHERE `email` = :email
+          WHERE `email` = :email AND 
+                `password` = :password
           LIMIT 1;";
 
 //sql parancs végrehajtása
-$result = $db->execute($query, ["email" => $args["email"]]);
+$result = $db->execute($query, ["email" => $args["email"],
+                                "password" => $args["password"]]);
 
 //adatbázis le kapcsolás
 $db = null;
@@ -32,13 +33,8 @@ $db = null;
 if ($result == null)
 
     //ha nincs regisztrálva ilyen email visszatérés hiba üzenettel
-    Util::setError("Nincs ilyen email cím regisztrálva!");
+    Util::setError("Jelszó vagy az email cim nem helyes!");
 
-//jelszó helyességének ellenörzése
-if ($result[0]["password"] != $args["password"])
-
-    //ha nem helyes a jelszó visszatérés hiba üzenettel
-    Util::setError("A jelszó nem helyes!");
 
 //vissztérési értek megadása és vissza térés
 Util::setResponse($result);

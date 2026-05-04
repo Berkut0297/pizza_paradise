@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // Include environment
-require_once('../../common/php/environment.php');
+require_once('../../../common/php/environment.php');
 
 $args = Util::getArgs();
 
@@ -10,7 +10,7 @@ $db = new Database();
 
 // Set query
 $query = "DELETE
-          FROM `user`
+          FROM `users`
           WHERE `user_id` = :user_id";
 
 // Execute SQL command
@@ -20,7 +20,6 @@ if (!$result["affectedRows"]) {
   $db = null;
   Util::setError('A törlés sikertelen!');
 }
-$result = getCountries($db);
 $db = null;
 // Set response
 Util::setResponse($result);
