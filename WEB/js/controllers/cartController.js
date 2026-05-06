@@ -13,20 +13,20 @@
 
     //függvény definiálása
     function($scope,http,$rootScope) {
-      $scope.totalprice = 0
-        http.request({
-          url: './php/cart.php',
-          data: {user_id : $rootScope.user[0].user_id}
+      
+      http.request({
+        url: './php/cart.php',
+        data: {user_id : $rootScope.user[0].user_id}
 
       })
       .then(responze => {
         $scope.cartItems = responze
+        $scope.totalprice = 0;
         console.log(responze)
         $scope.$applyAsync();
         if ($scope.cartItems.length) {
           for (let i = 0; i < responze.length; i++) {
           $scope.totalprice += responze[i].price
-          console.log("alma")
         }
         }
         
