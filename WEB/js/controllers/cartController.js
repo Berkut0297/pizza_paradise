@@ -9,22 +9,25 @@
     //$scope betöltése a controllerbe
     '$scope',
     'http',
+    '$rootScope',
 
     //függvény definiálása
-    function($scope,http) {
-      $scope.userDataUpdate = function(){
+    function($scope,http,$rootScope) {
+      console.log("sddfs")
         http.request({
 
         url: './php/cart.php',
 
-        data: user_pizzaParadise[0].user_id
+        data: {user_id : $rootScope.user[0].user_id}
 
       })
       .then(responze => {
-        cartItems = responze 
+        $scope.cartItems = responze 
+        console.log($scope.cartItems)
       })
       .catch(e => console.log(e));
+            console.log($scope.cartItems)
+
       }
-    }
   ]);
 })(window, angular);
