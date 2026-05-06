@@ -10,9 +10,10 @@
     '$scope',
     '$state',
     'http',
+    '$rootScope',
 
     //függvény definiálása a betöltött elemekkel
-    function ($scope, $state, http) {
+    function ($scope, $state, http ,$rootScope) {
 
       //getpizzas függvény definiálása
       $scope.getpizzas = function (){
@@ -155,9 +156,9 @@
         console.log($scope.plus_toppings)
         //http kérés és php fálj útvanalának megadása
         http.request({
-          url :'./php/getpizzas.php',
+          url :'./php/addcart.php',
           data: {
-              user_id: $scope.user[0].user_id,
+              user_id: $rootScope.user[0].user_id,
               product_id: data.product_id,
               quantity: $scope.quantity,
               plus_toppings : $scope.plus_toppings
